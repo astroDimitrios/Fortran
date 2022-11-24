@@ -17,6 +17,7 @@ program ex2
 
     ! parts c and d declarations
     character(len=32) :: code
+    character(len=15) :: str
     real              :: e
     integer           :: i
 
@@ -37,6 +38,10 @@ program ex2
     ! from https://cyber.dabamos.de/programming/modernfortran/namelists.html
     call read_namelist('ex2_namelist.nml', code, e, i)
     print '("e = ", i0)', i
+    ! cast int to string
+    write (str, *) i
+    write (*, *) adjustl(trim(str))
+
 
 contains
     subroutine read_namelist(file_path, code, e, i)
