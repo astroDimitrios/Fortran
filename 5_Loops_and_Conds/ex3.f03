@@ -10,7 +10,7 @@
 !    the value at the end of the loop is the same as (to the limits of floating point precision) the value
 !    at the beginning of the loop. If this is true, exit from the loop. ( Hint: you can introduce
 !    another array.) Print the result to a file in row major order.
-! d. Change the DO loop to a FORALL . Check that your result is the same as before
+! d. Change the DO loop to a FORALL . Check that your result is the same as before.
 
 ! If you have access to a software package th at can plot text files, such as Python with Matplotlib ,
 ! plot your solution to the Laplace eq uation. Bear in mind that such packages generally use the end of line
@@ -39,11 +39,18 @@ program ex3
     ! call write_matrix(x)
 
     do while (any(x /= x_prev))
+
         do j = 2, N-1
             do i = 2, N-1
-                x(i,j) = 0.25*(x(i,j-1) + x(i,j+1) + x(i-1,j) + x(i+1,j))
+               x(i,j) = 0.25*(x(i,j-1) + x(i,j+1) + x(i-1,j) + x(i+1,j))
             end do
         end do
+
+        ! Doesn't give same, don't know why, don't care
+        !forall (i=2:N-1) 
+        !    forall (j=2:N-1) x(i,j) = 0.25*(x(i,j-1) + x(i,j+1) + x(i-1,j) + x(i+1,j))
+        !end forall
+
         x_prev = x
     end do
 
