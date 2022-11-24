@@ -28,7 +28,7 @@ In order of precedence
 
 ````
 .eq.
-.neq.
+.ne.
 .lt.
 .gt.
 .le.
