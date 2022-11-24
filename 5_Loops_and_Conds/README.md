@@ -10,7 +10,8 @@ print *, x(1:N:3)
 
 ## ex1
 
-Modified from original task. Part 2 in () is original.
+Modified from original task.     
+Original task solution in ***ex1_2.f03***     
 
 ! 1. Write a program that declares a real array of some particular size (N),       
 !    using a parameter statement.     
