@@ -60,6 +60,7 @@ do i = start, stop, interval
     code
 end do
 ````
+Endless do (without i) must have an exit statement.
 
 **!!!! Loop over a matrix**    
 Stored column wise so loop order - k, j, i
@@ -73,6 +74,7 @@ DATA (((A(I,J,K), K=1,10), J=1,10), I=1,10) / 50. /
 ````
 
 ### Do While
+Use not recommended, not well optimised (lrz course).
 
 ````
 do while ( cond )
@@ -93,5 +95,12 @@ FORALL (I=1:N)  A(I, I) = 1
 
 # Exiting
 
-`cycle` - move onto next interation in loop     
-`exit` - exit loop fully
+`cycle` - move onto next interation in loop. you should provide the name of the loop to cycle     
+`exit` - exit loop fully, you should provide the name of the loop to exit
+
+# Termination
+
+`stop`    
+`error stop`    
+Both can have integer or string constant after and printed to error output, default terminal.
+

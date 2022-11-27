@@ -22,7 +22,7 @@ Slicing
 .neqv.
 ````
 
-In order of precedence
+In order of precedence (eqv and neqv same).
 
 ## Relations
 

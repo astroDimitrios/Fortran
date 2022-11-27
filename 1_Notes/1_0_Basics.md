@@ -72,3 +72,33 @@ integer, parameter :: dp = REAL64
 integer, parameter :: qp = REAL128
 ````
 From <https://fortranwiki.org/fortran/show/Real+precision> 
+
+Care with floats:
+
+````
+use, intrinsic :: iso_fortran_env
+implicit none
+
+integer, parameter :: sp = REAL32
+real(sp)      :: x = 1.
+````
+
+Using above these give:
+
+`epsilon(x)` - 1.19209290E-07, effectively negligible no in x number model     
+`huge(x)` - 3.40282347E+38, largest number    
+`tiny(x)` - 1.17549435E-38, smallest number            
+
+# TIPS
+
+- AVOID - Converting from higher to lower precision type
+- DO - Assign high precision constants
+- AVOID overflow, check with `huge` and `tiny` (underflow) etc
+    ````
+    if (abs(k) <= huge(i)) then
+        i = k
+    else
+        stop error 'Overflow'
+    end if
+    ````
+- DO - use `nint(x)` for real-to-integer conversion (nearest integer instead of round towards 0)
