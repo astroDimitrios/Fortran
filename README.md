@@ -1,5 +1,7 @@
-Exercises from - https://wiki.uiowa.edu/download/attachments/109785161/fortran-novella-holcomb.pdf
-SCIENTIFIC PROGRAMMING IN FORTRAN 2003
+# Fortran
+
+Notes and Exercises from:       
+[SCIENTIFIC PROGRAMMING IN FORTRAN 2003](https://wiki.uiowa.edu/download/attachments/109785161/fortran-novella-holcomb.pdf)      
 A tutorial Including Object-Oriented Programming
 Katherine Holcomb
 
@@ -11,15 +13,16 @@ Notes on above:
    ````
    order = (/2, 1/)
    ````
-4. No method to write arrays neatly given to check your work. Use https://www.tutorialspoint.com.cach3.com/programming_example/hhj1FL/fortran-reshape-functions.html seen in Ch3 ex2 code (***3_Arrays/ex2.f90***) or output to csv (later chapter).
+4. No method to write arrays neatly given to check your work. Use [tutorialspoint](https://www.tutorialspoint.com.cach3.com/programming_example/hhj1FL/fortran-reshape-functions.html) seen in Ch3 ex2 code (***3_Arrays/ex2.f90***) or output to csv (later chapter).
 5. Ch5 ex1 when the author says upper bound the meaning is the size of the array.
 6. Ch5 ex3 exercise says to declare dx but not used in program.
 
-For Later:
+## lrz course
 
-https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran
+The directory contains some code and bits from the Leibniz Supercomputing Centre course [Programming with Fortran](https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran),
+to supplment the Holcomb pdf.
 
-Questions:
+# Questions:
 
-1. Block finalisation control?
-2. Functions why bother if there are subroutines?
+1. Block construct - what does ***it has finalisation control*** mean? Memory thing?
+2. Functions why bother if there are subroutines? Functions small things, clearer?
