@@ -8,8 +8,8 @@ PROGRAM ex2
     ! Writing matrix properly to screen
     ! From - https://www.tutorialspoint.com.cach3.com/programming_example/hhj1FL/fortran-reshape-functions.html
     interface
-        subroutine write_matrix(a)
-            real, dimension(:,:) :: a
+        subroutine write_matrix(x)
+            real, dimension(:,:) :: x
         end subroutine write_matrix
     end interface
 
@@ -27,11 +27,11 @@ PROGRAM ex2
 
 END PROGRAM ex2
 
-subroutine write_matrix(a)
-    real, dimension(:,:) :: a
+subroutine write_matrix(x)
+    real, dimension(:,:) :: x
     write(*,*)
     
-    do i = lbound(a,1), ubound(a,1)
-       write(*,*) (a(i,j), j = lbound(a,2), ubound(a,2))
+    do i = lbound(x,1), ubound(x,1)
+       write(*,*) (x(i,j), j = lbound(x,2), ubound(x,2))
     end do
 end subroutine write_matrix

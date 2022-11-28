@@ -1,11 +1,11 @@
 # Arrays
 
-Declaration    
+**COLUMN FIRST**
+
+## Declaration    
 `integer, dimension(100, 100) :: A`
 
-COLUMN FIRST
-
-Construction
+## Construction
 
 `V = [ 1, 2, 3 ]`
 

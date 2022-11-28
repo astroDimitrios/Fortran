@@ -1,6 +1,6 @@
 # Compile
 
-For compiling function modules and libraries see !!!!!!!!!!!!!!!!!!!!
+For compiling function modules and libraries see ***6_1_Func_Modules.md***.
 
 `gfortran -o myprogram myprogram.f`    
 `./myprogram`

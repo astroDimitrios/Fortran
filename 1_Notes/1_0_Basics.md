@@ -1,26 +1,44 @@
 # Fortran
 
 
+## Contents
+
+1. [Basics](#1)
+2. [Declaring Types](#2)
+3. [Declaring Variables](#3)
+4. [Block Construct](#4)
+5. [Precision](#5)
+    1. [Precision Tips](#51)
+
+<a name="1"></a>
+# Basics
+
 ````
 PROGRAM test
 END PROGRAM test
 ````
 
-`IMPLICIT NONE`
-Stops i-m used as integers
-
-`STOP`
-Stop execution
+Strongly typed         
+`implicit none`        
+Stops i-m used as integers, the compiler doesn't imply the type of a variable
 
 `! THIS IS A COMMENT `
 
-80 char line length
-Overflow use `&`    
-Sep multiple statements with `;`    
-ALL declarations before anything else    
-Case INsensitive
+- Starts counting at **1 !!!!!**
+- 80 char line length     
+- Continuation line `&`
+````
+write(*,*) &
+'Hello'
+```` 
+- Sep multiple statements with `;`    
+- use statements first, then `implicit none`, then declarations  
+- Case INsensitive
+- Fortran passes variables by reference (pointer to memory locations), can inadvertantly alter variables if not carefull
 
-## Declaring Types
+<br></br>
+<a name="2"></a>
+# Declaring Types
 
 Examples:
 
@@ -39,7 +57,9 @@ Examples:
 .false.
 ````
 
-## Declaring Variables
+<br></br>
+<a name="3"></a>
+# Declaring Variables
 
 `INTEGER :: i = 2, j`
 
@@ -56,7 +76,29 @@ Characters of max len
 Array of 100 1s
 `REAL, DIMENSION(100) :: ra = (/100*1.0)/`
 
-## Precision
+- Variables must start with letter
+- Letters, numbers and _ only
+
+<br></br>
+<a name="4"></a>
+# Block Construct
+
+Provides local scope to declare variables in, can access vars in parent scope. 
+
+````
+integer i
+inner: block
+  integer j ! A local integer
+  integer i ! Another i, not good practice
+end block inner
+````
+
+Finalises local variables at end of block.
+Can use `exit <name>` within a block.
+
+<br></br>
+<a name="5"></a>
+# Precision
 ````
 INTEGER, PARAMETER :: sp = SELECTED_REAL_KIND(6, 37)
 integer, parameter :: dp = selected_real_kind(15,307)
@@ -89,7 +131,8 @@ Using above these give:
 `huge(x)` - 3.40282347E+38, largest number    
 `tiny(x)` - 1.17549435E-38, smallest number            
 
-# TIPS
+<a name="51"></a>
+## TIPS
 
 - AVOID - Converting from higher to lower precision type
 - DO - Assign high precision constants

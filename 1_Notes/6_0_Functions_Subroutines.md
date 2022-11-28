@@ -14,7 +14,8 @@
     4. [Functions as Args](#54)
 6. [Recursive Functions](#6)
 7. [SAVE ing variables !WARNING](#7)
-8. [Pure functions](#8)
+8. [Pure Functions](#8)
+    1. [Elemental Functions](#81)
 
 <a name="1"></a>
 # Functions
@@ -131,6 +132,11 @@ No positional args after keyword. Notice keyword args can be specified in any or
 
 Pass an argument as a value instead of a variable. Modifications made to local copy NOT to original variable. See example in ***lrz_course/value.f90***.
 
+```fortran
+function f(x)
+integer, value :: x
+```
+
 > If the VALUE attribute is specified, the PARAMETER, EXTERNAL, POINTER, ALLOCATABLE, DIMENSION, INTENT(INOUT), or INTENT(OUT) attributes cannot be specified.
 >
 >[Lahey Computer Systems Inc.](http://www.lahey.com/docs/lfpro79help/F95ARValueStmt.htm)
@@ -212,3 +218,18 @@ END FUNCTION DOUBLE
 >To make things simple, PURE functions must behave like mathematical functions in the sense that their arguments cannot be changes (must have INTENT(IN)). 
 >
 >[Adam Marshal Liverpool Uni](https://www4.cs.fau.de/Lehre/WS97/V_PPS/fortran/HTMLNotesnode232.html)
+
+<br></br>
+<a name="81"></a>
+# Elemental functions
+
+A function that operates element wise on an array. Must be PURE. Requires an output type to be declared but no dimension is required declaring the array sizes.
+
+```fortran
+elemental function add_2(x)
+    real              :: add_2
+    real, intent (in) :: x
+
+    add_2 = x + 2
+end function
+```

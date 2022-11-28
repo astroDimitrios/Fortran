@@ -1,6 +1,18 @@
 # Loops and Conditionals
 
-## IF
+## Contents
+
+1. [If](#1)
+2. [Case](#2)
+3. [Where](#3)
+4. [Do Loop](#4)
+    1. [Implied Do](#41)
+    2. [Do While](#42)
+5. [Forall](#5)
+6. [Exiting & Termination](#6)
+
+<a name="1"></a>
+# If
 
 ````
 if ( cond ) statement
@@ -28,7 +40,9 @@ Using above these give:
 `huge(x)` - 3.40282347E+38, largest number    
 `tiny(x)` - 1.17549435E-38, smallest number    
 
-### Case
+<br></br>
+<a name="2"></a>
+# Case
 
 ````
 SELECT CASE ( expression )
@@ -41,7 +55,9 @@ SELECT CASE ( expression )
 END SELECT
 ````
 
-## Where
+<br></br>
+<a name="3"></a>
+# Where
 
 ````
 where ( A < 0.0 ) A = 0.0
@@ -53,7 +69,9 @@ else where ( I < 0 )
 end where
 ````
 
-## Do loop
+<br></br>
+<a name="4"></a>
+# Do Loop
 
 ````
 do i = start, stop, interval
@@ -65,7 +83,8 @@ Endless do (without i) must have an exit statement.
 **!!!! Loop over a matrix**    
 Stored column wise so loop order - k, j, i
 
-### Implied Do
+<a name="41"></a>
+## Implied Do
 ````
 WRITE(15,*) (A(I), I=1,10)
 READ(10,100) ((R(I,J), J=1,10), I=1,20)
@@ -73,7 +92,8 @@ PRINT *, ((S(I,J), I=1,20), J=1,10)
 DATA (((A(I,J,K), K=1,10), J=1,10), I=1,10) / 50. /
 ````
 
-### Do While
+<a name="42"></a>
+## Do While
 Use not recommended, not well optimised (lrz course).
 
 ````
@@ -82,7 +102,9 @@ do while ( cond )
 end do
 ````
 
-#### Forall
+<br></br>
+<a name="5"></a>
+# Forall
 
 Not widely used - compiler choses fastest way to perform all operations, can be concurrent
 
@@ -93,6 +115,8 @@ REAL, DIMENSION(N, N) :: A
 FORALL (I=1:N)  A(I, I) = 1
 ````
 
+<br></br>
+<a name="6"></a>
 # Exiting
 
 `cycle` - move onto next interation in loop. you should provide the name of the loop to cycle     

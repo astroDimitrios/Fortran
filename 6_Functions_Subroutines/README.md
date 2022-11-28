@@ -1,0 +1,8 @@
+# Notes
+
+
+
+# Exercises
+
+## ex1
+
