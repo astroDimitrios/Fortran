@@ -34,7 +34,8 @@ write(*,*) &
 - Sep multiple statements with `;`    
 - use statements first, then `implicit none`, then declarations  
 - Case INsensitive
-- Fortran passes variables by reference (pointer to memory locations), can inadvertantly alter variables if not carefull
+- Fortran passes variables by reference (pointer to memory locations), can inadvertantly alter variables if not carefull       
+- DO NOT have function names which are the same as module or program names
 
 <br></br>
 <a name="2"></a>
@@ -141,7 +142,7 @@ Using above these give:
     if (abs(k) <= huge(i)) then
         i = k
     else
-        stop error 'Overflow'
+        error stop 'Overflow'
     end if
     ````
 - DO - use `nint(x)` for real-to-integer conversion (nearest integer instead of round towards 0)

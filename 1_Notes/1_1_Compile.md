@@ -31,3 +31,18 @@ Show backtrace to see where error occured:
 - IFort `-backtrace`
 
 From [masuday.github.io](https://masuday.github.io/fortran_tutorial/compilerfeatures.html)
+
+## Floating Point Exception Handling
+
+With **IFORT**    
+Divide by zero, over/underflow etc.
+
+Use `-fpen` option:
+
+`-fpe0` overflow, divide zero, invalid fp excep. Error message and abort. Underflow goes to 0.     
+`-fpe1` No error messages, get NaNs and +-Infs. Underflow set to zero.      
+`-fpe3` DEFAULT full exception behaviour. Underflow gradual - not necessarily 0.
+
+See [here](http://astroa.physics.metu.edu.tr/MANUALS/intel_ifc/mergedProjects/bldaps_for/using_the_floating_point_exception_handling_(-fpe)_option.htm) for more and an example of these options.
+
+[Divide by zero check](https://rosettacode.org/wiki/Detect_division_by_zero#Fortran) rosettacode.
