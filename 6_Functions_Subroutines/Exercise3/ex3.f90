@@ -2,7 +2,13 @@
 ! a program with at least one subroutine.
 ! Pass the initial conditions to the subroutine.
 
-program ex3
+! Change this program to allow it to solve Poisson's equation.
+! Note that if 𝜌=0, Poisson's equation reduces to the Laplace equation.
+! Pass both the initial conditions and the source function to the
+! solver subroutine.
+! Be sure to use an interface for the source function.
+
+program ex34
 
     implicit none
 
@@ -15,7 +21,7 @@ program ex3
             real, intent(in)        :: rho
             real, intent (inout)    :: x(:, :)
             real                    :: x_prev(size(x,1), size(x,2))
-        end subroutine poisson
+        end subroutine laplace
         subroutine write_matrix(a)
             real, dimension(:,:) :: a
         end subroutine write_matrix

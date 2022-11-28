@@ -34,8 +34,31 @@
 ! Needs gfortran5 or ifort to compile with IEEE exceptions      
 ! [rosettacode](https://rosettacode.org/wiki/Detect_division_by_zero#Fortran) divide by zero check  
 
-## ex3
+## ex3 and ex4
+
+Both in the directory ***[Exercise3](./Exercise3/)*** in the file ***[ex3.f90](./Exercise3/ex3.f90)***.
 
 ! Change your program that solves Laplace's equation into    
 ! a program with at least one subroutine.    
 ! Pass the initial conditions to the subroutine.    
+
+
+Laplace and Poisson in depth [here](http://faculty.otterbein.edu/DRobertson/compsci/em-stud.pdf)        
+Cool animation [here](https://blog.c0nrad.io/posts/relaxation/)   
+
+! Change this program to allow it to solve Poisson's equation.     
+! Note that if 𝜌=0, Poisson's equation reduces to the Laplace equation.     
+! Pass both the initial conditions and the source function to the    
+! solver subroutine.    
+! Be sure to use an interface for the source function.     
+
+## ex5
+
+! Write a subroutine with two mandatory and two optional arguments.     
+! Assign a default value to one of the optional arguments.     
+! Test whether the optional arguments are passed      
+! and perform some operations if they are.     
+! Write a calling program that exercises all possibilities    
+! for calling this subroutine.    
+
+## ex6
