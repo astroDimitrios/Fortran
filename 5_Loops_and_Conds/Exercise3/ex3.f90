@@ -40,6 +40,8 @@ program ex3
 
     do while (any(x /= x_prev))
 
+        x_prev = x
+
         do j = 2, N-1
             do i = 2, N-1
                x(i,j) = 0.25*(x(i,j-1) + x(i,j+1) + x(i-1,j) + x(i+1,j))
@@ -51,7 +53,6 @@ program ex3
         !    forall (j=2:N-1) x(i,j) = 0.25*(x(i,j-1) + x(i,j+1) + x(i-1,j) + x(i+1,j))
         !end forall
 
-        x_prev = x
     end do
 
     ! call write_matrix(x)
