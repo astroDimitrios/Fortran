@@ -36,3 +36,6 @@
 
 ## ex3
 
+! Change your program that solves Laplace's equation into    
+! a program with at least one subroutine.    
+! Pass the initial conditions to the subroutine.    

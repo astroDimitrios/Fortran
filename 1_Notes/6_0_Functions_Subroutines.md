@@ -91,7 +91,9 @@ Call in main program
 The full subroutine after `end program`    
 The interface in main code after `implicit none`     
 
-Compiler does extra checks
+Compiler does extra checks.
+
+If subroutines and functions are declared after a `contains` statement in the main program (before `end program`) an explicit interface is not needed.
 
 <br></br>
 <a name="5"></a>
