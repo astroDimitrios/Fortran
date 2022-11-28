@@ -1,8 +1,8 @@
 # Input and Output
 
-Reading Files - ***4_Input_and_Output/ex1.f90***      
-Reading namelist - ***4_Input_and_Output/ex2.f90***     
-Writing to Files - ***4_Input_and_Output/ex2.f90***
+Reading Files - ***[4_Input_and_Output/ex1.f90](../4_Input_and_Output/ex1.f90)***      
+Reading namelist - ***[4_Input_and_Output/ex2.f90](../4_Input_and_Output/ex2.f90)***     
+Writing to Files - ***[4_Input_and_Output/ex2.f90](../4_Input_and_Output/ex2.f90)***
 
 ## Basic Out
 

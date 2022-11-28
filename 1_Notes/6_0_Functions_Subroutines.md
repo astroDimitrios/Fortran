@@ -130,7 +130,7 @@ No positional args after keyword. Notice keyword args can be specified in any or
 <a name="53"></a>
 ## Passing Args as Values
 
-Pass an argument as a value instead of a variable. Modifications made to local copy NOT to original variable. See example in ***lrz_course/value.f90***.
+Pass an argument as a value instead of a variable. Modifications made to local copy NOT to original variable. See example in ***[lrz_course/value.f90](../lrz_course/value.f90)***.
 
 ```fortran
 function f(x)
@@ -141,15 +141,15 @@ integer, value :: x
 >
 >[Lahey Computer Systems Inc.](http://www.lahey.com/docs/lfpro79help/F95ARValueStmt.htm)
 
-**NOTE**: Can be faster than passing variables by reference (normal way). See stackoverflow [here](https://stackoverflow.com/questions/65311855/fortran-recursion-speed-pass-by-reference-vs-pass-by-value).
+**NOTE**: Can be faster than passing variables by reference (normal way). See [here](https://stackoverflow.com/questions/65311855/fortran-recursion-speed-pass-by-reference-vs-pass-by-value) for more.
 
 <br></br>
 <a name="54"></a>
 ## Passing Functions as Arguments
 
-[Stackoverflow Link](https://stackoverflow.com/questions/32809769/how-to-pass-subroutine-names-as-arguments-in-fortran)
+Usefull [Stackoverflow link](https://stackoverflow.com/questions/32809769/how-to-pass-subroutine-names-as-arguments-in-fortran).
 
-Example in ***lrz_course/run_my_maths.90*** which uses a subroutine in ***my_maths.90*** that accepts a function as an argumnet. Function is provided by module ***my_powers.f90***.
+Example in ***[lrz_course/run_my_maths.90](../lrz_course/run_my_maths.f90)*** which uses a subroutine in ***[my_maths.90](../lrz_course/my_maths.f90)*** that accepts a function as an argumnet. Function is provided by module ***[my_powers.f90](../lrz_course/my_powers.f90)***.
 
 To test use:
 
@@ -182,9 +182,9 @@ MUST use `result()`.
 <a name="7"></a>
 # SAVE variables !WARNING
 
-Saves a variable between calls of a function or subroutine to be used in the next call. Example in ***lrz_course/save.f90***.
+Saves a variable between calls of a function or subroutine to be used in the next call. Example in ***[lrz_course/save.f90](../lrz_course/save.f90)***.
 
-DO NOT initialise and declare a variable at the same time in function or subroutine. This will IMPLICITLY save the variable between function calls. (http://www.cs.rpi.edu/~szymansk/OOF90/bugs.html#4)
+DO NOT initialise and declare a variable at the same time in function or subroutine. This will IMPLICITLY save the variable between function calls. For more see [cs.rpi.edu](http://www.cs.rpi.edu/~szymansk/OOF90/bugs.html#4).
 
 <br></br>
 <a name="8"></a>

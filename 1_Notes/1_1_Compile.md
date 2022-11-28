@@ -1,11 +1,11 @@
 # Compile
 
-For compiling function modules and libraries see ***6_1_Func_Modules.md***.
+For compiling function modules and libraries see ***[6_1_Func_Modules.md](./6_1_Func_Modules.md)***.
 
 `gfortran -o myprogram myprogram.f`    
 `./myprogram`
 
-From <https://mesoscale.agron.iastate.edu/fortran/compile.htm> 
+From [mesoscale.argon.iastate.edu](<https://mesoscale.agron.iastate.edu/fortran/compile.htm>) 
 
 Requires f90 ext     
 `ifort -o ex3 ex3.f90`
@@ -30,4 +30,4 @@ Show backtrace to see where error occured:
 - GFortran `-fbacktrace`
 - IFort `-backtrace`
 
-From https://masuday.github.io/fortran_tutorial/compilerfeatures.html
+From [masuday.github.io](https://masuday.github.io/fortran_tutorial/compilerfeatures.html)
