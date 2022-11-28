@@ -1,6 +1,6 @@
 # Notes
 
-ex1
+**[ex1](./Exercise1/ex1.f90)**
 ````
 ! print every third element
 print *, x(1:N:3)
@@ -11,7 +11,7 @@ print *, x(1:N:3)
 ## ex1
 
 Modified from original task.     
-Original task solution in ***ex1_2.f03***     
+Original task solution in ***[ex1_2.f03](./Exercise1/ex1_2.f90)***     
 
 ! 1. Write a program that declares a real array of some particular size (N),       
 !    using a parameter statement.     
