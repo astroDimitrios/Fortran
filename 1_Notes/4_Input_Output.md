@@ -14,7 +14,7 @@ First `*` indicates num identifier of file.
 
 ## Basic Terminal Read
 
-````
+````fortran
 Print *, 'Enter a value:'
 Read *, A
 ````
@@ -25,7 +25,7 @@ Read *, A
 Skip 5 spaces, print integer    
 New line
 
-````
+````fortran
 print 10, i, a, b
 10 format(I5, 5F15.5)
 

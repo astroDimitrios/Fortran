@@ -10,7 +10,7 @@ Allocate length on assign
 `character(len=:), allocatable :: c`
 
 Trim the extra whitespace
-````
+````fortran
 character(len=20) :: space = 'Space'
 trim(space)
 ````

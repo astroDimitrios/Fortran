@@ -14,7 +14,7 @@
 <a name="1"></a>
 # If
 
-````
+````fortran
 if ( cond ) statement
 ! or
 if ( cond ) then
@@ -26,7 +26,7 @@ end if
 
 Care with floats:
 
-````
+````fortran
 use, intrinsic :: iso_fortran_env
 implicit none
 
@@ -44,7 +44,7 @@ Using above these give:
 <a name="2"></a>
 # Case
 
-````
+````fortran
 SELECT CASE ( expression )
     CASE ( value1 )
         code
@@ -59,7 +59,7 @@ END SELECT
 <a name="3"></a>
 # Where
 
-````
+````fortran
 where ( A < 0.0 ) A = 0.0
 
 where ( I > 2 )
@@ -73,7 +73,7 @@ end where
 <a name="4"></a>
 # Do Loop
 
-````
+````fortran
 do i = start, stop, interval
     code
 end do
@@ -85,7 +85,7 @@ Stored column wise so loop order - k, j, i
 
 <a name="41"></a>
 ## Implied Do
-````
+````fortran
 WRITE(15,*) (A(I), I=1,10)
 READ(10,100) ((R(I,J), J=1,10), I=1,20)
 PRINT *, ((S(I,J), I=1,20), J=1,10)
@@ -96,7 +96,7 @@ DATA (((A(I,J,K), K=1,10), J=1,10), I=1,10) / 50. /
 ## Do While
 Use not recommended, not well optimised (lrz course).
 
-````
+````fortran
 do while ( cond )
     code
 end do
@@ -110,7 +110,7 @@ Not widely used - compiler choses fastest way to perform all operations, can be 
 
 sets diagonal elements of an array to 1:
 
-````
+````fortran
 REAL, DIMENSION(N, N) :: A
 FORALL (I=1:N)  A(I, I) = 1
 ````

@@ -3,7 +3,7 @@
 
 ## Contents
 
-1. [Basics](#1)
+1. [Introduction](#1)
 2. [Declaring Types](#2)
 3. [Declaring Variables](#3)
 4. [Block Construct](#4)
@@ -11,9 +11,9 @@
     1. [Precision Tips](#51)
 
 <a name="1"></a>
-# Basics
+# Introduction
 
-````
+````fortran
 PROGRAM test
 END PROGRAM test
 ````
@@ -27,7 +27,7 @@ Stops i-m used as integers, the compiler doesn't imply the type of a variable
 - Starts counting at **1 !!!!!**
 - 80 char line length     
 - Continuation line `&`
-````
+````fortran
 write(*,*) &
 'Hello'
 ```` 
@@ -42,7 +42,7 @@ write(*,*) &
 
 Examples:
 
-````
+````fortran
 1
 1. (real sing. precision)
 1d0         
@@ -85,7 +85,7 @@ Array of 100 1s
 
 Provides local scope to declare variables in, can access vars in parent scope. 
 
-````
+````fortran
 integer i
 inner: block
   integer j ! A local integer
@@ -99,7 +99,7 @@ Can use `exit <name>` within a block.
 <br></br>
 <a name="5"></a>
 # Precision
-````
+````fortran
 INTEGER, PARAMETER :: sp = SELECTED_REAL_KIND(6, 37)
 integer, parameter :: dp = selected_real_kind(15,307)
 real(dp) :: a
@@ -107,7 +107,7 @@ real(dp) :: a
 
 Or (Fortran 2008)
 
-````
+````fortran
 use, intrinsic :: iso_fortran_env
 integer, parameter :: sp = REAL32
 integer, parameter :: dp = REAL64
@@ -117,7 +117,7 @@ From <https://fortranwiki.org/fortran/show/Real+precision>
 
 Care with floats:
 
-````
+````fortran
 use, intrinsic :: iso_fortran_env
 implicit none
 
@@ -137,7 +137,7 @@ Using above these give:
 - AVOID - Converting from higher to lower precision type
 - DO - Assign high precision constants
 - AVOID overflow, check with `huge` and `tiny` (underflow) etc
-    ````
+    ````fortran
     if (abs(k) <= huge(i)) then
         i = k
     else

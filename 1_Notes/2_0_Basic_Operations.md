@@ -14,7 +14,7 @@ Slicing
 
 ## Logic
 
-````
+````fortran
 .not.
 .and.
 .or.
@@ -26,7 +26,7 @@ In order of precedence (eqv and neqv same).
 
 ## Relations
 
-````
+````fortran
 .eq.
 .ne.
 .lt.
