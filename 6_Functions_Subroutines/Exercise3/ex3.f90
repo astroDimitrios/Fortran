@@ -21,7 +21,7 @@ program ex34
             real, intent(in)        :: rho
             real, intent (inout)    :: x(:, :)
             real                    :: x_prev(size(x,1), size(x,2))
-        end subroutine laplace
+        end subroutine poisson
         subroutine write_matrix(a)
             real, dimension(:,:) :: a
         end subroutine write_matrix
@@ -62,7 +62,8 @@ subroutine poisson(x, rho)
 
         do j = 2, size(x,2)-1
             do i = 2, size(x,1)-1
-               x(i,j) = 0.25*(x(i,j-1) + x(i,j+1) + x(i-1,j) + x(i+1,j))&
+               x(i,j) = 0.25*(x_prev(i,j-1) + x_prev(i,j+1)&
+               + x_prev(i-1,j) + x_prev(i+1,j))&
                +4.0*ATAN(1.0)*rho
             end do
         end do

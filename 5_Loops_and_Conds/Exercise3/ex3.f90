@@ -44,7 +44,8 @@ program ex3
 
         do j = 2, N-1
             do i = 2, N-1
-               x(i,j) = 0.25*(x(i,j-1) + x(i,j+1) + x(i-1,j) + x(i+1,j))
+                x(i,j) = 0.25*(x_prev(i,j-1) + x_prev(i,j+1)&
+                + x_prev(i-1,j) + x_prev(i+1,j))
             end do
         end do
 
