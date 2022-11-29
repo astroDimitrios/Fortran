@@ -1,5 +1,6 @@
 # Master Contents
 
+0. [Useful Notes from Exercises](#1)
 1. Intro
     1. [Basics](./1_0_Basics.md)
         1. [Introduction](./1_0_Basics.md#1)
@@ -56,7 +57,7 @@
 <br></br>
 
 ---
-
+<a name="1"></a>
 ## Useful Notes from Exercises
 
 ### 2 Fundamentals
