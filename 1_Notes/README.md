@@ -48,3 +48,43 @@
     1. [Allocatable Arrays](./7_Memory_Management.md#1)
         1. [Assumed Shape and Automatic Arrays](./7_Memory_Management.md#11)
     2. [Pointers](./7_Memory_Management.md#2)
+8. [Derived Types](./8_Derived_Types.md)
+    1. [Derived Types](./8_Derived_Types.md#1)
+    2. [Extending Types](./8_Derived_Types.md#2)
+    3. [Linked List with Der Type Example](../8_Derived_Types/Exercise3/ex3.f90)
+
+<br></br>
+
+---
+
+## Useful Notes from Exercises
+
+### 2 Fundamentals
+   
+[ex2](../2_Fundamentals/ex2.f90) - Cast integer to real using `real(a)`        
+[ex3](../2_Fundamentals/ex3.f90) - Character conc and trimming
+
+### 3 Arrays
+
+[ex2](../3_Arrays/ex2.f90) - write_matrix() subroutine
+
+### 4 Input and Output
+
+[ex1](../4_Input_and_Output/ex1.f90) - Writing to file and cast to string           
+[ex2](../4_Input_and_Output/ex2.f90) - Read file, read namelist subroutine
+
+### 5 Loops and Conditionals
+
+[ex1](../5_Loops_and_Conds/Exercise1/ex1.f90) - Print every 3rd element
+````fortran
+print *, x(1:N:3)
+````
+
+### 6 Functions and Subroutines
+
+[ex2_1](../6_Functions_Subroutines/Exercise2/Part1/ex2_1.f90) - Overloaded function      
+[ex2_2](../6_Functions_Subroutines/Exercise2/Part2/ex2_2.f90) - Divide by zero error check with ieee exceptions
+
+### 8 Derived Types
+
+[ex3](../8_Derived_Types/Exercise3/ex3.f90) - Contains a Linked List. Reads a CSV of unknown length into data type.

@@ -1,7 +1,7 @@
 # Notes
 
-**[ex2_1](./Exercise2/Part1/ex2_1.f90)** overloaded function      
-**[ex2_2](./Exercise2/Part2/ex2_2.f90)** divide by zero error check with ieee exceptions
+**[ex2_1](./Exercise2/Part1/ex2_1.f90)** - Overloaded function      
+**[ex2_2](./Exercise2/Part2/ex2_2.f90)** - Divide by zero error check with ieee exceptions
 
 # Exercises
 

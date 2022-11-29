@@ -1,7 +1,7 @@
 # Notes
 
 **[ex1](./Exercise1/ex1.f90)**
-````
+````fortran
 ! print every third element
 print *, x(1:N:3)
 ````

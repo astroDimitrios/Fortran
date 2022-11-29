@@ -1,7 +1,7 @@
 # Notes
 
 `!!!!`      
-** ex2 - write_matrix() subroutine**     
+** [ex2](./ex2.f90) - write_matrix() subroutine**     
 Prints matrix to terminal     
 `!!!!`
 

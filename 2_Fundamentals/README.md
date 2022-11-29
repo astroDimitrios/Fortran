@@ -1,7 +1,7 @@
 # Notes
 
-ex2 cast integer to real using `real(a)`        
-ex3 character conc and trimming
+[ex2](./ex2.f90) - Cast integer to real using `real(a)`        
+[ex3](./ex3.f90) - Character conc and trimming
 
 # Exercises
 

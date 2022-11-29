@@ -1,7 +1,7 @@
 # Notes
 
-ex1 - Writing to file and cast to string           
-ex2 - Read file, read namelist subroutine
+[ex1](./ex1.f90) - Writing to file and cast to string              
+[ex2](./ex2.f90) - Read file, read namelist subroutine
 
 # Exercises
 
