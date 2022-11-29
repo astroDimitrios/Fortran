@@ -62,3 +62,10 @@ Cool animation [here](https://blog.c0nrad.io/posts/relaxation/)
 ! for calling this subroutine.    
 
 ## ex6
+
+! Write a calling program for the outer_scope and inner_scope    
+! block in the text above.     
+! Add a variable x to the calling unit and set its value to 30.    
+! Print all x variables.    
+! What does this illustrate about variable scope?    
+! Print z in inner_scope.    

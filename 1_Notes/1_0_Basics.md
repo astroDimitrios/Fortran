@@ -146,3 +146,11 @@ Using above these give:
     end if
     ````
 - DO - use `nint(x)` for real-to-integer conversion (nearest integer instead of round towards 0)
+- Warning, always check your assigning variables otherwise:
+    ```fortran
+    real :: y
+    print *, y
+    ! gfortran prints 4.56472975E-41
+    ! ifort prints 0
+    ```
+  Compiler dependent behaviour!!!! Some will just access whatever is in memory at that location.
