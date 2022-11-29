@@ -44,3 +44,7 @@
             1. [Compiling Notes](./6_1_Func_Modules.md#21)
         3. [Archive Files](./6_1_Func_Modules.md#3)
     3. [Overloading](./6_2_Func_Overloading.md)
+7. [Memory Management](./7_Memory_Management.md)
+    1. [Allocatable Arrays](./7_Memory_Management.md#1)
+        1. [Assumed Shape and Automatic Arrays](./7_Memory_Management.md#11)
+    2. [Pointers](./7_Memory_Management.md#2)
