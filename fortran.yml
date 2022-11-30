@@ -1,0 +1,12 @@
+name: fortran
+channels:
+  - conda-main
+  - conda-forge
+dependencies:
+  - matplotlib
+  - python=3.10
+  - pandas
+  - pip
+  - numpy
+  - fortls
+  - gfortran
