@@ -26,6 +26,7 @@ Return value is name of the function.
 ````fortran
 real function myfunc(x)
     real, intent(in) :: x
+    
     myfunc = x**2
 end function myfunc
 ````
@@ -36,7 +37,7 @@ end function myfunc
 Can also use function `result()` so that the declaration and type of the result are declared separately and don't have to be same as function name:
 
 ````fortran
-function poly_3(x, p) result(res)
+function poly_3( x, p ) result(res)
     real, intent(in) :: x, p
     real :: res
     ...
@@ -52,15 +53,17 @@ Also useful when the function has a long name.
 
 ````fortran
 call subroutine square(x)
-call subroutine square(xx, p=pp)
+call subroutine square( xx, p=pp )
 ````
 ````fortran
-subroutine square(x, p)
+subroutine square( x, p )
     integer, intent (in)        :: x
     real, optional, intent (in) :: p
-    if (present(p)) then 
+
+    if ( present(p) ) then 
         print *, 'No'
     end if
+
     square = x**2
 end subroutine square
 ````
@@ -80,7 +83,7 @@ end subroutine square
 
 ````fortran
 interface
-    subroutine square(x, p)
+    subroutine square( x, p )
         integer, intent (in)        :: x
         real, optional, intent (in) :: p
     end subroutine square
@@ -105,7 +108,7 @@ If subroutines and functions are declared after a `contains` statement in the ma
 `real, intent (in), optional :: p`    
 Check if passed using `present(p)`:      
 ````fortran
-if (present(p)) then
+if ( present(p) ) then
     ...
 else
     ...
@@ -117,14 +120,14 @@ end if
 ## Keyword Function Args
 
 Eg inside an interface you have:     
-`SUBROUTINE axis(x0,y0,l,min,max,i)`
+`subroutine axis( x0, y0, l, min, max, i )`
 
 Then axis can be invoked as:
 
 - Positional args     
-  `CALL AXIS(0.0,0.0,100.0,0.1,1.0,10)`
+  `call axis( 0.0, 0.0, 100.0, 0.1, 1.0, 10 )`
 - Keyword args    
-  `CALL AXIS(0.0,0.0,Max=1.0,Min=0.1,L=100.0,I=10)`
+  `call axis( 0.0, 0.0, max=1.0, min=0.1, l=100.0, i=10 )`
 
 No positional args after keyword. Notice keyword args can be specified in any order. Use for readability.
 
@@ -195,10 +198,11 @@ DO NOT initialise and declare a variable at the same time in function or subrout
 Cannot change state of the program.
 
 ````fortran
-PURE FUNCTION DOUBLE(X)
-  REAL, INTENT(IN) :: X
-  DOUBLE = 2 * X
-END FUNCTION DOUBLE
+pure function double(x)
+  real, intent(in) :: x
+
+  double = 2 * x
+end function double
 ````
 [Snippet Source](https://www.cita.utoronto.ca/~merz/intel_f10b/main_for/mergedProjects/lref_for/source_files/rfpure.htm)
 
@@ -229,9 +233,9 @@ A function that operates element wise on an array. Must be PURE. Requires an out
 
 ```fortran
 elemental function add_2(x)
-    real              :: add_2
     real, intent (in) :: x
+    real              :: add_2
 
     add_2 = x + 2
-end function
+end function add_2
 ```

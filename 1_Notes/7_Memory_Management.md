@@ -17,24 +17,24 @@ Must declare rank of array.
 
 ```fortran
 ! Allocatable Arrays
-real, dimension(:, :), allocatable :: A
-real, allocatable :: B(:, :) ! preferred
+real, dimension(:,:), allocatable :: a
+real, allocatable :: b(:,:) ! preferred
 ```
 
 Allocate, test for allocation, and deallocate:
 
 ```fortran
-integer :: M = 10, N = 10
+integer :: n = 10, m = 10
 
-! allocate(A(M, N))
-allocate(A(M, N), B(M, N))
+! allocate(a(n,m))
+allocate( a(n,m), b(n,m) )
 
-if (.not. allocated(A)) then
-    allocate(A(M, N))
+if (.not. allocated(a)) then
+    allocate( a(n,m) )
 end if
 
-! deallocate(A)
-deallocate(A, B)
+! deallocate(a)
+deallocate( a, b )
 ```
 
 <a name="11"></a>
@@ -45,9 +45,9 @@ Useful in subroutines where the size of the array is not known:
 ```fortran
 subroutine poisson(x)
     ! Assumes shape of x
-    real, intent (inout) :: x(:, :)
+    real, intent (inout) :: x(:,:)
     ! Automatic array + assumed shape
-    real                 :: x_prev(size(x,1), size(x,2))
+    real                 :: x_prev( size(x, 1), size(x, 2) )
 ```
 
 Can also pass the shape parameters to the function/subroutine.
@@ -65,11 +65,10 @@ real, pointer :: p, q
 real, target  :: x, y
 
 ! avoid undefined pointers
-real, pointer :: A(:, :) => NULL()
+real, pointer :: a(:,:) => null()
 
-integer :: N = 10, M = 10
-
-x = 10.; y = 5.
+x = 10.0
+y = 5.0
 
 ! Assign pointer to target
 p => x
@@ -85,19 +84,19 @@ print *, 'p = ', p
 Test if associated:
 
 ```fortran
-if (.not. associated(p)) p => x
+if ( .not. associated(p) ) p => x
 ! to a specific variable
-if (.not. associated(p, x)) p => x
+if ( .not. associated(p, x) ) p => x
 ```
 
 Can be allocated:
 
 ```fortran
-integer :: N = 10, M = 10
-real, pointer :: A(:, :) => NULL()
+integer :: n = 10, m = 10
+real, pointer :: a(:,:) => null()
 
-allocate(A(N, M))
-deallocate(A)
+allocate( a(n,m) )
+deallocate(a)
 ```
 
 Disassociate pointer from target:

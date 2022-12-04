@@ -8,7 +8,7 @@ interface f
     function f_r(x)
         real    :: x
     end function
-end interface
+end interface f
 ```
 
 The function `f` can be used with integers or real values. The compiler will chose which to use when compiling. Full example on [wikibooks](https://en.wikibooks.org/wiki/Fortran/language_extensions).

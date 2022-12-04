@@ -22,37 +22,21 @@ if ( cond ) then
 else
     do this
 end if
-````
-
-Care with floats:
-
-````fortran
-use, intrinsic :: iso_fortran_env
-implicit none
-
-integer, parameter :: sp = REAL32
-real(sp)      :: x = 1.
-````
-
-Using above these give:
-
-`epsilon(x)` - 1.19209290E-07, effectively negligible no in x number model     
-`huge(x)` - 3.40282347E+38, largest number    
-`tiny(x)` - 1.17549435E-38, smallest number    
+````  
 
 <br></br>
 <a name="2"></a>
 # Case
 
 ````fortran
-SELECT CASE ( expression )
-    CASE ( value1 )
+select case ( expression )
+    case ( value1 )
         code
-    CASE ( value2 )
+    case ( value2 )
         code
-    CASE DEFAULT ! optional
+    case default ! optional
         code
-END SELECT
+end select
 ````
 
 <br></br>
@@ -63,9 +47,9 @@ END SELECT
 where ( A < 0.0 ) A = 0.0
 
 where ( I > 2 )
-    A = 3.
+    A = 3
 else where ( I < 0 )
-    A = 4.
+    A = 4
 end where
 ````
 
@@ -86,10 +70,10 @@ Stored column wise so loop order - k, j, i
 <a name="41"></a>
 ## Implied Do
 ````fortran
-WRITE(15,*) (A(I), I=1,10)
-READ(10,100) ((R(I,J), J=1,10), I=1,20)
-PRINT *, ((S(I,J), I=1,20), J=1,10)
-DATA (((A(I,J,K), K=1,10), J=1,10), I=1,10) / 50. /
+( a(i), i = 1, 10 )
+((r( i, j ), j = 1, 10), i = 1, 20)
+
+data (((a( i, j, k ), k= 1, 10), j = 1, 10), i = 1, 10) / 50. /
 ````
 
 <a name="42"></a>
@@ -111,8 +95,8 @@ Not widely used - compiler choses fastest way to perform all operations, can be 
 sets diagonal elements of an array to 1:
 
 ````fortran
-REAL, DIMENSION(N, N) :: A
-FORALL (I=1:N)  A(I, I) = 1
+real :: a(n:n)
+forall ( i = 1:n )  a( i, i ) = 1
 ````
 
 <br></br>
@@ -124,7 +108,14 @@ FORALL (I=1:N)  A(I, I) = 1
 
 # Termination
 
+Basics: 
+
 `stop`    
 `error stop`    
+
 Both can have integer or string constant after and printed to error output, default terminal.
 
+<div style="color: black; background-color:rgba(255, 76, 48, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
+    <strong>DO NOT:</strong>
+  Never use PAUSE or STOP in favour of full error logging. See section !!!!!!!!!!!!!!!.
+  </div>

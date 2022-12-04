@@ -15,18 +15,18 @@
 ````fortran
 subroutine process_x(...)
     real :: a = 10, z
-    z = slide(2,3) ! invoke in host 
+    z = slide( 2, 3 ) ! invoke in host 
     ...
 contains
     ! internal function
-    real function slide(x, y)
+    real function slide( x, y )
         ...
         slide = a ! accessed by host association
     end function slide
     ! internal subroutine
     subroutine fake(...)
         ...
-        slide(3, 4) ! accessed by host association
+        slide( 3, 4 ) ! accessed by host association
     end subroutine fake
 end subroutine process_x
 ````
@@ -41,7 +41,7 @@ Internal procedures can only be called from within the host, denoted by the `con
 module mod_solvers
     implicit none
 contains
-    subroutine solve_quadratic (a, b, c)
+    subroutine solve_quadratic ( a, b, c )
         <code>
     end subroutine solve_quadratic
 ! more subroutines below
@@ -51,7 +51,7 @@ end module mod_solvers
 then in main program:
 
 ````fortran
-use mod_solvers
+use mod_solvers, only solve_quadratic
 implicit none
 ````
 you can now call the function.

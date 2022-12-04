@@ -13,29 +13,40 @@
 <a name="1"></a>
 # Introduction
 
+Strongly typed . Basic program:
+
 ````fortran
-PROGRAM test
-END PROGRAM test
+program test
+end program test
 ````
+<div style="color: black; background-color:rgba(73, 190, 37, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
+    <strong>DO:</strong>
+    Have filenames which are the same as the program/module name.
+    
+    eg. test.f90 to contain the code above
+</div>
 
-Strongly typed         
-`implicit none`        
-Stops i-m used as integers, the compiler doesn't imply the type of a variable
-
-`! THIS IS A COMMENT `
-
-- Starts counting at **1 !!!!!**
-- 80 char line length     
+- use statements come first, then `implicit none`, then declarations of variables.
+- `implicit none`        
+Stops i-m used as integers, the compiler doesn't imply the type of a variable.
+  <div style="color: black; background-color:rgba(37, 150, 190, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
+    <strong>DO:</strong>
+    Use implicit none in all functions, subroutines, modules, and programs. 
+  </div>
+  <div style="color: black; background-color:rgba(255, 76, 48, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
+    <strong>DO NOT:</strong>
+  Have function names which are the same as module or program names.
+  </div>
+- `! Comment `
+- Index starts at **1 !**
+- 80 character line length.     
 - Continuation line `&`
 ````fortran
 write(*,*) &
 'Hello'
-```` 
-- Sep multiple statements with `;`    
-- use statements first, then `implicit none`, then declarations  
-- Case INsensitive
-- Fortran passes variables by reference (pointer to memory locations), can inadvertantly alter variables if not carefull       
-- DO NOT have function names which are the same as module or program names
+````   
+- Case ***insensitive***, use lower case
+- Fortran passes variables ***by reference*** (pointer to memory locations), you can inadvertantly alter variables if not carefull.       
 
 <br></br>
 <a name="2"></a>
@@ -45,10 +56,10 @@ Examples:
 
 ````fortran
 1
-1. (real sing. precision)
+1.0 ! real, STYLE: NOT 1.
 1d0         
 1.2d-11
-(1.0, 1.0) Complex
+( 1.0, 1.0 ) ! complex
 
 ! String
 'Here"s a String.'
@@ -62,20 +73,20 @@ Examples:
 <a name="3"></a>
 # Declaring Variables
 
-`INTEGER :: i = 2, j`
+`integer :: i = 2, j`
 
-Fixed value (unchangeable)
-`INTEGER , PARAMETER :: i = 2`
+Fixed value (unchangeable)    
+`integer, parameter :: i = 2`
 
-`COMPLEX :: d = (1.0, 2.0)`
+`complex :: d = ( 1.0, 2.0 )`
 
-Characters of max len 
-`CHARACTER(LEN=16) :: a`
+Characters of max len    
+`character(len=16) :: a`
 
-`LOGICAL :: l, flag = .false.`
+`logical :: flag = .false.`
 
-Array of 100 1s
-`REAL, DIMENSION(100) :: ra = (/100*1.0)/`
+Array of 100 1s    
+`real :: ra(100) = [ 100 * 1.0 ]`
 
 - Variables must start with letter
 - Letters, numbers and _ only
@@ -101,8 +112,8 @@ Can use `exit <name>` within a block.
 <a name="5"></a>
 # Precision
 ````fortran
-INTEGER, PARAMETER :: sp = SELECTED_REAL_KIND(6, 37)
-integer, parameter :: dp = selected_real_kind(15,307)
+integer, parameter :: sp = selected_real_kind( 6, 37 )
+integer, parameter :: dp = selected_real_kind( 15,307 )
 real(dp) :: a
 ````
 
@@ -123,7 +134,9 @@ use, intrinsic :: iso_fortran_env
 implicit none
 
 integer, parameter :: sp = REAL32
-real(sp)      :: x = 1.
+real(sp)      :: x = 1.0
+real          :: y
+y = 1.0_sp
 ````
 
 Using above these give:
@@ -137,16 +150,17 @@ Using above these give:
 
 - AVOID - Converting from higher to lower precision type
 - DO - Assign high precision constants
-- AVOID overflow, check with `huge` and `tiny` (underflow) etc
+- AVOID - Overflow etc, check with `huge` and `tiny` (underflow) etc
     ````fortran
-    if (abs(k) <= huge(i)) then
+    if ( abs(k) <= huge(i) ) then
         i = k
     else
         error stop 'Overflow'
     end if
     ````
-- DO - use `nint(x)` for real-to-integer conversion (nearest integer instead of round towards 0)
-- Warning, always check your assigning variables otherwise:
+- DO - Use `nint(x)` for real-to-integer conversion (nearest integer instead of round towards 0)
+- DO - Ensure all real values have the correct kind declared
+- WARNING - Always check your assigning variables otherwise:
     ```fortran
     real :: y
     print *, y

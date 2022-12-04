@@ -27,22 +27,22 @@ In order of precedence (eqv and neqv same).
 ## Relations
 
 ````fortran
-.eq.
-.ne.
-.lt.
-.gt.
-.le.
-.ge.
+== ! .EQ.
+/= ! .NE.
+<  ! .LT.
+>  ! .GT.
+<= ! .LE.
+>= ! .GE.
 ````
 
 # Constants
 
-> e          ! Not available. Can be calculated EXP(1.0)       
-> pi         ! Not available. Can be calculated 4.0*ATAN(1.0)
+> e          ! Not available. Can be calculated exp(1.0)       
+> pi         ! Not available. Can be calculated 4.0*atan(1.0)
 
 or in the double precision form:
 
-> EXP(1D0)       
-> 4*ATAN(1D0)
+> exp(1D0)       
+> 4*atan(1D0)
 >
 > [rosettacode.org](https://rosettacode.org/wiki/Real_constants_and_functions#Fortran)

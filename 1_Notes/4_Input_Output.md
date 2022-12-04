@@ -8,29 +8,29 @@ Writing to Files - ***[4_Input_and_Output/ex2.f90](../4_Input_and_Output/ex2.f90
 
 `print *, A`   
 Or    
-`Write(*,*) A`
+`write(*,*) A`
 
 First `*` indicates num identifier of file.
 
 ## Basic Terminal Read
 
 ````fortran
-Print *, 'Enter a value:'
-Read *, A
+print *, 'Enter a value:'
+read *, A
 ````
 
 ## Print Formatting
 
-`Print '(5x, I5/5x, I4)', A, B`    
+`print '( 5x, I5/5x, I4 )', A, B`    
 Skip 5 spaces, print integer    
 New line
 
 ````fortran
 print 10, i, a, b
-10 format(I5, 5F15.5)
+10 format( I5, 5F15.5 )
 
-read(22, 100) c1, c2
-100 format(2a)
+read( 22, 100 ) c1, c2
+100 format(A)
 ````
 
 # Number Formatting
