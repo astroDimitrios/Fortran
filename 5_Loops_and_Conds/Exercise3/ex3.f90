@@ -38,7 +38,7 @@ program ex3
 
     ! call write_matrix(x)
 
-    do while (any(x /= x_prev))
+    do while ( any(x /= x_prev) )
 
         x_prev = x
 
@@ -59,7 +59,7 @@ program ex3
     ! call write_matrix(x)
 
     open (file='ex3_data.csv', iostat=rc, newunit=file_unit)
-    if (rc /= 0) stop 'Error: open failed'
+    if ( rc /= 0 ) stop 'Error: open failed'
     do i = 1, N
         write (file_unit, '(1x, *(g0, :, ", "))') x(i,:)
     end do
@@ -69,9 +69,9 @@ end program
 
 subroutine write_matrix(a)
     real, dimension(:,:) :: a
-    write(*,*)
+    write (*,*)
     
     do i = lbound(a,1), ubound(a,1)
-       write(*,*) (a(i,j), j = lbound(a,2), ubound(a,2))
+       write (*,*) ( a(i,j), j = lbound(a,2), ubound(a,2) )
     end do
 end subroutine write_matrix

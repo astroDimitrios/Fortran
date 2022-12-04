@@ -1,23 +1,25 @@
+! Notes from reading the Holcombe pdf
+
 program derived_types
     implicit none
 
-    ! F2003 to use allocatables in derived types
+    ! f2003 to use allocatables in derived types
     ! char(len(=*)) not allowed
-    TYPE grid
-        INTEGER :: nx, ny, nz ! element
-        REAL, ALLOCATABLE, DIMENSION(:) :: x, y, z
-    END TYPE grid
+    type grid
+        integer                         :: nx, ny, nz ! element
+        real, allocatable, dimension(:) :: x, y, z
+    end type grid
 
     ! construct
-    TYPE(grid) xyz_grid
+    type(grid) xyz_grid
     ! array of grid types
-    ! TYPE(grid), dimension(3) :: grids
+    ! type(grid), dimension(3) :: grids
 
-    integer :: N
+    integer :: n
 
     ! access element
-    xyz_grid%nx = N
+    xyz_grid%nx = n
 
-    allocate(xyz_grid%x(N), xyz_grid%y(N), xyz_grid%z(N))
+    allocate( xyz_grid%x(n), xyz_grid%y(n), xyz_grid%z(n) )
     
 end program derived_types

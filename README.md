@@ -24,5 +24,5 @@ to supplment the Holcomb pdf.
 
 # Questions:
 
-1. Block construct - what does ***it has finalisation control*** mean? Memory thing?
-2. Functions why bother if there are subroutines? Functions small things, clearer?
+1. Block construct - what does ***it has finalisation control*** mean? Memory thing? Allows memory to be written over.
+2. Functions why bother if there are subroutines? Functions small things, clearer? Subroutines can alter variables - function returns one thing.

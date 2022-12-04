@@ -15,7 +15,7 @@ program ex2
 
     implicit none
 
-    complex :: x = (1, 2)
+    complex :: x = ( 1, 2 )
     complex :: y
 
     real :: a = 5.0

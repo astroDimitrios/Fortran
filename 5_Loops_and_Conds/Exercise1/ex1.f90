@@ -23,16 +23,16 @@ program ex1
     integer                     :: y, rc, file_unit
 
     open (action='read', file=FILE_NAME, iostat=rc, newunit=file_unit)
-    if (rc /= 0) stop 'Error: open failed' 
+    if ( rc /= 0 ) stop 'Error: open failed' 
 
     do
         read (file_unit, *, iostat=rc) y
-        if (rc /= 0) exit
+        if ( rc /= 0 ) exit
         print *, 'Y value from file = ', y
     end do
 
     ! 4
-    if (y > maxval(x)) stop 'Error: file value larger than max array value'
+    if ( y > maxval(x) ) stop 'Error: file value larger than max array value'
 
     do i = 1, y
         x(i) = cos(real(i))

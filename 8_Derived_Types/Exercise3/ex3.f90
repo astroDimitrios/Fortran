@@ -7,28 +7,28 @@ program ex3
     implicit none
 
     type species
-        character(len=20) :: genus_name
-        integer           :: population
+        character(len=20)      :: genus_name
+        integer                :: population
         type(species), pointer :: next
     end type species
 
-    integer :: rc, file_unit, i
+    integer :: rc, file_unit
 
-    type(species), pointer :: current => null()
-    type(species), pointer :: first => null()
+    type(species), pointer     :: current => null()
+    type(species), pointer     :: first => null()
 
     allocate(current)
     first => current
 
     open(action='read', file='ex3.csv', iostat=rc, newunit=file_unit)
-    if (rc /= 0) stop
+    if ( rc /= 0 ) stop
 
     do
         read (file_unit, *, iostat=rc) &
         current%genus_name, current%population  
-        if (rc > 0) then
+        if ( rc > 0 ) then
             write (*, *) 'Ahhh input error'
-        else if (rc < 0) then
+        else if ( rc < 0 ) then
             exit
         else
             allocate(current%next)
@@ -41,7 +41,7 @@ program ex3
     current => first ! point to beginning of the list
 
     do
-        if (.not. associated(current%next)) exit
+        if ( .not. associated(current%next) ) exit
         print *, current%genus_name, current%population
         current => current%next
     end do

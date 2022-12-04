@@ -18,14 +18,14 @@ program ex1
     implicit none
 
     type four_momentum
-        real :: E = 0
-        real, allocatable, dimension(:) :: p
+        real              :: E = 0
+        real, allocatable :: p(:)
     end type four_momentum
 
     type(four_momentum) :: particle, particle2
 
     particle%E = 4.3E-12
-    allocate(particle%p(3))
+    allocate( particle%p(3) )
     particle%p = [0.21, 0.54, 0.15]
 
     ! particle2 = four_momentum()   ! all default

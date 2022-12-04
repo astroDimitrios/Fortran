@@ -14,7 +14,7 @@ contains
         real, intent (in)  :: x
         real               :: y
 
-        y = 0.5*(exp(x)+exp(-x))
+        y = 0.5 * ( exp(x) + exp(-x) )
     end function
 
     ! complex args
@@ -22,7 +22,7 @@ contains
         complex, intent (in)  :: x
         complex               :: y
 
-        y = 0.5*(exp(x)+exp(-x))
+        y = 0.5 * ( exp(x) + exp(-x) )
     end function
 
 end module hypcosh

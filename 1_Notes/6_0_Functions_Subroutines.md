@@ -53,7 +53,7 @@ Also useful when the function has a long name.
 
 ````fortran
 call subroutine square(x)
-call subroutine square( xx, p=pp )
+call subroutine square(xx, p=pp)
 ````
 ````fortran
 subroutine square( x, p )

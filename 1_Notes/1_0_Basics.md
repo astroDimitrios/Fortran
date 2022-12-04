@@ -13,7 +13,7 @@
 <a name="1"></a>
 # Introduction
 
-Strongly typed . Basic program:
+Strongly typed. Basic program:
 
 ````fortran
 program test
@@ -42,7 +42,7 @@ Stops i-m used as integers, the compiler doesn't imply the type of a variable.
 - 80 character line length.     
 - Continuation line `&`
 ````fortran
-write(*,*) &
+write (*,*) &
 'Hello'
 ````   
 - Case ***insensitive***, use lower case
@@ -113,7 +113,7 @@ Can use `exit <name>` within a block.
 # Precision
 ````fortran
 integer, parameter :: sp = selected_real_kind( 6, 37 )
-integer, parameter :: dp = selected_real_kind( 15,307 )
+integer, parameter :: dp = selected_real_kind( 15, 307 )
 real(dp) :: a
 ````
 

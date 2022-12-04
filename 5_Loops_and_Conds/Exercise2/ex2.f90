@@ -11,11 +11,11 @@ program ex2
     real, parameter :: PI = 3.1415
     real            :: my_PI = 0
 
-    do while (my_PI /= PI)
-        if (mod(k, 1000) == 0) then
+    do while ( my_PI /= PI )
+        if ( mod(k, 1000) == 0 ) then
             print *, 'Iteration (1000s)', k/1000
         end if
-        my_PI = my_PI + 4.*((-1.)**k)/(2.*k+1.)
+        my_PI = my_PI + 4.*( (-1.)**k ) / ( 2.*k + 1. )
         k = k + 1
     end do
 

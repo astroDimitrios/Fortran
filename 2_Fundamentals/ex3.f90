@@ -2,22 +2,22 @@
 ! Initialize two of them to any desired constant strings.
 ! Concatenate those two and store the result into the third.
 
-PROGRAM ex3
+program ex3
 
     implicit none
 
-    character(len=5) :: a = 'Space'
-    character(*), parameter :: b = 'the final frontier!'
+    character(len=5)              :: a = 'space'
+    character(*), parameter       :: b = 'the final frontier!'
     character(len=:), allocatable :: c
 
-    character(len=20) :: space = 'Space'
+    character(len=20)             :: space = 'space'
     
     c = a // ' ' // b
 
-    Write (*,*) c
+    write (*,*) c
 
     ! or
 
-    Write (*,*) trim(space) // ' ' // b
+    write (*,*) trim(space) // ' ' // b
 
-END PROGRAM ex3
+end program ex3

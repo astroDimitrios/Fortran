@@ -6,20 +6,20 @@
 !   b.  Change your program to add an integer parameter initialized to 100.
 !       Change the declaration of the arrays so that their size is determined by this parameter.
 
-PROGRAM ex1
+program ex1
 
     implicit none
 
     integer, parameter           :: N = 100
-    integer, dimension(N, N)     :: A
-    real, dimension(100, 100)    :: B, C, D
+    integer, dimension(N, N)     :: a
+    real, dimension(100, 100)    :: b, c, d
 
-    A = 6
-    B = 0.
-    C = 3.
+    a = 6
+    b = 0.0
+    c = 3.0
 
-    D = real(A) + C
+    d = real(a) + c
 
-    !Write (*,*) D
+    !write (*,*) d
  
-END PROGRAM ex1
+end program ex1

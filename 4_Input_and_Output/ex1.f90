@@ -5,19 +5,19 @@
 !   d. Use formatted output, print to a file, and add code for handling potential error conditions in the
 !      output statement.
 
-PROGRAM ex1
+program ex1
 
     implicit none
 
-    character(len=5) :: a = 'Space'
-    character(*), parameter :: b = 'the final frontier!'
+    character(len=5)              :: a = 'Space'
+    character(*), parameter       :: b = 'the final frontier!'
     character(len=:), allocatable :: c
 
-    character(len=20) :: space = 'Space'
-    character(len=15) :: str
+    character(len=20)             :: space = 'Space'
+    character(len=15)             :: str
 
-    integer :: d = 5, e = 4., f
-    real :: g
+    integer                       :: d = 5
+    real                          :: e= 4.0, f, g
 
     ! file no for .dat
     integer :: rc
@@ -25,11 +25,11 @@ PROGRAM ex1
     
     c = a // ' ' // b
     f = real(d) + e
-    g = f**2/37.4
+    g = f**2 / 37.4
 
-    !Write (*,*) c
+    !write (*,*) c
     ! or
-    !Write (*,*) trim(space) // ' ' // b
+    !write (*,*) trim(space) // ' ' // b
 
     print '(4x, i4)', f
 
@@ -54,4 +54,4 @@ PROGRAM ex1
     write (file_unit, *) 12
     close (file_unit)
 
-END PROGRAM ex1
+end program ex1

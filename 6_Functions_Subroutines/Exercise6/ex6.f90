@@ -23,29 +23,29 @@ program ex6
         end subroutine
     end interface
 
-    REAL :: x
-    x = 30.
+    real :: x
+    x = 30.0
 
-    print *, 'Start x = ', x
+    print *, 'start x = ', x
     call outer_scope
-    print *, 'Start x 2 =', x
+    print *, 'start x 2 =', x
 
 end program
 
-SUBROUTINE outer_scope
-    REAL :: x, y
-    x = 10.
-    y = 5.
-    print *, 'Outer scope x = ', x
+subroutine outer_scope
+    real :: x, y
+    x = 10.0
+    y = 5.0
+    print *, 'outer scope x = ', x
     call inner_scope
-    print *, 'Outer scope x 2 = ', x
-CONTAINS
-    SUBROUTINE inner_scope
-        REAL :: x, z
-        x = 20.
-        print *, 'Inner scope x = ', x
+    print *, 'outer scope x 2 = ', x
+contains
+    subroutine inner_scope
+        real :: x, z
+        x = 20.0
+        print *, 'inner scope x = ', x
         z = x + y
         print *, 'y = ', y
         print *, 'z = x + y = ', z
-    END SUBROUTINE inner_scope
-END SUBROUTINE outer_scope
+    end subroutine inner_scope
+end subroutine outer_scope

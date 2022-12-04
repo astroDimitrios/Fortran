@@ -71,9 +71,9 @@ Stored column wise so loop order - k, j, i
 ## Implied Do
 ````fortran
 ( a(i), i = 1, 10 )
-((r( i, j ), j = 1, 10), i = 1, 20)
+((r(i, j), j = 1, 10), i = 1, 20)
 
-data (((a( i, j, k ), k= 1, 10), j = 1, 10), i = 1, 10) / 50. /
+data (((a(i, j, k), k= 1, 10), j = 1, 10), i = 1, 10) / 50. /
 ````
 
 <a name="42"></a>
@@ -96,7 +96,7 @@ sets diagonal elements of an array to 1:
 
 ````fortran
 real :: a(n:n)
-forall ( i = 1:n )  a( i, i ) = 1
+forall ( i = 1:n )  a(i, i) = 1
 ````
 
 <br></br>

@@ -14,7 +14,7 @@ Define:
 ! F2003 to use allocatables in derived types
 ! char(len(=*)) not allowed
 type grid
-    integer :: nx, ny, nz ! element
+    integer           :: nx, ny, nz ! element
     real, allocatable :: x(:), y(:), z(:)
 end type grid
 ```
@@ -36,7 +36,7 @@ integer :: n
 ! access element
 xyz_grid%nx = n
 
-allocate(xyz_grid%x(n), xyz_grid%y(n), xyz_grid%z(n))
+allocate( xyz_grid%x(n), xyz_grid%y(n), xyz_grid%z(n) )
 ```
 
 Code snippet [example](../8_Derived_Types/derived_types.f90).
@@ -45,7 +45,7 @@ Code snippet [example](../8_Derived_Types/derived_types.f90).
 
 ```fortran
 type four_momentum
-    real :: E = 0
+    real              :: E = 0
     real, allocatable :: p(:)
 end type four_momentum
 
@@ -64,7 +64,7 @@ Note all default won't work above due to the allocatable `p` array. Code snippet
 ```fortran
 type species
     character(len=20) :: genus_name
-       character(len=20) :: species_name
+    character(len=20) :: species_name
 end type species
 
 type, extends(species) :: bird

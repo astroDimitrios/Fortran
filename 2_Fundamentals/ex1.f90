@@ -2,7 +2,7 @@
 ! Be sure to use correct style (program name, no implicit typing, correct
 ! declarations).
 
-PROGRAM ex1
+program ex1
 
     implicit none
 
@@ -10,6 +10,6 @@ PROGRAM ex1
 
     k = i + j
 
-    Write (*,*) k
+    write (*,*) k
 
-END PROGRAM ex1
+end program ex1

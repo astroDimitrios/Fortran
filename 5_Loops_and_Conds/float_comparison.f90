@@ -4,7 +4,7 @@ program float_comp
     implicit none
 
     integer, parameter :: sp = REAL32
-    real(sp)      :: x = 1.
+    real(sp)           :: x = 1.0
 
     print *, epsilon(x)
     print *, huge(x)

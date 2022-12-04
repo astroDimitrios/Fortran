@@ -12,21 +12,21 @@ program arg_test
     real    :: x, y, p
     logical :: magic
 
-    y = 20.
+    y = 20.0
     p = 0.4
     magic = .true.
 
     call math_magic(x, y)
-    write (*, *) x
+    write (*,*) x
 
     call math_magic(x, y, p)
-    write (*, *) x
+    write (*,*) x
 
     call math_magic(x, y, p, magic)
-    write (*, *) x
+    write (*,*) x
 
     call math_magic(x, y, magic=magic)
-    write (*, *) x
+    write (*,*) x
 
 contains
 
@@ -36,14 +36,14 @@ contains
         logical, optional :: magic
         real              :: default_p = 12
 
-        if (present(p)) then 
-            x = y*p
+        if ( present(p) ) then 
+            x = y * p
         else
-            x = y*default_p
+            x = y * default_p
         end if
 
-        if (present(magic)) then
-            if (magic.eqv..true.) then
+        if ( present(magic) ) then
+            if ( magic .eqv. .true. ) then
                 write (*, '(A)') "Magic = https://www.google.com/url?sa"//&
                 "=t&rct=j&q=&esrc=s&source=web&cd=&cad="//&
                 "rja&uact=8&ved=2ahUKEwiQ7IDRrNH7AhUTQk"//&

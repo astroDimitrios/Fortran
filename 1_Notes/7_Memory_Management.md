@@ -24,13 +24,13 @@ real, allocatable :: b(:,:) ! preferred
 Allocate, test for allocation, and deallocate:
 
 ```fortran
-integer :: n = 10, m = 10
+integer :: N = 10, M = 10
 
-! allocate(a(n,m))
-allocate( a(n,m), b(n,m) )
+! allocate(a(N,M))
+allocate( a(N,M), b(N,M) )
 
 if (.not. allocated(a)) then
-    allocate( a(n,m) )
+    allocate( a(N,M) )
 end if
 
 ! deallocate(a)
@@ -92,10 +92,10 @@ if ( .not. associated(p, x) ) p => x
 Can be allocated:
 
 ```fortran
-integer :: n = 10, m = 10
+integer :: N = 10, M = 10
 real, pointer :: a(:,:) => null()
 
-allocate( a(n,m) )
+allocate( a(N,M) )
 deallocate(a)
 ```
 

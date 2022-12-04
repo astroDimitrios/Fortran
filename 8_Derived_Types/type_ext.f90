@@ -1,3 +1,5 @@
+! Notes from reading the Holcombe pdf
+
 program type_ext
     implicit none
 

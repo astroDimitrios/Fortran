@@ -9,6 +9,7 @@
 program ex2
 
     use, intrinsic :: iso_fortran_env, only: stderr => error_unit
+
     implicit none
 
     ! parts a and b
@@ -22,25 +23,25 @@ program ex2
     integer           :: i
 
     open (action='read', file=FILE_NAME, iostat=rc, newunit=file_unit)
-    if (rc /= 0) stop 'Error: open failed' 
+    if ( rc /= 0 ) stop 'Error: open failed' 
 
     do
-        read (file_unit, *, iostat=rc) g, h
-        if (rc /= 0) exit
+        read ( file_unit, *, iostat=rc ) g, h
+        if ( rc /= 0 ) exit
         print *, g, h
     end do
 
     close (file_unit)
 
-    print *, g*h
+    print *, g * h
 
     ! parts c and d code
     ! from https://cyber.dabamos.de/programming/modernfortran/namelists.html
-    call read_namelist('ex2_namelist.nml', code, e, i)
+    call read_namelist( 'ex2_namelist.nml', code, e, i )
     print '("e = ", i0)', i
     ! cast int to string
-    write (str, *) i
-    write (*, *) adjustl(trim(str))
+    write (str,*) i
+    write (*,*) adjustl(trim(str))
 
 
 contains
@@ -58,7 +59,7 @@ contains
         ! Check whether file exists.
         inquire (file=file_path, iostat=rc)
 
-        if (rc /= 0) then
+        if ( rc /= 0 ) then
             write (stderr, '("Error: input file ", a, " does not exist")') file_path
             return
         end if
@@ -66,7 +67,7 @@ contains
         ! Open and read Namelist file.
         open (action='read', file=file_path, iostat=rc, newunit=fu)
         read (nml=TEST, iostat=rc, unit=fu)
-        if (rc /= 0) write (stderr, '("Error: invalid Namelist format")')
+        if ( rc /= 0 ) write (stderr, '("Error: invalid Namelist format")')
 
         close (fu)
     end subroutine read_namelist

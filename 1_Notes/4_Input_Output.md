@@ -8,7 +8,7 @@ Writing to Files - ***[4_Input_and_Output/ex2.f90](../4_Input_and_Output/ex2.f90
 
 `print *, A`   
 Or    
-`write(*,*) A`
+`write (*,*) A`
 
 First `*` indicates num identifier of file.
 
@@ -27,10 +27,10 @@ New line
 
 ````fortran
 print 10, i, a, b
-10 format( I5, 5F15.5 )
+10 format ( I5, 5F15.5 )
 
-read( 22, 100 ) c1, c2
-100 format(A)
+read ( 22, 100 ) c1, c2
+100 format (A)
 ````
 
 # Number Formatting

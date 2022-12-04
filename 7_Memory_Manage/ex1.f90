@@ -12,7 +12,7 @@ program ex34
             implicit none
             integer                 :: i, j
             real, intent(in)        :: rho
-            real, intent (inout)    :: x(:, :)
+            real, intent (inout)    :: x(:,:)
             real                    :: x_prev(size(x,1), size(x,2))
         end subroutine poisson
         subroutine write_matrix(a)
@@ -22,8 +22,8 @@ program ex34
 
     integer               :: k, rc, file_unit
     integer               :: N, M
-    real, parameter       :: p = 5.
-    real, allocatable     :: z(:, :)
+    real, parameter       :: p = 5.0
+    real, allocatable     :: z(:,:)
 
     print *, 'Enter value, N = '
     read *, N
@@ -31,7 +31,7 @@ program ex34
     print *, 'Enter value, M = '
     read *, M
 
-    allocate(z(N, M))
+    allocate(z(N,M))
     z(1,:)   = 100
     z(2:M,:) = 0
 
@@ -39,7 +39,7 @@ program ex34
     ! call write_matrix(z)
 
     open (file='ex3_data.csv', iostat=rc, newunit=file_unit)
-    if (rc /= 0) stop 'Error: open failed'
+    if ( rc /= 0 ) stop 'Error: open failed'
     do k = 1, N
         write (file_unit, '(1x, *(g0, :, ", "))') z(k,:)
     end do
@@ -53,10 +53,10 @@ subroutine poisson(x, rho)
 
     integer                 :: i, j
     real, intent(in)        :: rho
-    real, intent (inout)    :: x(:, :)
+    real, intent (inout)    :: x(:,:)
     real                    :: x_prev(size(x,1), size(x,2))
 
-    do while (any(x /= x_prev))
+    do while ( any(x /= x_prev) )
 
         x_prev = x
 
@@ -73,9 +73,9 @@ end subroutine
 
 subroutine write_matrix(a)
     real, dimension(:,:) :: a
-    write(*,*)
+    write (*,*)
     
     do i = lbound(a,1), ubound(a,1)
-       write(*,*) (a(i,j), j = lbound(a,2), ubound(a,2))
+       write (*,*) (a(i,j), j = lbound(a,2), ubound(a,2))
     end do
 end subroutine write_matrix

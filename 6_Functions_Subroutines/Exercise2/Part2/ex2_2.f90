@@ -18,9 +18,9 @@ program ex2_2
     real, dimension(4) :: c
     real               :: d
 
-    a = 3.
-    b = 7.
-    d = 0.
+    a = 3.0
+    b = 7.0
+    d = 0.0
 
     sum_ab = scalar_sum(a, b)
     print *, 'Sum = ', sum_ab    
@@ -68,12 +68,16 @@ contains
 
     subroutine check_divide_zero(x, y)
         
-        use :: ieee_exceptions
+        use :: ieee_exceptions, only : ieee_set_flag, &
+                                       ieee_get_flag, &
+                                       ieee_divide_by_zero
+
         implicit none
 
         real, intent (in)  :: x, y
-        real    :: check
-        logical :: flag
+        real               :: check
+        logical            :: flag
+
         flag = .false.
 
         call ieee_set_flag(ieee_divide_by_zero, .false.)
