@@ -2,6 +2,9 @@
 
 The notes for Chapter 9 Modules are [here](../1_Notes/6_1_Modules.md) in my notes.
 
+[ex2](./Exercise2/ex2.f90) - Contains IEEE Inf use, and the `random_number` intrinsic, good module use example    
+
+
 # Exercises
 
 ## ex1

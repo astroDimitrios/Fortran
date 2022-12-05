@@ -7,6 +7,7 @@
 module my_stats
 
     implicit none
+
     private
     public :: mean, std_dev
 
