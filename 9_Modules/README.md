@@ -3,7 +3,8 @@
 The notes for Chapter 9 Modules are [here](../1_Notes/6_1_Modules.md) in my notes.
 
 [ex2](./Exercise2/ex2.f90) - Contains IEEE Inf use, and the `random_number` intrinsic, good module use example       
-[ex3](./Exercise3/ex3.f90) - CONSTANTS, proper use of KINDS and constants, good procedure overload example
+[ex3](./Exercise3/ex3.f90) - CONSTANTS, proper use of KINDS and constants, good procedure overload example     
+[ex4](./Exercise4/ex4.f90) - Overloaded + operator used on a derived type
 
 
 # Exercises
@@ -38,4 +39,4 @@ The notes for Chapter 9 Modules are [here](../1_Notes/6_1_Modules.md) in my note
 ! two reals and an array of undetermined size.    
 ! Define the + operator for this type.    
 ! Write a main program that uses the module,   
-! creates two of this type, and adds them.
+! creates two of this type, and add them.

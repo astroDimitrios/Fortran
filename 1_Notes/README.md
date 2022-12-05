@@ -97,4 +97,5 @@ print *, x(1:N:3)
 ## 9 Modules
 
 [ex2](../9_Modules/Exercise2/ex2.f90) - Contains IEEE Inf use, and the `random_number` intrinsic, good module use example       
-[ex3](../9_Modules/Exercise3/ex3.f90) - CONSTANTS, proper use of KINDS and constants, good procedure overload example
+[ex3](../9_Modules/Exercise3/ex3.f90) - CONSTANTS, proper use of KINDS and constants, good procedure overload example     
+[ex4](../9_Modules/Exercise4/ex4.f90) - Overloaded + operator used on a derived type
