@@ -1,6 +1,6 @@
-# Function Modules
+# Modules
 
-**DO** put subroutine in module program unit (or internal subprogram)
+**DO** put subroutine in module program unit
 
 ## Contents
 
@@ -55,6 +55,12 @@ use mod_solvers, only solve_quadratic
 implicit none
 ````
 you can now call the function.
+
+Global variables come before the `contains` statement.     
+One use is defining global kinds in a module.     
+All functions and subroutines MUST come after the `contains` statement.     
+You MUST name the subroutine to end.      
+Procedures in a module have implicit interfaces - don't need to write explicit ones.
 
 <a name="21"></a>
 ## Compiling

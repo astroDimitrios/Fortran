@@ -6,7 +6,7 @@
 !      its third their product, and its fourth their quotient.
 !      Be sure to check for error conditions and return with a message if an illegal
 !      operation would be attempted, specifically a division by a number that is effectively zero.
-
+!
 ! Needs gfortran5 or ifort to compile with IEEE exceptions 
 ! rosettacode divide by zero check - https://rosettacode.org/wiki/Detect_division_by_zero#Fortran
 

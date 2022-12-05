@@ -2,17 +2,22 @@ module my_maths
     implicit none
 contains
 
-    subroutine basic_maths(a, fun, val)
-        real, intent(in)  :: a
-        real, intent(out) :: val
+    subroutine basic_maths(a, func, val)
+
+        real, intent(inout)      :: a
+        real, intent(out)     :: val
 
         interface
-            real function fun(x)
-                real :: x
-            end function fun
+            real function func(x)
+                real, intent(inout) :: x
+            end function func
         end interface
 
-        val = fun(a)
+        val = func(a)
     end subroutine basic_maths
 
 end module my_maths
+
+! Error for dummy function arg
+! Noted here:
+! https://github.com/hansec/fortran-language-server/issues/200

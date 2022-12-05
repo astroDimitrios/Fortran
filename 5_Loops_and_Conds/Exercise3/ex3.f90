@@ -11,7 +11,7 @@
 !    at the beginning of the loop. If this is true, exit from the loop. ( Hint: you can introduce
 !    another array.) Print the result to a file in row major order.
 ! d. Change the DO loop to a FORALL . Check that your result is the same as before.
-
+!
 ! If you have access to a software package th at can plot text files, such as Python with Matplotlib ,
 ! plot your solution to the Laplace eq uation. Bear in mind that such packages generally use the end of line
 ! marker to determine the end of a row, so you will have to use formatted output.

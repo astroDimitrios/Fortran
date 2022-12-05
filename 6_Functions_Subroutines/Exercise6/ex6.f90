@@ -4,7 +4,7 @@
 ! Print all x variables.
 ! What does this illustrate about variable scope?
 ! Print z in inner_scope.
-
+!
 ! OUTPUT
 ! Start x =          30.0000000    
 ! Outer scope x =    10.0000000    

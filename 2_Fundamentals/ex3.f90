@@ -6,11 +6,11 @@ program ex3
 
     implicit none
 
-    character(len=5)              :: a = 'space'
+    character(len=5)              :: a = 'Space'
     character(*), parameter       :: b = 'the final frontier!'
     character(len=:), allocatable :: c
 
-    character(len=20)             :: space = 'space'
+    character(len=20)             :: space = 'Space'
     
     c = a // ' ' // b
 
