@@ -1,12 +1,13 @@
 # Modules
 
-**DO** put subroutine in module program unit
-
+**DO** put subroutines and functions in modules
 ## Contents
 
 1. [Internal Functions and Subroutines](#1)
 2. [External Modules](#2)
     1. [Compiling Notes](#21)
+    2. [Public and Private Data](#22)
+    3. [Use options](#23)
 3. [Archive Files](#3)
 
 <a name="1"></a>
@@ -62,17 +63,18 @@ All functions and subroutines MUST come after the `contains` statement.
 You MUST name the subroutine to end.      
 Procedures in a module have implicit interfaces - don't need to write explicit ones.
 
+<br></br>
 <a name="21"></a>
 ## Compiling
 
 ````
-gfortran -c -o mod_solvers.o mod_solvers.f90
-gfortran -c -o my_main.o my_main.f90
+gfortran -c mod_solvers.f90
+gfortran -c my_main.f90
 ````
 `-c` flag compiles but doesn't link files. Do main program and module separately. Then:
 
 ````
-gfortran -o main.exe my_main.o mod_solvers.o
+gfortran -o main my_main.o mod_solvers.o
 ````
 ## Different directory for Module Files
 
@@ -80,6 +82,41 @@ Use `-I` flag
 ````
 gfortran -I../modfiles -c prog.f90
 ```` 
+
+<br></br>
+<a name="22"></a>
+## Private and Public Data
+
+Data permissions can be set to `public` or `private`:
+
+```fortran
+real, public :: x
+
+integer      :: y
+private      :: y
+```
+
+Set the module default:
+
+```fortran
+private
+```
+
+Modules that define classes should have the `private` default.
+
+<br></br>
+<a name="23"></a>
+## Use Options
+
+```fortran
+use module
+! use ONLY the procedures you need
+use module, only my_func
+
+! to rename and avoid namespace collision
+use module, only this_func => my_func
+```
+
 <br></br>
 <a name="3"></a>
 # Multiple modules in an Archive File

@@ -1,0 +1,64 @@
+# Overloading
+
+1. [Procedure Overloading](#1)
+2. [Operator Overloading](#2)
+
+<a name="1"></a>
+# Procedure Overloading
+
+```fortran
+module my_f
+
+interface f
+    function f_i(x)
+        integer :: x
+    end function
+    function f_r(x)
+        real    :: x
+    end function
+end interface f
+
+contains
+    ... func definitions
+end module my_f
+```
+
+The function `f` can be used with integers or real values. The compiler will chose which to use when compiling. Full example on [wikibooks](https://en.wikibooks.org/wiki/Fortran/language_extensions).
+
+Also consult the wikibook for overloading operators etc.
+
+**FULL Example:** [hypcosh func](../6_Functions_Subroutines/Exercise2/Part1/hypcosh.f90)
+
+<br></br>
+<a name="2"></a>
+# Operator Overloading
+
+```fortran
+module my_asterik
+
+    implicit none
+    private
+    public operator (*)
+
+    interface operator (*)
+        module procedure my_overload_procedure
+    end interface
+
+contains
+    function my_overload_procedure(...)
+        ...
+    end function
+end module
+```
+```fortran
+program main
+
+    use my_asterik
+    implicit none
+
+    ... use * as normal here
+
+end program
+```
+
+Full example on [wikibooks](https://en.wikibooks.org/wiki/Fortran/language_extensions).
