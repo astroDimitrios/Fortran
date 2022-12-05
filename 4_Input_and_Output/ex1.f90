@@ -31,11 +31,11 @@ program ex1
     ! or
     !write (*,*) trim(space) // ' ' // b
 
-    print '(4x, i4)', f
+    print '(4x, f5.2)', f
 
     ! 6 default terminal out
     write (6, 10) f
-    10 format (4x, i4)
+    10 format (4x, f15.7)
 
     open (8, file='ex1_data.txt')
     write (8, *) trim(space) // ' ' // b
@@ -49,7 +49,7 @@ program ex1
 
     close (8) 
 
-    open (file='ex1_data.dat', iostat=rc, newunit=file_unit)
+    open (action='write', file='ex1_data.dat', iostat=rc, newunit=file_unit)
     if (rc /= 0) stop 'Error: open failed'
     write (file_unit, *) 12
     close (file_unit)

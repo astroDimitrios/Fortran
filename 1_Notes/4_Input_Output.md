@@ -4,6 +4,8 @@ Reading Files - ***[4_Input_and_Output/ex1.f90](../4_Input_and_Output/ex1.f90)**
 Reading namelist - ***[4_Input_and_Output/ex2.f90](../4_Input_and_Output/ex2.f90)***     
 Writing to Files - ***[4_Input_and_Output/ex2.f90](../4_Input_and_Output/ex2.f90)***
 
+**DO:** Always define the action when opening files using `open()`
+
 ## Basic Out
 
 `print *, A`   

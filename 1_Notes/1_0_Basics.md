@@ -46,6 +46,7 @@ write (*,*) &
 'Hello'
 ````   
 - Case ***insensitive***, use lower case
+- Use spaces never tabs as tabs aren't in Fortran standard
 - Fortran passes variables ***by reference*** (pointer to memory locations), you can inadvertantly alter variables if not carefull.       
 
 <br></br>
@@ -172,6 +173,12 @@ real(x, dp) ! converts to the kind dp (double precision)
         error stop 'Overflow'
     end if
     ````
+    ```fortran
+    if ( abs(real1 - real2) < small_number ) then
+        ...
+    end if
+    ```
+    Could use `tiny()` here for the small number
 - DO - Use `nint(x)` for real-to-integer conversion (nearest integer instead of round towards 0)
 - DO - Ensure all real values have the correct kind declared
 - WARNING - Always check your assigning variables otherwise:

@@ -57,6 +57,11 @@ implicit none
 ````
 you can now call the function.
 
+<div style="color: black; background-color:rgba(37, 150, 190, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
+    <strong>DO:</strong>
+    Only load functions etc. that you need and not the whole module.
+  </div>
+
 Global variables come before the `contains` statement.     
 One use is defining global kinds in a module.     
 All functions and subroutines MUST come after the `contains` statement.     

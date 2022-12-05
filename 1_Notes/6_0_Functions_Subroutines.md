@@ -75,11 +75,16 @@ end subroutine square
 `inout` argument MUST be passed as a variable when the function is called    
 `out` must be a variable, it's undefined when function starts
 
+<div style="color: black; background-color:rgba(37, 150, 190, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
+    <strong>DO:</strong>
+    Declare an arguments intent. 
+  </div>
+
 <br></br>
 <a name="4"></a>
 # Explicit Interface
 
-**DO** create explicit interfaces
+**DO** create explicit interfaces (slightly different if procedures are contained in modules)
 
 ````fortran
 interface

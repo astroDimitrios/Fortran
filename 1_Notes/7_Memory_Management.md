@@ -37,6 +37,10 @@ end if
 deallocate( a, b )
 ```
 
+Associate and disassociate on same level/scope ie. both in same subroutine.      
+Allocate and deallocate in reverse order
+ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.    
+
 <a name="11"></a>
 ## Assumed Shape and Automatic Array
 
@@ -93,7 +97,7 @@ Can be allocated:
 
 ```fortran
 integer :: N = 10, M = 10
-real, pointer :: a(:,:) => null()
+real, pointer :: a(:,:) => null() ! best practice assign to null()
 
 allocate( a(N,M) )
 deallocate(a)
@@ -105,7 +109,8 @@ Disassociate pointer from target:
 nullify(p)
 ```
 
-Associate and disassociate on same level ie. both in same subroutine.    
-`nullify()` does not deallocate if also allocated.
+Associate and disassociate on same level/scope ie. both in same subroutine. Allocate and deallocate in reverse order
+ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.    
+`nullify()` does not deallocate if also allocated. Ensure you nullify at the end of the scope.
 
 Code snippet [example](../7_Memory_Manage/pointers.f90).
