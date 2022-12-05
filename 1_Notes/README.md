@@ -93,3 +93,8 @@ print *, x(1:N:3)
 ### 8 Derived Types
 
 [ex3](../8_Derived_Types/Exercise3/ex3.f90) - Contains a Linked List. Reads a CSV of unknown length into data type.
+
+## 9 Modules
+
+[ex2](../9_Modules/Exercise2/ex2.f90) - Contains IEEE Inf use, and the `random_number` intrinsic, good module use example       
+[ex3](../9_Modules/Exercise3/ex3.f90) - CONSTANTS, proper use of KINDS and constants, good procedure overload example

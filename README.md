@@ -26,3 +26,4 @@ to supplment the Holcomb pdf.
 
 1. Block construct - what does ***it has finalisation control*** mean? Memory thing? Allows memory to be written over.
 2. Functions why bother if there are subroutines? Functions small things, clearer? Subroutines can alter variables - function returns one thing.
+3. What's the best way to allow a function to take an argument of SP or DP type? Surely lots of code dup if the whole function has to be copied?

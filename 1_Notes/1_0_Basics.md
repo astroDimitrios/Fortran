@@ -111,6 +111,15 @@ Can use `exit <name>` within a block.
 <br></br>
 <a name="5"></a>
 # Precision
+
+***Default precision*** for real is usually ***single***.
+
+- Avoid using compiler flags to set default precision, use kinds.
+- Avoid mixing types in arithmetic.
+- Set dp constants with `3.14d0` not just `3.14 ! single precision`.
+
+**GOOD Practice:** See [constants_mod.f90](../9_Modules/Exercise3/constants_mod.f90)
+
 ````fortran
 integer, parameter :: sp = selected_real_kind( 6, 37 )
 integer, parameter :: dp = selected_real_kind( 15, 307 )
@@ -143,7 +152,12 @@ Using above these give:
 
 `epsilon(x)` - 1.19209290E-07, effectively negligible no in x number model     
 `huge(x)` - 3.40282347E+38, largest number    
-`tiny(x)` - 1.17549435E-38, smallest number            
+`tiny(x)` - 1.17549435E-38, smallest number         
+
+```fortran
+real(x, sp) ! converts to the kind sp (single precision)
+real(x, dp) ! converts to the kind dp (double precision)
+```
 
 <a name="51"></a>
 ## TIPS
