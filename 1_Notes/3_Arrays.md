@@ -3,7 +3,12 @@
 **COLUMN FIRST**
 
 ## Declaration    
-`integer, dimension(100, 100) :: a`
+
+```fortran
+integer, dimension(100, 100) :: a   
+! Preferred:     
+integer :: a(100, 100)
+```
 
 ## Construction
 
