@@ -263,7 +263,7 @@ Full example in [Example2](../11_OOP/Example2/ice_cream_test.f90).
 
 You can write a subroutine to work for multiple types. The code will have to behave differently for each type, this is ***type guarding***. 
 
-Use the `select type` construct see [here](https://www.intel.com/content/www/us/en/develop/documentation/fortran-compiler-oneapi-dev-guide-and-reference/top/language-reference/a-to-z-reference/s-1/select-type.html), example: 
+Use the `select type` construct, see info [here](https://www.intel.com/content/www/us/en/develop/documentation/fortran-compiler-oneapi-dev-guide-and-reference/top/language-reference/a-to-z-reference/s-1/select-type.html), example: 
 
 ```fortran
 ! prints member variables from the ice_cream type

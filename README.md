@@ -16,6 +16,7 @@ Notes on above:
 4. No method to write arrays neatly given to check your work. Use [tutorialspoint](https://www.tutorialspoint.com.cach3.com/programming_example/hhj1FL/fortran-reshape-functions.html) seen in Ch3 ex2 code (***[03_Arrays/ex2.f90](./03_Arrays/ex2.f90)***) or output to csv (later chapter).
 5. Ch5 ex1 when the author says upper bound the meaning is the size of the array.
 6. Ch5 ex3 exercise says to declare dx but not used in program.
+7. Ch8 onwards gets hard to read the text because the pdf render has messed up formatting and no syntax hihglighting. Recommend find other online tutorials.
 
 ## lrz course
 
