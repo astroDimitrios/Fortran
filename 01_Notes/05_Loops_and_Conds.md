@@ -117,5 +117,5 @@ Both can have integer or string constant after and printed to error output, defa
 
 <div style="color: black; background-color:rgba(255, 76, 48, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
     <strong>DO NOT:</strong>
-  Never use PAUSE or STOP in favour of full error logging. See section !!!!!!!!!!!!!!!.
+  Never use PAUSE or STOP on its own in favour of full error logging. See section [10 Exception Handling](./10_Exception_Handling.md) and LOGGING?????????????????.
   </div>

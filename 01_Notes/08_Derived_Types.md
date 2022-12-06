@@ -39,7 +39,7 @@ xyz_grid%nx = n
 allocate( xyz_grid%x(n), xyz_grid%y(n), xyz_grid%z(n) )
 ```
 
-Code snippet [example](../8_Derived_Types/derived_types.f90).
+Code snippet [example](../08_Derived_Types/derived_types.f90).
 
 ## Example + Defaults
 
@@ -55,7 +55,7 @@ type(four_momentum) :: particle
 particle   = four_momentum(E=0)  ! set E but not p
 particle%p = [0, 0, 0]         ! set p later
 ```
-Note all default won't work above due to the allocatable `p` array. Code snippet from ex1 [here](../8_Derived_Types/Exercise1/ex1.f90).
+Note all default won't work above due to the allocatable `p` array. Code snippet from ex1 [here](../08_Derived_Types/Exercise1/ex1.f90).
 
 <br></br>
 <a name="2"></a>
@@ -72,4 +72,4 @@ type, extends(species) :: bird
 end type bird
 ```
 
-Code snippet [example](../8_Derived_Types/type_ext.f90).
+Code snippet [example](../08_Derived_Types/type_ext.f90).

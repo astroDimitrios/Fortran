@@ -1,6 +1,6 @@
 # Compile
 
-For compiling function modules and libraries see ***[6_1_Func_Modules.md](./6_1_Func_Modules.md)***.
+For compiling function modules and libraries see ***[06_1_Func_Modules.md](./06_1_Func_Modules.md)***.
 
 `gfortran -o myprogram myprogram.f`    
 `./myprogram`
@@ -43,6 +43,6 @@ Use `-fpen` option:
 `-fpe1` No error messages, get NaNs and +-Infs. Underflow set to zero.      
 `-fpe3` DEFAULT full exception behaviour. Underflow gradual - not necessarily 0.
 
-See [here](http://astroa.physics.metu.edu.tr/MANUALS/intel_ifc/mergedProjects/bldaps_for/using_the_floating_point_exception_handling_(-fpe)_option.htm) for more and an example of these options.
+See [here](http://astroa.physics.metu.edu.tr/MANUALS/intel_ifc/mergedProjects/bldaps_for/using_the_floating_point_exception_handling_(-fpe)_option.htm) for more and an example of these options. Better is to use the [IEEE Exceptions](./10_Exception_Handling.md).
 
 [Divide by zero check](https://rosettacode.org/wiki/Detect_division_by_zero#Fortran) rosettacode.

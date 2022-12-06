@@ -46,3 +46,5 @@ or in the double precision form:
 > 4*atan(1D0)
 >
 > [rosettacode.org](https://rosettacode.org/wiki/Real_constants_and_functions#Fortran)
+
+OR store in a constants module as shown [here](../09_Modules/Exercise3/constants_mod.f90).

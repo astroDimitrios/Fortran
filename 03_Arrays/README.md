@@ -8,7 +8,7 @@ Prints matrix to terminal
 # Exercises
 
 ## ex1
-! Write a program that declares two real and one integer arrays, each of size ( 100,100).      
+! Write a program that declares two real and one integer arrays, each of size ( 100, 100 ).      
 !   a.  Initialize one real array to all zeroes and the other to all threes.     
 !       Initialize the integer array to all six.    
 !       Add the integer array to the array whose elements take the value of three and store into the third array.    

@@ -56,7 +56,7 @@ subroutine poisson(x)
 
 Can also pass the shape parameters to the function/subroutine.
 
-Code snippet [example](../7_Memory_Manage/alloc_arrays.f90).
+Code snippet [example](../07_Memory_Manage/alloc_arrays.f90).
 
 <br></br>
 <a name="2"></a>
@@ -113,4 +113,4 @@ Associate and disassociate on same level/scope ie. both in same subroutine. Allo
 ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.    
 `nullify()` does not deallocate if also allocated. Ensure you nullify at the end of the scope.
 
-Code snippet [example](../7_Memory_Manage/pointers.f90).
+Code snippet [example](../07_Memory_Manage/pointers.f90).

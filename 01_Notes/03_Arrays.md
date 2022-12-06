@@ -1,6 +1,8 @@
 # Arrays
 
-**COLUMN FIRST**
+**COLUMN FIRST** ordering
+
+There is more on arrays in the [07 Memory Management](./07_Memory_Management.md) section.
 
 ## Declaration    
 

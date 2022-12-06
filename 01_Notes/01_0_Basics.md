@@ -119,7 +119,7 @@ Can use `exit <name>` within a block.
 - Avoid mixing types in arithmetic.
 - Set dp constants with `3.14d0` not just `3.14 ! single precision`.
 
-**GOOD Practice:** See [constants_mod.f90](../9_Modules/Exercise3/constants_mod.f90)
+**GOOD Practice:** See [constants_mod.f90](../09_Modules/Exercise3/constants_mod.f90)
 
 ````fortran
 integer, parameter :: sp = selected_real_kind( 6, 37 )
@@ -143,11 +143,13 @@ Care with floats:
 use, intrinsic :: iso_fortran_env
 implicit none
 
-integer, parameter :: sp = REAL32
-real(sp)      :: x = 1.0
-real          :: y
-y = 1.0_sp
+integer, parameter :: dp = REAL64
+real(dp)           :: x = 1.0_dp
+real(dp)           :: y
+y = 1.0     ! single precision
+y = 1.0_dp  ! double precision
 ````
+See [fortran90.org gotchas](https://www.fortran90.org/src/gotchas.html).
 
 Using above these give:
 

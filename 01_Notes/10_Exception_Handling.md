@@ -41,7 +41,7 @@ ieee_is_nan(x)    ! determine if a value is IEEE NaN
 
 From [fortranwiki.org](https://fortranwiki.org/fortran/show/ieee_arithmetic).
 
-**Example:** Setting value to IEEE Inf if it is supported in [my_shape_stats.f90](../9_Modules/Exercise2/my_shape_stats.f90).
+**Example:** Setting value to IEEE Inf if it is supported in [my_shape_stats.f90](../09_Modules/Exercise2/my_shape_stats.f90).
 
 <br></br>
 <a name="3"></a>
@@ -56,7 +56,7 @@ See [here](https://www.nag.com/nagware/np/r70_doc/ieee_exceptions.html) for more
 <a name="31"></a>
 ## Example: Division by Zero
 
-As in [ex2](../6_Functions_Subroutines/Exercise2/Part2/ex2_2.f90)
+As in [ex2](../06_Functions_Subroutines/Exercise2/Part2/ex2_2.f90)
 
 ```fortran
 subroutine check_divide_zero( x, y )

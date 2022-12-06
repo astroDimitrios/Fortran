@@ -49,6 +49,7 @@ program ex1
 
     close (8) 
 
+    ! preferred
     open (action='write', file='ex1_data.dat', iostat=rc, newunit=file_unit)
     if (rc /= 0) stop 'Error: open failed'
     write (file_unit, *) 12
