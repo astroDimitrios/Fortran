@@ -12,7 +12,7 @@
 
 program ex4
 
-    use ice_cream_mod, only : ice_cream, operator (+)
+    use ice_cream_mod, only: ice_cream, operator (+)
     implicit none
 
     type(ice_cream) :: choc, rasp, combine

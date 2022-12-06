@@ -68,9 +68,9 @@ contains
 
     subroutine check_divide_zero(x, y)
         
-        use :: ieee_exceptions, only : ieee_set_flag, &
-                                       ieee_get_flag, &
-                                       ieee_divide_by_zero
+        use :: ieee_exceptions, only: ieee_set_flag, &
+                                      ieee_get_flag, &
+                                      ieee_divide_by_zero
 
         implicit none
 
@@ -87,7 +87,7 @@ contains
         ! Could stop the program
         ! if (flag) error stop 'Warning!  Division by zero detected'
         ! or continue
-        if (flag) write (*, *) 'Warning!  Division by zero detected'
+        if (flag) write (*,*) 'Warning!  Division by zero detected'
 
     end subroutine check_divide_zero
 

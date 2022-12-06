@@ -57,6 +57,13 @@
     1. [Derived Types](./8_Derived_Types.md#1)
     2. [Extending Types](./8_Derived_Types.md#2)
     3. [Linked List with Der Type Example](../8_Derived_Types/Exercise3/ex3.f90)
+9. [Modules](./6_1_Modules.md) in notes at [6.2](./6_1_Modules.md)
+10. [Excpetion Handling](./10_Exception_Handling.md)
+    1. [IEEE Standard](./10_Exception_Handling.md#1)
+    2. [IEEE Arithmetic](./10_Exception_Handling.md#2)
+    3. [IEEE Exceptions](./10_Exception_Handling.md#3)
+        1. [Ex: Divide by Zero](./10_Exception_Handling.md#31)
+        2. [Ex: Overflow](./10_Exception_Handling.md#32)
 
 <br></br>
 
@@ -88,7 +95,7 @@ print *, x(1:N:3)
 ### 6 Functions and Subroutines
 
 [ex2_1](../6_Functions_Subroutines/Exercise2/Part1/ex2_1.f90) - Overloaded function      
-[ex2_2](../6_Functions_Subroutines/Exercise2/Part2/ex2_2.f90) - Divide by zero error check with ieee exceptions
+[ex2_2](../6_Functions_Subroutines/Exercise2/Part2/ex2_2.f90) - **Divide by zero error** check with ieee exceptions
 
 ### 8 Derived Types
 
@@ -96,6 +103,6 @@ print *, x(1:N:3)
 
 ## 9 Modules
 
-[ex2](../9_Modules/Exercise2/ex2.f90) - Contains IEEE Inf use, and the `random_number` intrinsic, good module use example       
-[ex3](../9_Modules/Exercise3/ex3.f90) - CONSTANTS, proper use of KINDS and constants, good procedure overload example     
+[ex2](../9_Modules/Exercise2/ex2.f90) - Contains **IEEE Inf** use, and the `random_number` intrinsic, good module use example       
+[ex3](../9_Modules/Exercise3/ex3.f90) - **CONSTANTS module**, proper use of KINDS and constants, good procedure overload example     
 [ex4](../9_Modules/Exercise4/ex4.f90) - Overloaded + operator used on a derived type

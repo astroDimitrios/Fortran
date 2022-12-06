@@ -12,8 +12,8 @@
 
 program ex3
 
-    use constants_mod, only : r_native, dp_native
-    use my_stats,      only : mean, std_dev
+    use constants_mod, only: r_native, dp_native
+    use my_stats,      only: mean, std_dev
     implicit none
 
     integer              :: i

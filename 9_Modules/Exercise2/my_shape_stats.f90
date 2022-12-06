@@ -8,9 +8,9 @@
 
 module my_shape_stats
 
-    use ieee_arithmetic, only : ieee_support_inf,  &
-                                ieee_positive_inf, &
-                                ieee_value
+    use ieee_arithmetic, only: ieee_support_inf,  &
+                               ieee_positive_inf, &
+                               ieee_value
 
     implicit none
 

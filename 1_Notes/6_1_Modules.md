@@ -52,7 +52,7 @@ end module mod_solvers
 then in main program:
 
 ````fortran
-use mod_solvers, only solve_quadratic
+use mod_solvers, only: solve_quadratic
 implicit none
 ````
 you can now call the function.
@@ -116,10 +116,10 @@ Modules that define classes should have the `private` default.
 ```fortran
 use module
 ! use ONLY the procedures you need
-use module, only my_func
+use module, only: my_func
 
 ! to rename and avoid namespace collision
-use module, only this_func => my_func
+use module, only: this_func => my_func
 ```
 
 <br></br>

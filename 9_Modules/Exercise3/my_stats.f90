@@ -6,7 +6,7 @@
 
 module my_stats
 
-    use constants_mod, only : r_native, dp_native
+    use constants_mod, only: r_native, dp_native
 
     implicit none
     private

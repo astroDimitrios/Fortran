@@ -14,7 +14,7 @@
 
 program ex1
 
-    use my_stats, only : mean, std_dev
+    use my_stats, only: mean, std_dev
     implicit none
 
     integer            :: i

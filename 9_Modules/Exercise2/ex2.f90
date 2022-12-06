@@ -16,8 +16,8 @@
 
 program ex2
 
-    use my_stats,       only : mean, std_dev
-    use my_shape_stats, only : std_dev2 => std_dev, kurtosis
+    use my_stats,       only: mean, std_dev
+    use my_shape_stats, only: std_dev2 => std_dev, kurtosis
     implicit none
 
     integer            :: i
