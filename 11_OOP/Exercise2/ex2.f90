@@ -19,7 +19,7 @@
 ! Write a short program to test your modules.
 !
 ! Compile:
-! gfortran -c bird_species_class.f90
+! gfortran -c bird_species_class.f90 
 ! gfortran -c ex2.f90
 ! gfortran -o ex2 ex2.o bird_species_class.o
 ! ./ex2
@@ -32,6 +32,10 @@ program ex2
     type(bird_species) :: bird_1, bird_2, child_bird_1
     bird_1 = bird_species()
 
+    print *, bird_1%survive_chick
+    print *, bird_1%survive_fletch
     call bird_1%hatch(child_bird_1)
+
+    bird_2 = child_bird_1
 
 end program ex2

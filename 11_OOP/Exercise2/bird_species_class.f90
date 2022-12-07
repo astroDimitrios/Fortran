@@ -25,12 +25,13 @@ module bird_species_class
     public bird_species
 
     type bird_species
-        private
-        character(len=20) :: genus_name, species_name
-        integer           :: incubation_period         ! days
-        real              :: mean_clutch_size          ! number of eggs
-        character(len=15) :: diet
-        integer           :: life_span                 ! days
+        ! private
+        character(len=20)    :: genus_name, species_name
+        integer              :: incubation_period         ! days
+        real                 :: mean_clutch_size          ! number of eggs
+        character(len=15)    :: diet
+        integer              :: life_span                 ! days
+        logical, allocatable :: survive_chick, survive_fletch
     contains
         private
         procedure, public :: hatch
@@ -49,6 +50,12 @@ contains
         implicit none
         type(bird_species) :: new_species
 
+        allocate( new_species%survive_chick, new_species%survive_fletch )
+        new_species%survive_chick = .true.
+        new_species%survive_fletch = .true.
+
+        print *, new_species%survive_fletch
+
     end function init_bird_species
 
     subroutine hatch(self, chick)
@@ -57,13 +64,24 @@ contains
         class(bird_species), intent(out)   :: chick
 
         real :: rand
-        call random_number(rand)
 
-        if ( rand > 0.5 ) then
-            chick = self
-            write (*,*) 'The chick survived!'
+        ! don't hatch from dead birds or chicks and fletchlings
+        if ( .not. allocated(self%survive_fletch) ) then
+            write (*,*) 'Cannot hatch from a dead or young bird'
+        else if ( .not. self%survive_fletch) then
+            write (*,*) 'Cannot hatch from a dead bird'
         else 
-            write (*,*) 'The chick died...'
+            call random_number(rand)
+            chick = self
+            allocate( chick%survive_chick )
+
+            if ( rand > 0.5 ) then
+                chick%survive_chick = .true.
+                write (*,*) 'The chick survived!'
+            else 
+                chick%survive_chick = .false.
+                write (*,*) 'The chick died...'
+            end if
         end if
 
     end subroutine hatch
@@ -73,18 +91,32 @@ contains
         class(bird_species), intent(in)  :: rhs_bird
         class(bird_species), intent(out) :: lhs_bird
 
-        lhs_bird%genus_name = rhs_bird%genus_name
-        lhs_bird%species_name = rhs_bird%species_name
-        lhs_bird%incubation_period = rhs_bird%incubation_period
-        lhs_bird%mean_clutch_size = rhs_bird%mean_clutch_size
-        lhs_bird%diet = rhs_bird%diet
-        lhs_bird%life_span = rhs_bird%life_span
+        ! don't copy dead birds
+        if ( allocated(rhs_bird%survive_chick) ) then
+            if ( .not. rhs_bird%survive_chick ) then
+                write (*,*) 'Cannot copy a dead bird you idiot'
+            end if
+        else if ( allocated(rhs_bird%survive_fletch) ) then
+            if ( .not. rhs_bird%survive_fletch ) then
+                write (*,*) 'Cannot copy a dead bird you idiot'
+            end if
+        else 
+            lhs_bird%genus_name = rhs_bird%genus_name
+            lhs_bird%species_name = rhs_bird%species_name
+            lhs_bird%incubation_period = rhs_bird%incubation_period
+            lhs_bird%mean_clutch_size = rhs_bird%mean_clutch_size
+            lhs_bird%diet = rhs_bird%diet
+            lhs_bird%life_span = rhs_bird%life_span
+        end if
 
     end subroutine equate_bird_species
 
     subroutine destroy_bird_species(self)
         implicit none
         type(bird_species) :: self
+
+        if ( allocated(self%survive_chick) ) deallocate(self%survive_chick)
+        if ( allocated(self%survive_fletch) ) deallocate(self%survive_fletch)
 
     end subroutine destroy_bird_species
 
