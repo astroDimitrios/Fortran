@@ -15,6 +15,12 @@
 !
 ! Overload the assignment operator to copy a grid to another grid.
 ! Write a main program that uses the object.
+!
+! Compile
+! gfortran -c grid_class_mod.f90 
+! gfortran -c ex1.f90
+! gfortran -o ex1 ex1.o grid_class_mod.o
+! ./ex1
 
 program grid_test
 

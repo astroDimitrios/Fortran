@@ -94,9 +94,9 @@ contains
     end function add_ice_creams
 
     subroutine equate_ice_creams( lhs_ice, rhs_ice )
-        class(ice_cream), intent(in) :: rhs_ice
+        class(ice_cream), intent(in)  :: rhs_ice
         class(ice_cream), intent(out) :: lhs_ice
-        integer                      :: num_extras
+        integer                       :: num_extras
 
         lhs_ice%balls = rhs_ice%balls
         lhs_ice%flavour = rhs_ice%flavour

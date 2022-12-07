@@ -28,3 +28,23 @@
 ! Write a main program that uses the object.    
 
 ## ex2
+
+! Write a class module that implements a bird_species object.     
+! This object will have attributes such as genus name, species name,    
+! incubation period, mean clutch size, diet preference,     
+! and average life span.   
+!     
+! The methods should include procedures: hatch, which returns a logical     
+! (i.e. did the chick survive);     
+! fledge, which also returns a logical for survival or not,    
+! and forage, which returns something to indicate whether    
+! the bird found food and if so, what it was.     
+!     
+! Write another module bird which extends bird_species to describe     
+! an individual of a particular species.      
+! The attributes of each instance of this object will be those     
+! relevant to an individual, including age, gender, and whether   
+! it is currently breeding.    
+! Write a constructor for each type.     
+!    
+! Write a short program to test your modules.    
