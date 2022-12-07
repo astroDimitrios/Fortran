@@ -15,3 +15,51 @@
 !
 ! Overload the assignment operator to copy a grid to another grid.
 ! Write a main program that uses the object.
+
+program grid_test
+
+    use grid_class_mod, only: grid_2D
+    implicit none
+
+    ! Writing matrix properly to screen
+    ! From - https://www.tutorialspoint.com.cach3.com/programming_example/hhj1FL/fortran-reshape-functions.html
+    interface
+        subroutine write_matrix(x)
+            real :: x(:,:,:)
+        end subroutine write_matrix
+    end interface
+
+    integer       :: num_cells(2)
+    real          :: bounds(2,2)
+    type(grid_2D) :: grid_2D_1, grid_2D_2
+
+    ! test basic member assignment
+    num_cells = [ 2, 2 ]
+    bounds = transpose(reshape( [0, 10, 0, 10], shape(bounds) ))
+    grid_2D_1 = grid_2D(num_cells, bounds)
+
+    ! test creating the allocatable grid
+    call grid_2D_1%create_grid
+    call write_matrix(grid_2D_1%grid)
+
+    ! test overloaded assignment operator
+    grid_2D_2 = grid_2D_1
+    ! test scaling
+    call grid_2D_2%scale_cells(2.0)
+
+    ! double .5 call fails correctly
+    ! call grid_2D_2%scale_cells(.5)
+    ! call grid_2D_2%scale_cells(.5) fails
+
+    call write_matrix(grid_2D_2%grid)
+    
+end program grid_test
+
+subroutine write_matrix(x)
+    real :: x(:,:,:)
+    write (*,*)
+    
+    do i = lbound(x,1), ubound(x,1)
+       write (*,*) '[', ( x(i,j,:), j = lbound(x,2), ubound(x,2) ), ']'
+    end do
+end subroutine write_matrix

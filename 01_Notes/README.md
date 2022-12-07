@@ -121,4 +121,6 @@ print *, x(1:N:3)
 ## 11 Object Orientated Programming
 
 [Example1](../11_OOP/Example1/) - Class, extended class, overloaded operator    
-[Example2](../11_OOP/Example2/) - Abstract class, type guarding with `select type` construct
+[Example2](../11_OOP/Example2/) - Abstract class, type guarding with `select type` construct    
+
+[ex1](./Exercise1/ex1.f90) - Example of arrays held in 2D array, **creating 2D cartesian grid**    
