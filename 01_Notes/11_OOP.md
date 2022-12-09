@@ -227,7 +227,7 @@ module holiday_ice_cream_class
     private
     public holiday_ice_cream
 
-    type holiday_ice_cream
+    type, extends(ice_cream) :: holiday_ice_cream
         private
     contains
         ! must have this procedure defined in base class

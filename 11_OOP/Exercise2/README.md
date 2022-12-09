@@ -2,7 +2,8 @@
 
 Instructions [here](../README.md).
 
-Only need 1 bird to make a chick.
+Only need 1 bird to make a chick.    
+Food is carried over each day if there is a surplus.     
 Survival stats for Toucans:
 
 <center>
