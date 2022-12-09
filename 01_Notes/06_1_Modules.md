@@ -128,10 +128,12 @@ use module, only: this_func => my_func
 
 Can store in archive file if they aren't changing often:
 
-`ar cr my_lib.a obj1.o obj2.o obj3.o`
+`ar -cru my_lib.a obj1.o obj2.o obj3.o`
 
-Creates a `.a` archive file with the 3 obj module files inside.
+Creates a `.a` archive file with the 3 obj module files inside. From lrz_course:
+
+> c creates library archive if necessary , r replaces existing members of same name, u only does so if argument object is newer
 
 ````
-gfortran -o main.exe my_main.o my_lib.a
+gfortran -o main my_main.o my_lib.a
 ````

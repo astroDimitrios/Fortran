@@ -162,6 +162,14 @@ real(x, sp) ! converts to the kind sp (single precision)
 real(x, dp) ! converts to the kind dp (double precision)
 ```
 
+Character KIND precedes the string (from [lrz course](https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran)).
+
+```fortran
+integer, parameter :: ck = kind('A')
+character(kind=ck, len=12) :: fh
+fh = ck_'The Good Place'
+```
+
 <a name="51"></a>
 ## TIPS
 

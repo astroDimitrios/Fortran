@@ -157,6 +157,29 @@ integer, value :: x
 <a name="54"></a>
 ## Passing Functions as Arguments
 
+```fortran
+module my_maths
+    implicit none
+
+    abstract interface 
+        real function func_int(x)
+            real, intent(inout) :: x
+        end function func_int
+    end interface
+
+contains
+
+    subroutine basic_maths(a, func, val)
+        real, intent(inout)   :: a
+        procedure(func_int)       :: func
+        real, intent(out)     :: val
+
+        val = func(a)
+    end subroutine basic_maths
+
+end module my_maths
+```
+
 Usefull [Stackoverflow link](https://stackoverflow.com/questions/32809769/how-to-pass-subroutine-names-as-arguments-in-fortran).
 
 Example in ***[lrz_course/run_my_maths.90](../lrz_course/run_my_maths.f90)*** which uses a subroutine in ***[my_maths.90](../lrz_course/my_maths.f90)*** that accepts a function as an argumnet. Function is provided by module ***[my_powers.f90](../lrz_course/my_powers.f90)***.

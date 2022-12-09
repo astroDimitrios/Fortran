@@ -94,6 +94,8 @@ end program ice_cream_test
 
 **NOTE:** When `whippy` was declared memory was allocated. When we initialised `whippy = ice_cream()` the `ice_cream` constructor was called which initialised the instance then copied the instance via the assignment operator into new memory. Be careful when overloading the assignment operator, see below.  
 
+**NOTE:** DO declare default to be private. You can also use `protected` which only allows modification in the host, otherwise only read access.
+
 <br></br>
 <a name="2"></a>
 # Overloading Operators
