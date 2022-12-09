@@ -92,6 +92,8 @@ program ice_cream_test
 end program ice_cream_test
 ```
 
+**NOTE:** When `whippy` was declared memory was allocated. When we initialised `whippy = ice_cream()` the `ice_cream` constructor was called which initialised the instance then copied the instance via the assignment operator into new memory. Be careful when overloading the assignment operator, see below.  
+
 <br></br>
 <a name="2"></a>
 # Overloading Operators
@@ -124,7 +126,7 @@ Then:
     end function add_ice_creams
 
     subroutine equate_ice_creams( lhs_ice, rhs_ice )
-        class(ice_cream), intent(in) :: rhs_ice
+        class(ice_cream), intent(in)  :: rhs_ice
         class(ice_cream), intent(out) :: lhs_ice
 
         lhs_ice%balls = rhs_ice%balls
