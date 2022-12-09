@@ -41,7 +41,7 @@ program grid_test
 
     ! test basic member assignment
     num_cells = [ 2, 2 ]
-    bounds = transpose(reshape( [0, 10, 0, 10], shape(bounds) ))
+    bounds    = transpose(reshape( [0, 10, 0, 10], shape(bounds) ))
     grid_2D_1 = grid_2D(num_cells, bounds)
 
     ! test creating the allocatable grid

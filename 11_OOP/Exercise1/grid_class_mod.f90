@@ -53,9 +53,10 @@ contains
 
     function init_grid( num_cells, bounds ) result(new_grid)
         implicit none
+        type(grid_2D) :: new_grid
+
         integer       :: num_cells(2) 
         real          :: bounds(2,2)
-        type(grid_2D) :: new_grid
 
         if ( any(num_cells < 2) ) then
             error stop 'Cell Number cannot be < 2 in any dimension'
@@ -63,9 +64,9 @@ contains
             error stop 'Upper bound must be greater than lower bound'
         end if
 
-        new_grid%num_cells = num_cells
+        new_grid%num_cells      = num_cells
         new_grid%total_cell_num = num_cells(1) * num_cells(2)
-        new_grid%bounds = bounds
+        new_grid%bounds         = bounds
 
         call compute_delta(new_grid)
 
@@ -74,6 +75,7 @@ contains
     subroutine compute_delta(self)
         implicit none
         class(grid_2D), intent(inout) :: self
+
         integer                       :: i
 
         do i = 1, 2
@@ -86,6 +88,7 @@ contains
     subroutine create_grid(self)
         implicit none
         class(grid_2D), intent(inout) :: self
+
         integer                       :: i, j
         real                          :: i_val, j_val
         
@@ -103,6 +106,7 @@ contains
     subroutine scale_cells(self, scale)
         implicit none
         class(grid_2D), intent(inout) :: self
+
         real, intent(in)              :: scale
         integer                       :: new_num_cells(2)
 
@@ -131,13 +135,14 @@ contains
         class(grid_2D), intent(out) :: lhs_grid
 
         lhs_grid%total_cell_num = rhs_grid%total_cell_num
-        lhs_grid%num_cells = rhs_grid%num_cells
-        lhs_grid%bounds = rhs_grid%bounds
-        lhs_grid%delta = rhs_grid%delta
+        lhs_grid%num_cells      = rhs_grid%num_cells
+        lhs_grid%bounds         = rhs_grid%bounds
+        lhs_grid%delta          = rhs_grid%delta
 
         if ( allocated(rhs_grid%grid) ) then
             allocate( lhs_grid%grid( lhs_grid%num_cells(1), &
                                      lhs_grid%num_cells(2), 2 ) )
+            lhs_grid%grid = rhs_grid%grid
         end if
 
     end subroutine equate_grid
