@@ -11,7 +11,8 @@
 <a name="1"></a>
 # Basics
 
-**DO:** Define a class in a separate module.
+**DO:** Define a class in a separate module.    
+**DO:** Assign default values for members if possible.
 
 Example [`ice_cream`](../11_OOP/Example1/ice_cream_class.f90) class:
 
@@ -26,8 +27,8 @@ module ice_cream_class
 
     ! define class as a type
     type ice_cream
-        integer                        :: balls
-        character(len=20)              :: flavour
+        integer                        :: balls = 0
+        character(len=20)              :: flavour = 'Unknown'
         character(len=20), allocatable :: extras(:)
     contains
         private

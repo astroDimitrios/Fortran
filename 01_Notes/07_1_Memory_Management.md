@@ -41,6 +41,17 @@ Associate and disassociate on same level/scope ie. both in same subroutine.
 Allocate and deallocate in reverse order
 ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.    
 
+Can also take the `stat` option which returns zero if the operation is successful.
+
+```fortran
+allocate( x, stat=ifail )
+```
+
+You can also move an allocatable which avoids copying data:
+```fortran
+call move_alloc(from, to)
+```
+
 <a name="11"></a>
 ## Assumed Shape and Automatic Array
 
@@ -49,7 +60,7 @@ Useful in subroutines where the size of the array is not known:
 ```fortran
 subroutine poisson(x)
     ! Assumes shape of x
-    real, intent (inout) :: x(:,:)
+    real, intent(inout) :: x(:,:)
     ! Automatic array + assumed shape
     real                 :: x_prev( size(x, 1), size(x, 2) )
 ```
@@ -57,6 +68,13 @@ subroutine poisson(x)
 Can also pass the shape parameters to the function/subroutine.
 
 Code snippet [example](../07_Memory_Manage/alloc_arrays.f90).
+
+### Contiguous Attribute
+
+```fortran
+real, intent(inout), contiguous :: x(:,:)
+```
+Can also pass the `contiguous` argument. If the array slice is already contiguous in memory this does nothing. If the array slice is non-contiguous in memory then a temporary contiguous array is created, this introduces extra overhead.
 
 <br></br>
 <a name="2"></a>
@@ -68,7 +86,8 @@ Points to a target:
 real, pointer :: p, q
 real, target  :: x, y
 
-! avoid undefined pointers
+! best practice:
+! avoid undefined pointers, assign null()
 real, pointer :: a(:,:) => null()
 
 x = 10.0
@@ -88,6 +107,7 @@ print *, 'p = ', p
 Test if associated:
 
 ```fortran
+! Pointer MUST be defined (initialise as null())
 if ( .not. associated(p) ) p => x
 ! to a specific variable
 if ( .not. associated(p, x) ) p => x
@@ -114,3 +134,10 @@ ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.
 `nullify()` does not deallocate if also allocated. Ensure you nullify at the end of the scope.
 
 Code snippet [example](../07_Memory_Manage/pointers.f90).
+
+### TIPS
+
+From lrz_course:
+
+- Use dynamic entities sparingly, keep track of allocation and deallocation
+- If possible use allocatable entities not pointer entities

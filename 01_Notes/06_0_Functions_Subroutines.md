@@ -16,6 +16,7 @@
 7. [SAVE ing variables !WARNING](#7)
 8. [Pure Functions](#8)
     1. [Elemental Functions](#81)
+9. [Assumed Rank Arguments](#9)
 
 <a name="1"></a>
 # Functions
@@ -25,7 +26,7 @@ Return value is name of the function.
 
 ````fortran
 real function myfunc(x)
-    real, intent(in) :: x
+    real, intent(in) :: x(:) ! assumed shape array, rank 1
     
     myfunc = x**2
 end function myfunc
@@ -57,8 +58,8 @@ call subroutine square(xx, p=pp)
 ````
 ````fortran
 subroutine square( x, p )
-    integer, intent (in)        :: x
-    real, optional, intent (in) :: p
+    integer, intent(in)        :: x
+    real, optional, intent(in) :: p
 
     if ( present(p) ) then 
         print *, 'No'
@@ -89,8 +90,8 @@ end subroutine square
 ````fortran
 interface
     subroutine square( x, p )
-        integer, intent (in)        :: x
-        real, optional, intent (in) :: p
+        integer, intent(in)        :: x
+        real, optional, intent(in) :: p
     end subroutine square
 end interface
 ````
@@ -171,7 +172,7 @@ contains
 
     subroutine basic_maths(a, func, val)
         real, intent(inout)   :: a
-        procedure(func_int)       :: func
+        procedure(func_int)   :: func
         real, intent(out)     :: val
 
         val = func(a)
@@ -261,9 +262,41 @@ A function that operates element wise on an array. Must be PURE. Requires an out
 
 ```fortran
 elemental function add_2(x)
-    real, intent (in) :: x
-    real              :: add_2
+    real, intent(in) :: x
+    real             :: add_2
 
     add_2 = x + 2
 end function add_2
 ```
+
+<br></br>
+<a name="9"></a>
+# Assumed Rank Arguments
+
+F2018
+
+Dummy arguments for funcs/subroutines can now have an assumed rank.
+
+Use `(..)`:
+
+```fortran
+subroutine write_matrix(matrix)
+    real, intent(in) :: matrix(..)
+    ...
+end subroutine write_matrix
+``` 
+
+You can then select what code to execute based on the rank of the argument at run time. Use the `select rank` construct:
+
+```fortran
+select rank (matrix)
+    rank (0)
+        print *, 'Scalar Argument!'
+    rank (1)
+        ...
+    rank default
+        error stop 'Rank > 1 not supported'
+end select
+```
+
+More info and restrictions: [IBM](https://www.ibm.com/docs/en/xl-fortran-linux/16.1.1?topic=concepts-assumed-rank-objects-ts-29113)

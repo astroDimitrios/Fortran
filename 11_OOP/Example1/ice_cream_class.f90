@@ -6,8 +6,8 @@ module ice_cream_class
     public ice_cream
 
     type ice_cream
-        integer                        :: balls
-        character(len=20)              :: flavour
+        integer                        :: balls = 0
+        character(len=20)              :: flavour = 'Unkown'
         character(len=20), allocatable :: extras(:)
     contains
         private

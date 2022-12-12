@@ -4,10 +4,10 @@
 ## Contents
 
 1. [Introduction](#1)
-2. [Declaring Types](#2)
+2. [Declaring Kinds (Basic)](#2)
 3. [Declaring Variables](#3)
 4. [Block Construct](#4)
-5. [Precision](#5)
+5. [Kinds / Precision](#5)
     1. [Precision Tips](#51)
 
 <a name="1"></a>
@@ -51,7 +51,9 @@ write (*,*) &
 
 <br></br>
 <a name="2"></a>
-# Declaring Types
+# Declaring Kinds (Basic)
+
+Integer, real (float), character, complex, logical ...
 
 Examples:
 
@@ -111,7 +113,7 @@ Can use `exit <name>` within a block.
 
 <br></br>
 <a name="5"></a>
-# Precision
+# Kinds / Precision
 
 ***Default precision*** for real is usually ***single***.
 
@@ -127,7 +129,7 @@ integer, parameter :: dp = selected_real_kind( 15, 307 )
 real(dp) :: a
 ````
 
-Or (Fortran 2008)
+Or (Fortran 2008) using the intrinsic Fortran module `iso_fortran_env`.
 
 ````fortran
 use, intrinsic :: iso_fortran_env
@@ -135,7 +137,8 @@ integer, parameter :: sp = REAL32
 integer, parameter :: dp = REAL64
 integer, parameter :: qp = REAL128
 ````
-From [fortranwiki.org](<https://fortranwiki.org/fortran/show/Real+precision>)
+From [fortranwiki.org](<https://fortranwiki.org/fortran/show/Real+precision>).    
+[Intrinsic Modules](https://gcc.gnu.org/onlinedocs/gfortran/Intrinsic-Modules.html)
 
 Care with floats:
 
@@ -169,6 +172,8 @@ integer, parameter :: ck = kind('A')
 character(kind=ck, len=12) :: fh
 fh = ck_'The Good Place'
 ```
+
+**NOTE:** `REAL*8` (byte units) are supported but NOT standard-conforming (lrz_course).
 
 <a name="51"></a>
 ## TIPS

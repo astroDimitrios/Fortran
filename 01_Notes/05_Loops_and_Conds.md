@@ -8,6 +8,7 @@
 4. [Do Loop](#4)
     1. [Implied Do](#41)
     2. [Do While](#42)
+    3. [Do Concurrent](#43)
 5. [Forall](#5)
 6. [Exiting & Termination](#6)
 
@@ -69,12 +70,12 @@ Stored column wise so loop order - k, j, i
 
 <a name="41"></a>
 ## Implied Do
-````fortran
+```fortran
 ( a(i), i = 1, 10 )
 ((r(i, j), j = 1, 10), i = 1, 20)
 
 data (((a(i, j, k), k= 1, 10), j = 1, 10), i = 1, 10) / 50. /
-````
+```
 
 <a name="42"></a>
 ## Do While
@@ -86,18 +87,49 @@ do while ( cond )
 end do
 ````
 
+<a name="43"></a>
+## Do Concurrent
+
+Attempts to parellise the do construct:
+
+```fortran
+do concurrent ( i = 1:N, j = 1:N )
+    block
+        real :: x
+        x = a(i, j) + ...
+        b(i, j) = x * c(j, i)
+    end block
+end do
+```
+
+The block construct removes flow dependency of x since it's created per iteration. 
+
+LOTS of restrictions:
+- No control statements, return, exit etc.
+- No stop, sync, allocate etc.
+- Procedures called MUST be PURE
+- No use of IEEE flags etc.
+
+See [llvm.org](https://flang.llvm.org/docs/DoConcurrent.html).
+
+Fortran 2018 has extra locality options to remove flow dependency see [intel.com](https://www.intel.com/content/www/us/en/develop/documentation/fortran-compiler-oneapi-dev-guide-and-reference/top/language-reference/a-to-z-reference/c-to-d/do-concurrent.html).
+
+Gfortran treats `do concurrent` the same as `do` but ensures that parellism is possible by enforcing the restrictions above. See [here](https://stackoverflow.com/questions/29928293/does-gfortran-take-advantage-of-do-concurrent).
+
 <br></br>
 <a name="5"></a>
 # Forall
 
-Not widely used - compiler choses fastest way to perform all operations, can be concurrent
+Not widely used - compiler choses fastest way to perform all operations, can be concurrent.
 
-sets diagonal elements of an array to 1:
+Sets diagonal elements of an array to 1:
 
 ````fortran
 real :: a(n:n)
 forall ( i = 1:n )  a(i, i) = 1
 ````
+
+**NOTE:** Often worse than a do loop. Fortran 18 standard makes `forall` obsolete.
 
 <br></br>
 <a name="6"></a>

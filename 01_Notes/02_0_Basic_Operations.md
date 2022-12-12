@@ -4,6 +4,8 @@
 
 `+ - * /`    
 
+**NOTE:** Dividing an array elementwise by a real is more expensive than multiplying than the inverse of the real which is computed beforehand.
+
 ## Character
 
 `//` Concatenation
