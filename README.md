@@ -37,5 +37,5 @@ to supplment the Holcomb pdf.
 - Fortran Wiki, https://fortranwiki.org/fortran/show/HomePage
 - Fortran90 Python Fortran Rosetta Stone, https://www.fortran90.org/src/rosetta.html
 - Scientific Programming in Fortran 2003, Katherine Holcomb, 2008, https://wiki.uiowa.edu/download/attachments/109785161/fortran-novella-holcomb.pdf
-- Programming with Fortran, lrz course, https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran - **Lots Exercises**
-- Programming with Fortran, unlv course, Ed Jorgensen, http://www.egr.unlv.edu/~ed/fortran.html - **Lots Exercises**
+- Programming with Fortran, lrz course, https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran - **Lots of Exercises**
+- Programming with Fortran, unlv course, Ed Jorgensen, http://www.egr.unlv.edu/~ed/fortran.html - **Lots of Exercises**

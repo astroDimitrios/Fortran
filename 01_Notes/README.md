@@ -94,7 +94,8 @@
     3. [Extended Class Types](./11_OOP.md#3)
     4. [Abstract Types](./11_OOP.md#4)
     5. [Type Guarding](./11_OOP.md#5)
-12. [lrz course examples](../12_lrz_course/README.md)
+12. [lrz course examples](./12_lrz_course.md)
+13. [Doxygen](./13_Doxygen.md)
 
 <br></br>
 
