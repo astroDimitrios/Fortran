@@ -4,3 +4,6 @@
 *.exe
 *.mod
 *.o
+
+./13_Doxygen/doc/*
+!./13_Doxygen/Doxyfile
