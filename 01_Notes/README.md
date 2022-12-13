@@ -19,7 +19,9 @@
     2. [Intrinsic Functions](./03_Arrays.md#2)
 4. [Input and Output](./04_Input_Output.md)
     1. [Basics](./04_Input_Output.md#1)
-    2. [Example Write](./04_Input_Output.md#2)
+    2. [Example Read / Write](./04_Input_Output.md#2)
+        1. [Read](./04_Input_Output.md#21)
+        2. [Write](./04_Input_Output.md#22)
     3. [Internal I/O](./04_Input_Output.md#3)
     4. [Formatting](./04_Input_Output.md#4)
 5. [Loops and Conditionals](./05_Loops_and_Conds.md)
@@ -59,6 +61,9 @@
     3. [Overloading](./06_2_Overloading.md)
         1. [Procedure Overloading](./06_2_Overloading.md#1)
         2. [Operator Overloading](./06_2_Overloading.md#2)
+    4. [Command Line Arguments](./06_3_Command_Line_Args.md)
+        1. [Basics](./06_3_Command_Line_Args.md#1)
+        2. [Example](./06_3_Command_Line_Args.md#2)
 7. [Memory Management](./07_1_Memory_Management.md)
     1. [Arrays and Pointers](./07_1_Memory_Management.md)
         1. [Allocatable Arrays](./07_1_Memory_Management.md#1)
@@ -89,6 +94,7 @@
     3. [Extended Class Types](./11_OOP.md#3)
     4. [Abstract Types](./11_OOP.md#4)
     5. [Type Guarding](./11_OOP.md#5)
+12. [lrz course examples](../12_lrz_course/README.md)
 
 <br></br>
 
@@ -122,6 +128,9 @@ print *, x(1:N:3)
 [ex2_1](../06_Functions_Subroutines/Exercise2/Part1/ex2_1.f90) - Overloaded function      
 [ex2_2](../06_Functions_Subroutines/Exercise2/Part2/ex2_2.f90) - **Divide by zero error** check with ieee exceptions
 
+[cla_args_test.f90](../06_Functions_Subroutines/CLAs/cla_args_test.f90) - Command line arguments    
+[Fibonacci Ex](../06_Functions_Subroutines/Fibonacci/recur_vs_iter.f90) - Recursion vs Iteration **TIMING**
+
 ### 8 Derived Types
 
 [ex3](../08_Derived_Types/Exercise3/ex3.f90) - Contains a Linked List. Reads a CSV of unknown length into data type.
@@ -142,5 +151,5 @@ print *, x(1:N:3)
 [Example1](../11_OOP/Example1/) - Class, extended class, overloaded operator    
 [Example2](../11_OOP/Example2/) - Abstract class, type guarding with `select type` construct    
 
-[ex1](./Exercise1/ex1.f90) - Example of arrays held in 2D array, **creating 2D cartesian grid**    
-**[ex2](./Exercise2/ex2.f90)** - FULL formatted class, extended class, overloaded assignment, getter functions     
+[ex1](../11_OOP/Exercise1/ex1.f90) - Example of arrays held in 2D array, **creating 2D cartesian grid**    
+**[ex2](../11_OOP/Exercise2/ex2.f90)** - FULL formatted class, extended class, overloaded assignment, getter functions     

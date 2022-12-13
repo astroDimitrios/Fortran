@@ -60,7 +60,7 @@ end where
 
 ````fortran
 do i = start, stop, interval
-    code
+    ...
 end do
 ````
 Endless do (without i) must have an exit statement.

@@ -3,7 +3,7 @@
 Known length   
 `character(len=5) :: a = 'Space'`
 
-Length calc auto   
+Length automatically calcualted
 `character(*), parameter :: b = 'the final frontier!'`
 
 Allocate length on assign   

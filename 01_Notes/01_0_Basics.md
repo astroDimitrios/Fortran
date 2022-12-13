@@ -121,7 +121,7 @@ Can use `exit <name>` within a block.
 - Avoid mixing types in arithmetic.
 - Set dp constants with `3.14d0` not just `3.14 ! single precision`.
 
-**GOOD Practice:** See [constants_mod.f90](../09_Modules/Exercise3/constants_mod.f90)
+**GOOD Practice:** See [constants_mod.f90](../06_Functions_Subroutines/Fibonacci/constants_mod.f90)
 
 ````fortran
 integer, parameter :: sp = selected_real_kind( 6, 37 )
@@ -173,7 +173,7 @@ character(kind=ck, len=12) :: fh
 fh = ck_'The Good Place'
 ```
 
-**NOTE:** `REAL*8` (byte units) are supported but NOT standard-conforming (lrz_course).
+**NOTE:** `REAL*8` (byte units) are supported but NOT standard-conforming (lrz course).
 
 <a name="51"></a>
 ## TIPS

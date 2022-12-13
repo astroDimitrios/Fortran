@@ -32,6 +32,8 @@ Column first order
 Row first order     
 `b = reshape( iv, [3, 3], order = [2, 1] )`
 
+Vectors can be passed as indices for another vector, etc.
+
 <br></br>
 <a name="2"></a>
 ## Intrinsic Functions

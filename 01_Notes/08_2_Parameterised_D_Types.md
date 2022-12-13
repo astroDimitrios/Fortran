@@ -10,7 +10,7 @@ F2003
 
 <a name="1"></a>
 # Basics
-Example code in [pdt_test.f90](../extras/pdt_test.f90).     
+Example code in [pdt_test.f90](../12_lrz_course/PDT/pdt_test.f90).     
 PDTs are created by passing parameters to the type declaration:
 
 ```fortran

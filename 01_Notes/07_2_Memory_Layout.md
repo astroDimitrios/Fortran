@@ -43,13 +43,13 @@ Example Image:
     <img width="75%" src="./Images/MemLayout.png" alt='Mem Layout'>
 </center>
 
-From lrz_course.
+From lrz course.
 
 <br></br>
 <a name="12"></a>
 # Example Transformation
 
-SoA can allow for easy vectorisation and memory access resulting in faster code. In the example in [extras](../extras/) the momentum for 1,000,000 planets with default masses and velocities is calculated. First with an [Array of Structures - AoS](../extras/mem_layout_AoS.f90) then with a [Structure of Arrays - SoA](../extras/mem_layout_SoA.f90) which is optimised to keep each planets velocity components in one column since Fortran stores matrices column-wise. The SoA version is roughly 5 times faster than the AoS code (compiled with gfortran).
+SoA can allow for easy vectorisation and memory access resulting in faster code. In the example in [Memory_layout](../12_lrz_course/Memory_Layout/) the momentum for 1,000,000 planets with default masses and velocities is calculated. First with an [Array of Structures - AoS](../12_lrz_course/Memory_Layout/mem_layout_AoS.f90) then with a [Structure of Arrays - SoA](../12_lrz_course/Memory_Layout/mem_layout_SoA.f90) which is optimised to keep each planets velocity components in one column since Fortran stores matrices column-wise. The SoA version is roughly 5 times faster than the AoS code (compiled with gfortran).
 
 ## Links
 - AoS and SoA, [Wikipedia](https://en.wikipedia.org/wiki/AoS_and_SoA)

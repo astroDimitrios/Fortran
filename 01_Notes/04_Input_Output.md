@@ -3,7 +3,9 @@
 ## Contents
 
 1. [Basics](#1)
-2. [Example Write](#2)
+2. [Example Read / Write](#2)
+    1. [Read](#21)
+    2. [Write](#22)
 3. [Internal I/O](#3)
 4. [Formatting](#4)
 
@@ -30,6 +32,13 @@ print *, 'Enter a value:'
 read *, A
 ````
 
+Or using the `advance` clause to allow input on the same line as the prompt:
+
+```fortran
+write (*,*, advance='no') 'Enter a value:'
+read *, A
+```
+
 ## Using Intrinisc Fortran Module
 
 ```fortran
@@ -41,7 +50,31 @@ From lrz course.
 
 <br></br>
 <a name="2"></a>
-# Example: Write
+# Example: Read / Write
+<a name="21"></a>
+## Read
+
+Here the file only contains `4, 5` on one line.    
+The code reads the value `4` into `g` and `5` into `h`:
+
+```fortran
+character(len=*), parameter :: FILE_NAME = 'ex2_data.txt'
+integer                     :: rc, file_unit
+integer                     :: g, h
+
+open (action='read', file=FILE_NAME, iostat=rc, newunit=file_unit)
+if ( rc /= 0 ) stop 'Error: open failed' 
+
+do
+    read ( file_unit, *, iostat=rc ) g, h
+    if ( rc /= 0 ) exit
+    print *, g, h
+end do
+
+close (file_unit)
+```
+<a name="22"></a>
+## Write
 
 F2008 - Use a file unit variable to keep track of the file. Each file must have a unique file unit.
 
@@ -57,6 +90,13 @@ close (file_unit)
 ```
 
 The `*` in write specifies the default format. See below for more formatting.
+
+You can also `rewind` a file to the beginning if it is open using:    
+```fortran
+rewind(file_unit)
+```
+
+Close your files when finished!
 
 <br></br>
 <a name="3"></a>
@@ -75,6 +115,24 @@ write (*, '(a)') adjustl( trim(str_height) )
 ```
 
 Can also be used to create format dynamically at runtime.
+
+Can also cast from characters to int and real:
+
+```fortran
+character(5) :: i_char = '5'
+integer      :: i_int
+
+read (i_char, '(i)') i_int
+```
+
+```fortran
+character(20) :: i_char = '5.67882'
+real          :: i_real
+
+read (i_char, '(f15.7)') i_real
+```
+
+Useful when converting [command line arguments](./06_3_Command_Line_Args.md).
 
 <br></br>
 <a name="4"></a>
@@ -109,3 +167,7 @@ where `en` is the number of digits in exponent
 not needed for 3 or less
 
 `ES` for standard scientific notation
+
+# Logical Formatting
+
+`l1` - displays `T` or `F`

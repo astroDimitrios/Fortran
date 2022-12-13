@@ -1,5 +1,7 @@
 # Fortran
 
+> Jump straight to the [NOTES](./01_Notes/README.md) section.
+
 Notes and Exercises from:       
 [SCIENTIFIC PROGRAMMING IN FORTRAN 2003](https://wiki.uiowa.edu/download/attachments/109785161/fortran-novella-holcomb.pdf)      
 A tutorial Including Object-Oriented Programming
@@ -20,10 +22,20 @@ Notes on above:
 
 ## lrz course
 
-The directory contains some code and bits from the Leibniz Supercomputing Centre course [Programming with Fortran](https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran),
+The directory [12_lrz_course](./12_lrz_course/README.md) contains some tests based off the Leibniz Supercomputing Centre course [Programming with Fortran](https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran),
 to supplment the Holcomb pdf.
 
 # Questions:
 
 1. Block construct - what does ***it has finalisation control*** mean? Memory thing? Allows memory to be written over.
 3. What's the best way to allow a function to take an argument of SP or DP type? Surely lots of code dup if the whole function has to be copied?
+4. Does the file extension actually matter? `f90` vs `f95` etc.
+
+# Links
+
+- Fortran, https://fortran-lang.org/en/learn/
+- Fortran Wiki, https://fortranwiki.org/fortran/show/HomePage
+- Fortran90 Python Fortran Rosetta Stone, https://www.fortran90.org/src/rosetta.html
+- Scientific Programming in Fortran 2003, Katherine Holcomb, 2008, https://wiki.uiowa.edu/download/attachments/109785161/fortran-novella-holcomb.pdf
+- Programming with Fortran, lrz course, https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran - **Lots Exercises**
+- Programming with Fortran, unlv course, Ed Jorgensen, http://www.egr.unlv.edu/~ed/fortran.html - **Lots Exercises**

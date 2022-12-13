@@ -137,7 +137,7 @@ Code snippet [example](../07_Memory_Manage/pointers.f90).
 
 ### TIPS
 
-From lrz_course:
+From lrz course:
 
 - Use dynamic entities sparingly, keep track of allocation and deallocation
 - If possible use allocatable entities not pointer entities
