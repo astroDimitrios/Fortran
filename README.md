@@ -20,10 +20,22 @@ Notes on above:
 6. Ch5 ex3 exercise says to declare dx but not used in program.
 7. Ch8 onwards gets hard to read the text because the pdf render has messed up formatting and no syntax hihglighting. Recommend find other online tutorials.
 
-## lrz course
+## EXTRAS:
 
-The directory [12_lrz_course](./12_lrz_course/README.md) contains some tests based off the Leibniz Supercomputing Centre course [Programming with Fortran](https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran),
-to supplment the Holcomb pdf.
+Everything in directories **12** and up are from sources other than Holcomb.
+
+### [12 lrz course](./12_lrz_course/README.md)
+
+Contains some tests based off the Leibniz Supercomputing Centre course [Programming with Fortran](https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran),
+to supplment the Holcomb pdf. Jump to [Notes](./01_Notes/12_lrz_course.md).
+
+### [13 Doxygen](./13_Doxygen/)
+
+Contains two examples showing documentation creation using Doxygen. Jump to [Notes](./01_Notes/13_Doxygen.md).
+
+### [14 Coarrays](./14_Coarrays/)
+
+Contains an example from the Intel tutorial [Using Coarray Fortran](https://www.intel.com/content/www/us/en/docs/fortran-compiler/tutorial-coarray/18-0/overview.html). Jump to [Notes](./01_Notes/14_Coarrays.md).
 
 # Questions:
 
