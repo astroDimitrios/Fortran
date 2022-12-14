@@ -40,7 +40,7 @@ Each field `mass` etc are stored in their own array of contiguous memory.
 Example Image:
 
 <center>
-    <img width="75%" src="./Images/MemLayout.png" alt='Mem Layout'>
+    <img width="75%" src="./Images/mem_layout.png" alt='Mem Layout'>
 </center>
 
 From lrz course.

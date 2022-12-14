@@ -12,6 +12,10 @@ Notes made with [Doxygen](https://www.doxygen.nl/) Ver 1.9.5 (conda-forge)
 3. [Doxygen Comments](#3)
 4. [Links](#4)
 
+<center>
+    <img width="75%" src="./Images/toucan_docs.png" alt='Docs from bird class example'>
+</center>
+
 <a name="1"></a>
 # Quick Start
 
