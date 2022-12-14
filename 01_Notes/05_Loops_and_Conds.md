@@ -102,7 +102,7 @@ do concurrent ( i = 1:N, j = 1:N )
 end do
 ```
 
-The block construct removes flow dependency of x since it's created per iteration. 
+The block construct removes flow dependency of x since it's created per iteration. Must not matter what order the loop is performed in.
 
 LOTS of restrictions:
 - No control statements, return, exit etc.
