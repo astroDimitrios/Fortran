@@ -39,9 +39,12 @@ Contains an example from the Intel tutorial [Using Coarray Fortran](https://www.
 
 # Questions:
 
-1. Block construct - what does ***it has finalisation control*** mean? Memory thing? Allows memory to be written over.
-3. What's the best way to allow a function to take an argument of SP or DP type? Surely lots of code dup if the whole function has to be copied?
-4. Does the file extension actually matter? `f90` vs `f95` etc.
+1. Block construct - what does ***it has finalisation control*** mean?    
+   Allows memory to be written over.
+3. What's the best way to allow a function to take an argument of SP or DP type? Surely lots of code dup if the whole function has to be copied?     
+   Procedure overloading, sep - modules for precision ... depends.
+4. Does the file extension actually matter? `.f90` vs `.f95` etc.     
+   Use `.f90` to denote free-form Fortran. Use `.F90` if the file needs [preprocessing](https://fortranwiki.org/fortran/show/File+extensions).
 
 # Links
 
