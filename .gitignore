@@ -5,5 +5,8 @@
 *.mod
 *.o
 
-13_Doxygen/doc
-!13_Doxygen/Doxyfile
+13_Doxygen/Example/doc
+!13_Doxygen/Example/Doxyfile
+
+13_Doxygen/Bird_OOP_Ex2/doc
+!13_Doxygen/Bird_OOP_Ex2/Doxyfile

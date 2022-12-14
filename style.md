@@ -26,8 +26,3 @@
 - EXIT statements must be labelled
 - Nested loops - label loops to improve readability
 - Continued line marker & should be aligned
-
----
-
-SAVE FOR LATER:
-- For instance use IOSTAT and IOMSG when using READ or OPEN

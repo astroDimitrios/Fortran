@@ -22,7 +22,12 @@ integer :: a(100, 100)
 
 ## Construction
 
-`v = [ 1, 2, 3 ]`
+```fortran
+! new syntax
+v = [ 1, 2, 3 ]
+! old syntax
+v = (/1, 2, 3/)
+```
 
 Implied DO loop    
 `iv = [( i, i = 1, 9 )]`

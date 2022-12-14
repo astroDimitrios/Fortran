@@ -95,7 +95,11 @@
     4. [Abstract Types](./11_OOP.md#4)
     5. [Type Guarding](./11_OOP.md#5)
 12. [lrz course examples](./12_lrz_course.md)
-13. [Doxygen](./13_Doxygen.md)
+13. [Doxygen](./13_Doxygen.md) - [Examples](../13_Doxygen/)  
+    1. [Quick Start](./13_Doxygen.md#1)
+    2. [Config File](./13_Doxygen.md#2)
+    3. [Doxygen Comments](./13_Doxygen.md#3)
+    4. [Links](./13_Doxygen.md#4)
 
 <br></br>
 
