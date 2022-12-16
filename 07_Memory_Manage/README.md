@@ -1,10 +1,8 @@
 # Notes
 
+## Exercises
 
+### ex1
 
-# Exercises
-
-## ex1
-
-! Rewrite your Poisson solver to use allocatable arrays      
+! Rewrite your Poisson solver to use allocatable arrays  
 ! whose size is determined by an input parameter at runtime.

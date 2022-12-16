@@ -1,16 +1,16 @@
 # Master Contents
 
-[Useful Notes from Exercises](#1)
+[Useful Notes from Exercises](#useful-notes-from-exercises)
 
 0. [Glossary](./00_Glossary.md)
 1. Intro
     1. [Basics](./01_0_Basics.md)
-        1. [Introduction](./01_0_Basics.md#1)
-        2. [Declaring Kinds (Basic)](./01_0_Basics.md#2)
-        3. [Declaring Variables](./01_0_Basics.md#3)
-        4. [Block Construct](./01_0_Basics.md#4)
-        5. [Kinds / Precision](./01_0_Basics.md#5)
-            1. [Precision Tips](./01_0_Basics.md#51)
+        1. [Introduction](./01_0_Basics.md#introduction)
+        2. [Declaring Kinds (Basic)](./01_0_Basics.md#declaring-kinds-basic)
+        3. [Declaring Variables](./01_0_Basics.md#declaring-variables)
+        4. [Block Construct](./01_0_Basics.md#block-construct)
+        5. [Kinds / Precision](./01_0_Basics.md#kinds--precision)
+            1. [Precision Tips](./01_0_Basics.md#tips)
     2. [Compile](./01_1_Compile.md)
 2. [Basic Operations](./02_0_Basic_Operations.md)
     1. [Extra Char Assigment Example](./02_1_Char_Assign_Ex.md)
@@ -70,8 +70,8 @@
             1. [Assumed Shape and Automatic Arrays](./07_1_Memory_Management.md#11)
         2. [Pointers](./07_1_Memory_Management.md#2)
     2. [Memory Layout](./07_2_Memory_Layout.md)
-        1. [AoS and SoA Forms](#1)
-            1. [Example Transformation](#12)
+        1. [AoS and SoA Forms](./07_2_Memory_Layout.md#1)
+            1. [Example Transformation](./07_2_Memory_Layout.md#12)
 8. [Derived Types](./08_1_Derived_Types.md)
     1. [Basics](./08_1_Derived_Types.md)
         1. [Derived Types](./08_1_Derived_Types.md#1)
@@ -105,15 +105,13 @@
     2. [Ex: Monte Carlo Pi](./14_Coarrays.md#2)
     3. [Links](./14_Coarrays.md#3)
 
-<br></br>
-
 ---
-<a name="1"></a>
+
 ## Useful Notes from Exercises
 
 ### 2 Fundamentals
-   
-[ex2](../02_Fundamentals/ex2.f90) - Cast integer to real using `real(a)`        
+
+[ex2](../02_Fundamentals/ex2.f90) - Cast integer to real using `real(a)`  
 [ex3](../02_Fundamentals/ex3.f90) - Character conc and trimming
 
 ### 3 Arrays
@@ -122,22 +120,23 @@
 
 ### 4 Input and Output
 
-[ex1](../04_Input_and_Output/ex1.f90) - Writing to file and cast to string           
+[ex1](../04_Input_and_Output/ex1.f90) - Writing to file and cast to string  
 [ex2](../04_Input_and_Output/ex2.f90) - Read file, read namelist subroutine
 
 ### 5 Loops and Conditionals
 
 [ex1](../05_Loops_and_Conds/Exercise1/ex1.f90) - Print every 3rd element
+
 ````fortran
 print *, x(1:N:3)
 ````
 
 ### 6 Functions and Subroutines
 
-[ex2_1](../06_Functions_Subroutines/Exercise2/Part1/ex2_1.f90) - Overloaded function      
+[ex2_1](../06_Functions_Subroutines/Exercise2/Part1/ex2_1.f90) - Overloaded function  
 [ex2_2](../06_Functions_Subroutines/Exercise2/Part2/ex2_2.f90) - **Divide by zero error** check with ieee exceptions
 
-[cla_args_test.f90](../06_Functions_Subroutines/CLAs/cla_args_test.f90) - Command line arguments    
+[cla_args_test.f90](../06_Functions_Subroutines/CLAs/cla_args_test.f90) - Command line arguments  
 [Fibonacci Ex](../06_Functions_Subroutines/Fibonacci/recur_vs_iter.f90) - Recursion vs Iteration **TIMING**
 
 ### 8 Derived Types
@@ -146,19 +145,19 @@ print *, x(1:N:3)
 
 ## 9 Modules
 
-[ex2](../09_Modules/Exercise2/ex2.f90) - Contains **IEEE Inf** use, and the `random_number` intrinsic, good module use example       
-[ex3](../09_Modules/Exercise3/ex3.f90) - **CONSTANTS module**, proper use of KINDS and constants, good procedure overload example     
+[ex2](../09_Modules/Exercise2/ex2.f90) - Contains **IEEE Inf** use, and the `random_number` intrinsic, good module use example  
+[ex3](../09_Modules/Exercise3/ex3.f90) - **CONSTANTS module**, proper use of KINDS and constants, good procedure overload example  
 [ex4](../09_Modules/Exercise4/ex4.f90) - Overloaded + operator used on a derived type
 
 ## 10 Exception Handling
 
-[ex2_2](../06_Functions_Subroutines/Exercise2/Part2/ex2_2.f90) - **Divide by zero error** check with ieee exceptions     
-[ex2](../09_Modules/Exercise2/ex2.f90) - Contains **IEEE Inf** use, and the `random_number` intrinsic, good module use example   
+[ex2_2](../06_Functions_Subroutines/Exercise2/Part2/ex2_2.f90) - **Divide by zero error** check with ieee exceptions  
+[ex2](../09_Modules/Exercise2/ex2.f90) - Contains **IEEE Inf** use, and the `random_number` intrinsic, good module use example
 
 ## 11 Object Orientated Programming
 
-[Example1](../11_OOP/Example1/) - Class, extended class, overloaded operator    
-[Example2](../11_OOP/Example2/) - Abstract class, type guarding with `select type` construct    
+[Example1](../11_OOP/Example1/) - Class, extended class, overloaded operator  
+[Example2](../11_OOP/Example2/) - Abstract class, type guarding with `select type` construct
 
-[ex1](../11_OOP/Exercise1/ex1.f90) - Example of arrays held in 2D array, **creating 2D cartesian grid**    
-**[ex2](../11_OOP/Exercise2/ex2.f90)** - FULL formatted class, extended class, overloaded assignment, getter functions     
+[ex1](../11_OOP/Exercise1/ex1.f90) - Example of arrays held in 2D array, **creating 2D cartesian grid**  
+**[ex2](../11_OOP/Exercise2/ex2.f90)** - FULL formatted class, extended class, overloaded assignment, getter functions

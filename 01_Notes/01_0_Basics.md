@@ -1,17 +1,14 @@
 # Fortran
 
+- [Fortran](#fortran)
+  - [Introduction](#introduction)
+  - [Declaring Kinds (Basic)](#declaring-kinds-basic)
+  - [Declaring Variables](#declaring-variables)
+  - [Block Construct](#block-construct)
+  - [Kinds / Precision](#kinds--precision)
+    - [TIPS](#tips)
 
-## Contents
-
-1. [Introduction](#1)
-2. [Declaring Kinds (Basic)](#2)
-3. [Declaring Variables](#3)
-4. [Block Construct](#4)
-5. [Kinds / Precision](#5)
-    1. [Precision Tips](#51)
-
-<a name="1"></a>
-# Introduction
+## Introduction
 
 Strongly typed. Basic program:
 
@@ -19,39 +16,30 @@ Strongly typed. Basic program:
 program test
 end program test
 ````
-<div style="color: black; background-color:rgba(73, 190, 37, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
-    <strong>DO:</strong>
-    Have filenames which are the same as the program/module name.
-    
-    eg. test.f90 to contain the code above
-</div>
+
+- **DO:** Have filenames which are the same as the program/module name,
+eg. `test.f90` to contain the code above.
 
 - use statements come first, then `implicit none`, then declarations of variables.
-- `implicit none`        
-Stops i-m used as integers, the compiler doesn't imply the type of a variable.
-  <div style="color: black; background-color:rgba(37, 150, 190, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
-    <strong>DO:</strong>
-    Use implicit none in all functions, subroutines, modules, and programs. 
-  </div>
-  <div style="color: black; background-color:rgba(255, 76, 48, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
-    <strong>DO NOT:</strong>
-  Have function names which are the same as module or program names.
-  </div>
-- `! Comment `
+- `implicit none`  
+Stops i-m used as integers, the compiler doesn't imply the type of a variable.  
+**DO:** Use implicit none in all functions, subroutines, modules, and programs.  
+**DO NOT:** Have function names which are the same as module or program names.
+- `! Comment`
 - Index starts at **1 !**
-- 80 character line length.     
+- 80 character line length.
 - Continuation line `&`
+
 ````fortran
 write (*,*) &
 'Hello'
-````   
+````
+
 - Case ***insensitive***, use lower case
 - Use spaces never tabs as tabs aren't in Fortran standard
-- Fortran passes variables ***by reference*** (pointer to memory locations), you can inadvertantly alter variables if not carefull.       
+- Fortran passes variables ***by reference*** (pointer to memory locations), you can inadvertantly alter variables if not carefull.
 
-<br></br>
-<a name="2"></a>
-# Declaring Kinds (Basic)
+## Declaring Kinds (Basic)
 
 Integer, real (float), character, complex, logical ...
 
@@ -72,33 +60,29 @@ Examples:
 .false.
 ````
 
-<br></br>
-<a name="3"></a>
-# Declaring Variables
+## Declaring Variables
 
 `integer :: i = 2, j`
 
-Fixed value (unchangeable)    
+Fixed value (unchangeable)  
 `integer, parameter :: i = 2`
 
 `complex :: d = ( 1.0, 2.0 )`
 
-Characters of max len    
+Characters of max len  
 `character(len=16) :: a`
 
 `logical :: flag = .false.`
 
-Array of 100 1s    
+Array of 100 1s  
 `real :: ra(100) = [ 100 * 1.0 ]`
 
 - Variables must start with letter
 - Letters, numbers and _ only
 
-<br></br>
-<a name="4"></a>
-# Block Construct
+## Block Construct
 
-Provides local scope to declare variables in, can access vars in parent scope. 
+Provides local scope to declare variables in, can access vars in parent scope.
 
 ````fortran
 integer i
@@ -111,9 +95,7 @@ end block inner
 Finalises local variables at end of block.
 Can use `exit <name>` within a block.
 
-<br></br>
-<a name="5"></a>
-# Kinds / Precision
+## Kinds / Precision
 
 ***Default precision*** for real is usually ***single***.
 
@@ -137,7 +119,8 @@ integer, parameter :: sp = REAL32
 integer, parameter :: dp = REAL64
 integer, parameter :: qp = REAL128
 ````
-From [fortranwiki.org](<https://fortranwiki.org/fortran/show/Real+precision>).    
+
+From [fortranwiki.org](<https://fortranwiki.org/fortran/show/Real+precision>).  
 [Intrinsic Modules](https://gcc.gnu.org/onlinedocs/gfortran/Intrinsic-Modules.html)
 
 Care with floats:
@@ -152,13 +135,14 @@ real(dp)           :: y
 y = 1.0     ! single precision
 y = 1.0_dp  ! double precision
 ````
+
 See [fortran90.org gotchas](https://www.fortran90.org/src/gotchas.html).
 
 Using above these give:
 
-`epsilon(x)` - 1.19209290E-07, effectively negligible no in x number model     
-`huge(x)` - 3.40282347E+38, largest number    
-`tiny(x)` - 1.17549435E-38, smallest number         
+`epsilon(x)` - 1.19209290E-07, effectively negligible no in x number model  
+`huge(x)` - 3.40282347E+38, largest number  
+`tiny(x)` - 1.17549435E-38, smallest number  
 
 ```fortran
 real(x, sp) ! converts to the kind sp (single precision)
@@ -175,12 +159,12 @@ fh = ck_'The Good Place'
 
 **NOTE:** `REAL*8` (byte units) are supported but NOT standard-conforming (lrz course).
 
-<a name="51"></a>
-## TIPS
+### TIPS
 
 - AVOID - Converting from higher to lower precision type
 - DO - Assign high precision constants
 - AVOID - Overflow etc, check with `huge` and `tiny` (underflow) etc
+
     ````fortran
     if ( abs(k) <= huge(i) ) then
         i = k
@@ -188,19 +172,24 @@ fh = ck_'The Good Place'
         error stop 'Overflow'
     end if
     ````
+
     ```fortran
     if ( abs(real1 - real2) < small_number ) then
         ...
     end if
     ```
+
     Could use `tiny()` here for the small number
 - DO - Use `nint(x)` for real-to-integer conversion (nearest integer instead of round towards 0)
 - DO - Ensure all real values have the correct kind declared
 - WARNING - Always check your assigning variables otherwise:
+
     ```fortran
     real :: y
     print *, y
     ! gfortran prints 4.56472975E-41
     ! ifort prints 0
     ```
+
   Compiler dependent behaviour!!!! Some will just access whatever is in memory at that location.
+  

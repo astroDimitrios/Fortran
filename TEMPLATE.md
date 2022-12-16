@@ -1,35 +1,22 @@
 # TITLE
 
-## Contents
+- [TITLE](#title)
+  - [1](#1)
+  - [2](#2)
+  - [Notes](#notes)
+  - [Exercises](#exercises)
+    - [ex1](#ex1)
 
-1. [First](#1)
-    1. [First Sub](#11)
-2. [Second](#2)
+## 1
 
-<a name="1"></a>
-
-<br></br>
-<a name="2"></a>
--------------------------------------------------------------------------------
-
-# Notes
-
-
-
-# Exercises
-
-## ex1
+## 2
 
 -------------------------------------------------------------------------------
 
-<span style="background-color:green">
-    'WAAAAH'
-</span>
+## Notes
 
-<div style="color: black; background-color:rgba(255, 76, 48, 1); text-align:left; vertical-align: middle; padding: .3em; margin: .5em;">
-    <strong>DO NOT:</strong>
-  do this
-  </div>
+## Exercises
 
-Or Green --> 73, 190, 37, 1
-Or Red   --> 255, 76, 48, 1
+### ex1
+
+-------------------------------------------------------------------------------

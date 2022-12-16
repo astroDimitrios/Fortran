@@ -2,6 +2,11 @@
 
 > Short and simple Fortran statements are easier to read and understand than long and complex ones.
 
+- [Style Guide](#style-guide)
+  - [Basics](#basics)
+  - [Variables](#variables)
+  - [General](#general)
+
 ## Basics
 
 - Header with copyright (all blank lines need `!`)
@@ -9,7 +14,6 @@
 - lower case
 - Optional space `end if`
 - Full end with name `end subroutine test`
-
 
 ## Variables
 
@@ -19,7 +23,6 @@
 - Args declared sep to local variables
 - Avoid the use of ‘magic numbers’ that is numeric constants hard wired into the code. Use parameters instead.
 - Literal real values must always be given a kind using this syntax: `myvar = 1.23_r_mykind`
-
 
 ## General
 
