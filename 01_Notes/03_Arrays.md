@@ -1,18 +1,20 @@
 # Arrays
 
-1. [Basics](#1)
-2. [Intrinsic Functions](#2)
+- [Arrays](#arrays)
+  - [Basics](#basics)
+    - [Declaration](#declaration)
+    - [Construction](#construction)
+    - [Intrinsic Functions](#intrinsic-functions)
+      - [Pack and Unpack](#pack-and-unpack)
 
-<a name="1"></a>
-# Basics
+## Basics
 
-**COLUMN FIRST** ordering    
+**COLUMN FIRST** ordering  
 Excellent article on [memory layout](https://eli.thegreenplace.net/2015/memory-layout-of-multi-dimensional-arrays).
-
 
 There is more on arrays in the [07 Memory Management](./07_Memory_Management.md) section.
 
-## Declaration    
+### Declaration
 
 ```fortran
 integer, dimension(100, 100) :: a   
@@ -20,7 +22,7 @@ integer, dimension(100, 100) :: a
 integer :: a(100, 100)
 ```
 
-## Construction
+### Construction
 
 ```fortran
 ! new syntax
@@ -29,19 +31,17 @@ v = [ 1, 2, 3 ]
 v = (/1, 2, 3/)
 ```
 
-Implied DO loop    
+Implied DO loop  
 `iv = [( i, i = 1, 9 )]`
 
-Column first order    
-`b = reshape( iv, [3, 3] )`    
-Row first order     
+Column first order  
+`b = reshape( iv, [3, 3] )`  
+Row first order  
 `b = reshape( iv, [3, 3], order = [2, 1] )`
 
 Vectors can be passed as indices for another vector, etc.
 
-<br></br>
-<a name="2"></a>
-## Intrinsic Functions
+### Intrinsic Functions
 
 ```fortran
 lbound(array [, dim])   ! l bound along all or 1 dimension
@@ -73,7 +73,7 @@ minloc(array)
 findloc(array, value)
 ```
 
-### Pack and Unpack
+#### Pack and Unpack
 
 Pack converts array to rank 1 array.
 
@@ -93,6 +93,7 @@ write(*,*) pack(c, mask=(c > 2), vector=cc)
 write(*,*) pack(c, .true.) 
                         ! writes 0 3 2 4 3 2 5 1 2
 ```
+
 ```fortran
 integer, dimension(9) :: c = [0,3,2,4,3,2,5,1,2]
 logical :: d(2,2)
