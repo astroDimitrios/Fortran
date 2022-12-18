@@ -1,15 +1,13 @@
 # Exception Handling
 
-## Contents
+- [Exception Handling](#exception-handling)
+  - [IEEE Standard](#ieee-standard)
+  - [IEEE Arithmetic](#ieee-arithmetic)
+  - [IEEE Exceptions](#ieee-exceptions)
+    - [Example: Division by Zero](#example-division-by-zero)
+    - [Example: Overflow](#example-overflow)
 
-1. [IEEE Standard](#1)
-2. [IEEE Arithmetic](#2)
-3. [IEEE Exceptions](#3)
-    1. [Ex: Divide by Zero](#31)
-    2. [Ex: Overflow](#32)
-
-<a name="1"></a>
-# IEEE Standard
+## IEEE Standard
 
 IEEE Standard for dealing with floating point exceptions.
 
@@ -26,11 +24,9 @@ Use as:
 use, intrinsic :: ieee_features, only: ieee_underflow_flag
 ```
 
-**Needs gfortran5 or ifort to compile with IEEE exceptions.** 
+**Needs gfortran5 or ifort to compile with IEEE exceptions.**
 
-<br></br>
-<a name="2"></a>
-# IEEE Arithmetic
+## IEEE Arithmetic
 
 Test if variables can support certain values and other inquiry functions:
 
@@ -43,18 +39,14 @@ From [fortranwiki.org](https://fortranwiki.org/fortran/show/ieee_arithmetic).
 
 **Example:** Setting value to IEEE Inf if it is supported in [my_shape_stats.f90](../09_Modules/Exercise2/my_shape_stats.f90).
 
-<br></br>
-<a name="3"></a>
-# IEEE Exceptions
+## IEEE Exceptions
 
-Excpetion flags for detecting division by zero and other floating point exceptions.     
+Excpetion flags for detecting division by zero and other floating point exceptions.  
 If a flag is raised the program can be halted (stopped).
 
 See [here](https://www.nag.com/nagware/np/r70_doc/ieee_exceptions.html) for more.
 
-<br></br>
-<a name="31"></a>
-## Example: Division by Zero
+### Example: Division by Zero
 
 As in [ex2](../06_Functions_Subroutines/Exercise2/Part2/ex2_2.f90)
 
@@ -90,9 +82,7 @@ Note that `exit` is non-standard whereas `stop` (termination of program), and `e
 
 rosettacode full [divide by zero check](https://rosettacode.org/wiki/Detect_division_by_zero#Fortran)
 
-<br></br>
-<a name="32"></a>
-## Example: Overflow
+### Example: Overflow
 
 From the Holcombe pdf.
 

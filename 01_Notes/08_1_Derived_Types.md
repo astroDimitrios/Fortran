@@ -1,12 +1,11 @@
 # Derived Types
 
-## Contents
+- [Derived Types](#derived-types)
+  - [Basics](#basics)
+    - [Example + Defaults](#example--defaults)
+  - [Extending Types](#extending-types)
 
-1. [Derived Types](#1)
-2. [Extending Types](#2)
-
-<a name="1"></a>
-# Derived Types
+## Basics
 
 Define:
 
@@ -41,7 +40,7 @@ allocate( xyz_grid%x(n), xyz_grid%y(n), xyz_grid%z(n) )
 
 Code snippet [example](../08_Derived_Types/derived_types.f90).
 
-## Example + Defaults
+### Example + Defaults
 
 ```fortran
 type four_momentum
@@ -55,11 +54,10 @@ type(four_momentum) :: particle
 particle   = four_momentum(E=0)  ! set E but not p
 particle%p = [0, 0, 0]         ! set p later
 ```
+
 Note all default won't work above due to the allocatable `p` array. Code snippet from ex1 [here](../08_Derived_Types/Exercise1/ex1.f90).
 
-<br></br>
-<a name="2"></a>
-# Extending Types
+## Extending Types
 
 ```fortran
 type species

@@ -2,59 +2,56 @@
 
 Notes made with [Doxygen](https://www.doxygen.nl/) Ver 1.9.5 (conda-forge)
 
-> Directory [link](../13_Doxygen/). Small [example](../13_Doxygen/Example/), larger bird class [example](../13_Doxygen/Bird_OOP_Ex2).    
+> Directory [link](../13_Doxygen/). Small [example](../13_Doxygen/Example/), larger bird class [example](../13_Doxygen/Bird_OOP_Ex2).  
 > **NOTE:** Docs files not tracked, generate them yourself. See Quick Start point 3.
 
-## Contents
+- [Doxygen](#doxygen)
+  - [Quick Start](#quick-start)
+  - [Config File](#config-file)
+    - [Call Graphs](#call-graphs)
+  - [Doxygen Comments](#doxygen-comments)
+    - [License](#license)
+    - [Grouping](#grouping)
+  - [Links](#links)
 
-1. [Quick Start](#1)
-2. [Config File](#2)
-3. [Doxygen Comments](#3)
-4. [Links](#4)
+![Docs from bird class example](./Images/toucan_docs.png)
 
-<center>
-    <img width="75%" src="./Images/toucan_docs.png" alt='Docs from bird class example'>
-</center>
-
-<a name="1"></a>
-# Quick Start
+## Quick Start
 
 Once Doxygen is installed:
 
-1. Generate a default config file:     
+1. Generate a default config file:  
     `$ doxygen -g`
 
-2. Edit the defaults:     
-    `PROJECT_NAME`     set to `name`       
-    `OUTPUT_DIRECTORY` set to `doc/`    
+2. Edit the defaults:  
+    `PROJECT_NAME`     set to `name`  
+    `OUTPUT_DIRECTORY` set to `doc/`  
     `QUIET_MESSAGES`   set to `YES`  
-    `GENERATE_LATEX`   set to `NO`   
+    `GENERATE_LATEX`   set to `NO`  
 
-    [Fortran Specifics](https://www.doxygen.nl/manual/docblocks.html#fortranblocks):    
-    `OPTIMIZE_FOR_FORTRAN   = YES`    
+    [Fortran Specifics](https://www.doxygen.nl/manual/docblocks.html#fortranblocks):  
+    `OPTIMIZE_FOR_FORTRAN   = YES`  
     `EXTENSION_MAPPING      = f=FortranFixed f90=FortranFree`
 
-3. Create the docs using the config file:    
+3. Create the docs using the config file:  
     `$ doxygen Doxyfile`
 
-<br></br>
-<a name="2"></a>
-# Config File
+## Config File
 
 You have already edited the default config to supress messages, specify the output directory etc. These are some other options to think about changing:
 
 `PROJECT_NUMBER`
 
-Could set to `YES`:    
-`SOURCE_BROWSER` - Gen. a list of all source files      
-`INLINE_SOURCES` - Inlcude body of classes, functions etc. in docs     
-`INLINE_INHERITED_MEMB` - Show all inherited members of a class      
-`EXTRACT_ALL` - Extract all entities whether they are documented or not    
-`EXTRACT_PRIVATE` - Extract private members     
-`WARN_NO_PARAMDOC` - Warnings if parameters are not documented, disabled by `EXTRACT_ALL`    
+Could set to `YES`:  
+`SOURCE_BROWSER` - Gen. a list of all source files  
+`INLINE_SOURCES` - Inlcude body of classes, functions etc. in docs  
+`INLINE_INHERITED_MEMB` - Show all inherited members of a class  
+`EXTRACT_ALL` - Extract all entities whether they are documented or not  
+`EXTRACT_PRIVATE` - Extract private members  
+`WARN_NO_PARAMDOC` - Warnings if parameters are not documented, disabled by `EXTRACT_ALL`  
 `GENERATE_TREEVIEW` - Generate a TOC/index view on the left
 
-## Call Graphs
+### Call Graphs
 
 > Doxygen can create call graphs for your code. We are going to change three options to `YES`: `HAVE_DOT`, `CALL_GRAPH`, and `CALLER_GRAPH`. The first one turns on graph creation (“dot” is the command-line for the graphviz package); the second and third turn on specific types of graphs.
 >
@@ -62,11 +59,10 @@ Could set to `YES`:
 
 [Example](../13_Doxygen/Bird_OOP_Ex2) with these set to `YES`.
 
-<br></br>
-<a name="3"></a>
-# Doxygen Comments
+## Doxygen Comments
 
 Example file comments:
+
 ```fortran
 !> @file
 !> @author  Dimitrios Theodorakis
@@ -81,6 +77,7 @@ Example file comments:
 ```
 
 Example function comments:
+
 ```fortran
 !> @brief   Computes the hyperbolic cosine of a complex variable.
 !> @author  Dimitrios Theodorakis
@@ -116,23 +113,28 @@ See more on autolinking [here](https://www.star.bnl.gov/public/comp/sofi/doxygen
 
 Descriptions supports markdown!
 
-## License
+### License
 
 Not all files will need a Doxygen license comment. Use this instead:
+
 ```fortran
 !-------------------------------------
 ! (c) Copyright GNU Public, GPL-3.0
 !-------------------------------------
 ```
+
 Doxygen version:
+
 ```fortran
 !> @section LICENSE
 !> 
 !> GNU Public, GPL-3.0-or-later
 ```
-## Grouping
+
+### Grouping
 
 Adding
+
 ```fortran
 !> @defgroup const Constants
 !> @{
@@ -149,11 +151,9 @@ You can group statements using just `@name` if you don't want to define a goup.
 
 See ***[constants_mod.f90](../13_Doxygen/Example/constants_mod.f90)***.
 
-<br></br>
-<a name="4"></a>
-# Links
+## Links
 
-- Doxygen Website, https://www.doxygen.nl/
-- Doxygen Fortran Blocks, https://www.doxygen.nl/manual/docblocks.html#fortranblocks
-- Using Doxygen: Quick Guide, Jignesh M. Patel, https://pages.cs.wisc.edu/~jignesh/cs564/notes/Doxygen.pdf
-- Introduction to Doxygen, John's Basement, https://www.youtube.com/watch?v=5G1zUpNFmEY
+- Doxygen Website, [https://www.doxygen.nl/](https://www.doxygen.nl/)
+- Doxygen Fortran Blocks, [https://www.doxygen.nl/manual/docblocks.html#fortranblocks](https://www.doxygen.nl/manual/docblocks.html#fortranblocks)
+- Using Doxygen: Quick Guide, Jignesh M. Patel, [https://pages.cs.wisc.edu/~jignesh/cs564/notes/Doxygen.pdf](https://pages.cs.wisc.edu/~jignesh/cs564/notes/Doxygen.pdf)
+- Introduction to Doxygen, John's Basement, [https://www.youtube.com/watch?v=5G1zUpNFmEY](https://www.youtube.com/watch?v=5G1zUpNFmEY)

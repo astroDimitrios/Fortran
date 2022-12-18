@@ -1,12 +1,10 @@
 # Command Line Arguments
 
-## Contents
+- [Command Line Arguments](#command-line-arguments)
+  - [Basics](#basics)
+  - [Example](#example)
 
-1. [Basics](#1)
-2. [Example](#2)
-
-<a name="1"></a>
-# Basics
+## Basics
 
 Command line arguments are passed as:
 
@@ -27,9 +25,7 @@ chracter(len=30) :: arg
 call get_command_argument( number = 1, value = arg )
 ```
 
-<br></br>
-<a name="2"></a>
-# Example
+## Example
 
 Unknown number of args until runtime:
 

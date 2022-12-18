@@ -1,17 +1,15 @@
 # Object Orientated Programming
 
-## Contents
+- [Object Orientated Programming](#object-orientated-programming)
+  - [Basics](#basics)
+  - [Overloading Operators](#overloading-operators)
+  - [Extended Class Types](#extended-class-types)
+  - [Abstract Types](#abstract-types)
+  - [Type Guarding](#type-guarding)
 
-1. [Basics](#1)
-2. [Overloading Operators](#2)
-3. [Extended Class Types](#3)
-4. [Abstract Types](#4)
-5. [Type Guarding](#5)
+## Basics
 
-<a name="1"></a>
-# Basics
-
-**DO:** Define a class in a separate module.    
+**DO:** Define a class in a separate module.  
 **DO:** Assign default values for members if possible.
 
 Example [`ice_cream`](../11_OOP/Example1/ice_cream_class.f90) class:
@@ -97,9 +95,7 @@ end program ice_cream_test
 
 **NOTE:** DO declare default to be private. You can also use `protected` which only allows modification in the host, otherwise only read access.
 
-<br></br>
-<a name="2"></a>
-# Overloading Operators
+## Overloading Operators
 
 You can overload operators such as `= */+-` for your class:
 
@@ -144,11 +140,9 @@ Full code in [`ice_cream`](../11_OOP/Example1/ice_cream_class.f90) class.
 
 See [climate-cms](http://climate-cms.wikis.unsw.edu.au/Object-oriented_Fortran) for how to add your own operators.
 
-<br></br>
-<a name="3"></a>
-# Extended Class Types
+## Extended Class Types
 
-You can extend the class type above as in []() to create a child class. This inherits the membors and methods of the parent class. You can also overload the membors and methods.
+You can extend the class type above as in to create a child class. This inherits the membors and methods of the parent class. You can also overload the membors and methods.
 
 Here we extend the `ice_cream` class:
 
@@ -185,11 +179,10 @@ contains
 
 end module vegan_ice_class
 ```
+
 If the `ice_cream` class already had a `print_me` subroutine declared then the `vegan_ice` class overloads this `print_me` function. See an example by compiling and running [ice_cream_test.f90](../11_OOP/Example1/ice_cream_test.f90).
 
-<br></br>
-<a name="4"></a>
-# Abstract Types
+## Abstract Types
 
 If you never intend to call the `ice_cream` class but use it as a base class then you can make it abstract. Methods can be ***deferred*** to the child types.
 
@@ -262,13 +255,11 @@ end module holiday_ice_cream_class
 
 Full example in [Example2](../11_OOP/Example2/ice_cream_test.f90).
 
-<br></br>
-<a name="5"></a>
-# Type Guarding
+## Type Guarding
 
-You can write a subroutine to work for multiple types. The code will have to behave differently for each type, this is ***type guarding***. 
+You can write a subroutine to work for multiple types. The code will have to behave differently for each type, this is ***type guarding***.
 
-Use the `select type` construct, see info [here](https://www.intel.com/content/www/us/en/develop/documentation/fortran-compiler-oneapi-dev-guide-and-reference/top/language-reference/a-to-z-reference/s-1/select-type.html), example: 
+Use the `select type` construct, see info [here](https://www.intel.com/content/www/us/en/develop/documentation/fortran-compiler-oneapi-dev-guide-and-reference/top/language-reference/a-to-z-reference/s-1/select-type.html), example:
 
 ```fortran
 ! prints member variables from the ice_cream type

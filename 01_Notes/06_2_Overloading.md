@@ -1,10 +1,10 @@
 # Overloading
 
-1. [Procedure Overloading](#1)
-2. [Operator Overloading](#2)
+- [Overloading](#overloading)
+  - [Procedure Overloading](#procedure-overloading)
+  - [Operator Overloading](#operator-overloading)
 
-<a name="1"></a>
-# Procedure Overloading
+## Procedure Overloading
 
 ```fortran
 module my_f
@@ -23,12 +23,10 @@ The function `f` can be used with integers or real values. The compiler will cho
 
 Also consult the wikibook for overloading operators etc.
 
-**FULL Example:** [hypcosh func](../06_Functions_Subroutines/Exercise2/Part1/hypcosh.f90)      
+**FULL Example:** [hypcosh func](../06_Functions_Subroutines/Exercise2/Part1/hypcosh.f90)  
 **ANOTHER Example:** [mean func](../09_Modules/Exercise3/my_stats.f90)
 
-<br></br>
-<a name="2"></a>
-# Operator Overloading
+## Operator Overloading
 
 ```fortran
 module my_asterik
@@ -47,6 +45,7 @@ contains
     end function
 end module
 ```
+
 ```fortran
 program main
 

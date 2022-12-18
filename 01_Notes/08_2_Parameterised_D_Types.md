@@ -2,15 +2,14 @@
 
 F2003
 
-## Contents
+- [Parameterised Derived Types](#parameterised-derived-types)
+  - [Basics](#basics)
+  - [Assumed and Deffered Lengths](#assumed-and-deffered-lengths)
+  - [Extending PD Types](#extending-pd-types)
 
-1. [Basics](#1)
-2. [Assumed and Deffered Lengths](#2)
-3. [Extending PD Types](#3)
+## Basics
 
-<a name="1"></a>
-# Basics
-Example code in [pdt_test.f90](../12_lrz_course/PDT/pdt_test.f90).     
+Example code in [pdt_test.f90](../12_lrz_course/PDT/pdt_test.f90).  
 PDTs are created by passing parameters to the type declaration:
 
 ```fortran
@@ -32,8 +31,6 @@ type(xD_momentum( sp ))        :: particle_sp_1D  ! uses default p = 1
 type(xD_momentum( dp, p = 2 )) :: particle_dp_2D
 ```
 
-<br></br>
-<a name="2"></a>
 ## Assumed and Deffered Lengths
 
 Kinds can not be assumed or deffered. To allow a function to call the correct version of a subroutine for the kind use an interface as in [Procedure Overloading](./06_2_Overloading.md).
@@ -61,8 +58,6 @@ contains
     end subroutine create_3D_momentum
 ```
 
-<br></br>
-<a name="3"></a>
 ## Extending PD Types
 
 ```fortran
@@ -76,5 +71,6 @@ ball_1%mass = 1.2_dp
 ```
 
 Further reading:
+
 - OOP Part 3: [pgroup.com](https://www.pgroup.com/blogs/posts/f03-oop-part3.htm)
 - Fortran PDTs: [qmul.ac.uk](https://blog.hpc.qmul.ac.uk/fortran-parameterized-derived-types-1.html)

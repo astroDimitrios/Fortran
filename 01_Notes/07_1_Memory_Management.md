@@ -1,15 +1,15 @@
 # Memory Management
 
-## Contents
+- [Memory Management](#memory-management)
+  - [Allocatable Arrays](#allocatable-arrays)
+    - [Assumed Shape and Automatic Array](#assumed-shape-and-automatic-array)
+      - [Contiguous Attribute](#contiguous-attribute)
+  - [Pointers](#pointers)
+    - [TIPS](#tips)
 
-1. [Allocatable Arrays](#1)
-    1. [Assumed Shape and Automatic Arrays](#11)
-2. [Pointers](#2)
+## Allocatable Arrays
 
-<a name="1"></a>
-# Allocatable Arrays
-
-Size of array determined at runtime.    
+Size of array determined at runtime.  
 Must declare rank of array.
 
 1. Allows routines to run with different size arrays
@@ -37,9 +37,9 @@ end if
 deallocate( a, b )
 ```
 
-Associate and disassociate on same level/scope ie. both in same subroutine.      
+Associate and disassociate on same level/scope ie. both in same subroutine.  
 Allocate and deallocate in reverse order
-ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.    
+ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.  
 
 Can also take the `stat` option which returns zero if the operation is successful.
 
@@ -48,12 +48,12 @@ allocate( x, stat=ifail )
 ```
 
 You can also move an allocatable which avoids copying data:
+
 ```fortran
 call move_alloc(from, to)
 ```
 
-<a name="11"></a>
-## Assumed Shape and Automatic Array
+### Assumed Shape and Automatic Array
 
 Useful in subroutines where the size of the array is not known:
 
@@ -69,16 +69,15 @@ Can also pass the shape parameters to the function/subroutine.
 
 Code snippet [example](../07_Memory_Manage/alloc_arrays.f90).
 
-### Contiguous Attribute
+#### Contiguous Attribute
 
 ```fortran
 real, intent(inout), contiguous :: x(:,:)
 ```
+
 Can also pass the `contiguous` argument. If the array slice is already contiguous in memory this does nothing. If the array slice is non-contiguous in memory then a temporary contiguous array is created, this introduces extra overhead.
 
-<br></br>
-<a name="2"></a>
-# Pointers
+## Pointers
 
 Points to a target:
 
@@ -130,7 +129,7 @@ nullify(p)
 ```
 
 Associate and disassociate on same level/scope ie. both in same subroutine. Allocate and deallocate in reverse order
-ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.    
+ie. allocate A, B, C, then deallocate C, B, A. This avoids memory defrag.  
 `nullify()` does not deallocate if also allocated. Ensure you nullify at the end of the scope.
 
 Code snippet [example](../07_Memory_Manage/pointers.f90).
