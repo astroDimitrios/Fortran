@@ -39,6 +39,10 @@ write (*,*) &
 - Use spaces never tabs as tabs aren't in Fortran standard
 - Fortran passes variables ***by reference*** (pointer to memory locations), you can inadvertantly alter variables if not carefull.
 
+**Does the file extension actually matter?**
+   
+Use `.f90` to denote free-form Fortran. Use `.F90` if the file needs [preprocessing](https://fortranwiki.org/fortran/show/File+extensions).
+
 ## Declaring Kinds (Basic)
 
 Integer, real (float), character, complex, logical ...

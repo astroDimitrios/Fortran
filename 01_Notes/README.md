@@ -57,11 +57,11 @@
             1. [Compiling Notes](./06_1_Modules.md#compiling)
             2. [Public and Private Data](./06_1_Modules.md#private-and-public-data)
             3. [Use options](./06_1_Modules.md#use-options)
-        3. [Archive Files](./06_1_Modules.md#multiple-modules-in-an-archive-file)
+        3. [Archive Files](./06_1_Modules.md#multiple-modules-in-an-archive-file)*
     3. [Overloading](./06_2_Overloading.md)
         1. [Procedure Overloading](./06_2_Overloading.md#procedure-overloading)
         2. [Operator Overloading](./06_2_Overloading.md#operator-overloading)
-    4. [Command Line Arguments](./06_3_Command_Line_Args.md)
+    4. [Command Line Arguments](./06_3_Command_Line_Args.md)*
         1. [Basics](./06_3_Command_Line_Args.md#basics)
         2. [Example](./06_3_Command_Line_Args.md#example)
 7. [Memory Management](./07_1_Memory_Management.md)
@@ -69,7 +69,7 @@
         1. [Allocatable Arrays](./07_1_Memory_Management.md#allocatable-arrays)
             1. [Assumed Shape and Automatic Arrays](./07_1_Memory_Management.md#assumed-shape-and-automatic-array)
         2. [Pointers](./07_1_Memory_Management.md#pointers)
-    2. [Memory Layout](./07_2_Memory_Layout.md)
+    2. [Memory Layout](./07_2_Memory_Layout.md)*
         1. [AoS and SoA Forms](./07_2_Memory_Layout.md#aos-and-soa-forms)
             1. [Example Transformation](./07_2_Memory_Layout.md#example-transformation)
 8. [Derived Types](./08_1_Derived_Types.md)
@@ -77,7 +77,7 @@
         1. [Derived Types](./08_1_Derived_Types.md#basics)
         2. [Extending Types](./08_1_Derived_Types.md#extending-types)
         3. [Linked List with Der. Type Example](../08_1_Derived_Types/Exercise3/ex3.f90)
-    2. [Parameterised Derived Types](./08_2_Parameterised_D_Types.md)
+    2. [Parameterised Derived Types](./08_2_Parameterised_D_Types.md)*
         1. [Basics](./08_2_Parameterised_D_Types.md#basics)
         2. [Assumed and Deffered Lengths](./08_2_Parameterised_D_Types.md#assumed-and-deffered-lengths)
         3. [Extending PD Types](./08_2_Parameterised_D_Types.md#extending-pd-types)
@@ -104,6 +104,8 @@
     1. [Basics](./14_Coarrays.md#basics)
     2. [Ex: Monte Carlo Pi](./14_Coarrays.md#ex-monte-carlo-pi)
     3. [Links](./14_Coarrays.md#links)
+
+\* not part of the original training.
 
 ---
 
