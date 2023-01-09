@@ -5,6 +5,8 @@
 *.mod
 *.o
 
+!*Makefile
+
 13_Doxygen/Example/doc
 !13_Doxygen/Example/Doxyfile
 
