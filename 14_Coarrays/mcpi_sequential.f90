@@ -14,18 +14,19 @@ program mcpi_sequential
     use, intrinsic :: iso_fortran_env, only: int64, real64
     implicit none
 
-    real(kind=real64)   :: Pi 
+    real(kind=real64)   :: Pi, internal_Pi 
     real(kind=real64)   :: x, y
     real(kind=real64)   :: total
 
     integer(kind=int64) :: i
     integer(kind=int64) :: num_trials
 
-    real                :: startT, endT, execTime
-    call cpu_time(startT)
+    real                :: start_t, end_t, exec_time
+    call cpu_time(start_t)
 
     num_trials = 1000000000
 
+    total = 0
     do i = 1_int64, num_trials
         call random_number(x)
         call random_number(y)
@@ -34,12 +35,14 @@ program mcpi_sequential
 
     Pi = 4.0_real64 * total / real(num_trials, real64)
 
-    call cpu_time(endT)
-    execTime = (endT - startT)
-    write (*,*) 'Elapsed time in seconds: ', execTime
+    call cpu_time(end_t)
+    exec_time = (end_t - start_t)
+    write (*,*) 'Elapsed time in seconds: ', exec_time
 
     print *, 'Trials:       ', num_trials
     print *, 'Pi:              ', Pi
+
+    internal_Pi= 4.0_real64*atan(1.0_real64)
+    print *, 'Diff:       ', Pi - internal_Pi
     
 end program mcpi_sequential
-

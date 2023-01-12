@@ -32,3 +32,8 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 - Scientific Programming in Fortran 2003, Katherine Holcomb, 2008, [https://wiki.uiowa.edu/download/attachments/109785161/fortran-novella-holcomb.pdf](https://wiki.uiowa.edu/download/attachments/109785161/fortran-novella-holcomb.pdf)
 - Programming with Fortran, lrz course, [https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran](https://doku.lrz.de/display/PUBLIC/Programming+with+Fortran) - **Lots of Exercises**
 - Programming with Fortran, unlv course, Ed Jorgensen, [http://www.egr.unlv.edu/~ed/fortran.html](http://www.egr.unlv.edu/~ed/fortran.html) - **Lots of Exercises**
+
+## New Bits
+
+gfortran comp options
+<https://gcc.gnu.org/onlinedocs/gcc-3.4.6/g77/Optimize-Options.html>

@@ -23,21 +23,21 @@ program recur_vs_iter
     integer(kind=i_64), parameter :: x = 50
 
     integer(kind=i_64) :: fib_recur, fib_iter
-    real               :: startT, endT, execTime
+    real               :: start_t, end_t, exec_time
 
-    ! call cpu_time(startT)
+    ! call cpu_time(start_t)
     ! fib_recur = fib_recursive(x)
-    ! call cpu_time(endT)
+    ! call cpu_time(end_t)
     ! write (*,*) 'Recursion', fib_recur
-    ! execTime = (endT - startT)
-    ! write (*,*) 'Elapsed time in seconds: ', execTime
+    ! exec_time = (end_t - start_t)
+    ! write (*,*) 'Elapsed time in seconds: ', exec_time
 
-    call cpu_time(startT)
+    call cpu_time(start_t)
     fib_iter = fib_iterative(x)
-    call cpu_time(endT)
+    call cpu_time(end_t)
     write (*,*) 'Iteration', fib_iter
-    execTime = (endT - startT)
-    write (*,*) 'Elapsed time in seconds: ', execTime
+    exec_time = (end_t - start_t)
+    write (*,*) 'Elapsed time in seconds: ', exec_time
 
 contains
 
