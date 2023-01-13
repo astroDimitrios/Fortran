@@ -12,7 +12,7 @@
 !
 ! Output:
 ! Computing Pi using        10 processes
-! Elapsed time in seconds:    3.91999483    
+! Elapsed time in seconds:    3.61615014    
 ! Trials:                     1000000000
 ! Pi:                 3.1416464519999998     
 ! Diff:          5.3798410206695735E-005
@@ -29,6 +29,7 @@ program mcpi_MPI
 
     integer(kind=int64) :: i
     integer(kind=int64) :: num_trials
+    integer(kind=int64) :: this_process_num_trials
 
     integer :: ierror
     integer :: rank
@@ -37,10 +38,9 @@ program mcpi_MPI
     real    :: start_t, end_t, exec_time
     call cpu_time(start_t)
 
-    call mpi_init(ierror)
-    call mpi_comm_size( mpi_comm_world, number_of_processes, ierror )
-    call mpi_comm_rank( mpi_comm_world, rank, ierror )
-    ! print *, 'Hello ', rank, ' out of ', number_of_processes
+    call MPI_Init(ierror)
+    call MPI_Comm_size( MPI_COMM_WORLD, number_of_processes, ierror )
+    call MPI_Comm_rank( MPI_COMM_WORLD, rank, ierror )
 
     num_trials = 1000000000
     ! num_trials = 10
@@ -52,10 +52,14 @@ program mcpi_MPI
         end if
         print *, 'Computing Pi using ', number_of_processes, ' processes'
         call cpu_time(start_t)
+        this_process_num_trials = num_trials/number_of_processes
     end if
 
+    call MPI_Bcast( this_process_num_trials, 1, MPI_INTEGER, 0, &
+                    MPI_COMM_WORLD, ierror )
+
     process_total = 0
-    do i = 1_int64, num_trials/number_of_processes
+    do i = 1_int64, this_process_num_trials
         call random_number(x)
         call random_number(y)
         if ( (x**2 + y**2) <= 1.0_real64 ) then
@@ -63,8 +67,8 @@ program mcpi_MPI
         end if
     end do
 
-    call mpi_reduce( process_total, total, 1, mpi_double_precision, &
-                     mpi_sum, 0, mpi_comm_world, ierror )
+    call MPI_Reduce( process_total, total, 1, MPI_DOUBLE_PRECISION, &
+                     MPI_SUM, 0, MPI_COMM_WORLD, ierror )
 
     if ( rank == 0 ) then
 
@@ -82,6 +86,6 @@ program mcpi_MPI
 
     end if
 
-    call mpi_finalize(ierror)
+    call MPI_Finalize(ierror)
     
 end program mcpi_MPI

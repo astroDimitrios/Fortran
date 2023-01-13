@@ -28,6 +28,29 @@ Different wrapper functions for each compiler:
 
 From <https://wvuhpc.github.io/Modern-Fortran/40-MPI/index.html>
 
+## Functions
+
+```fortran
+call mpi_recv( rank, 1, MPI_INTEGER, i, 0, MPI_COMM_WORLD, &
+               mpistatus, ierror )
+```
+Buffer to recieve (sing val, array or dev type), 1 element to transfer, of type integer  
+Source process, tag, comm, status???, error
+
+```fortran
+call MPI_Send( rank, 1, MPI_INTEGER, 0, 0, MPI_COMM_WORLD, ierror )
+```
+Send the var rank, 1 item, type integer, to process 0  
+tag, comm, error
+
+```fortran
+call MPI_Bcast( this_process_num_trials, 1, MPI_INTEGER, 0, &
+                MPI_COMM_WORLD, ierror )
+```
+
+Send to all the variable `this_process_num_trials`, 1 thing to send, integer type  
+tag 0, comm, error  
+
 ```fortran
 call mpi_reduce( process_total, total, 1, mpi_double_precision, &
                      mpi_sum, 0, mpi_comm_world, error_number )
