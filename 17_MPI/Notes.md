@@ -87,3 +87,7 @@ mpiexec --map-by ppr:10:node:oversubscribe ./mcpi_MPI
 ```
 
 or socket in above to replace node.
+
+
+NO ALLGather example - can't think of one yet
+Same with Groups etc.
