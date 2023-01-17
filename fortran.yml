@@ -1,14 +1,14 @@
-name: fortran-openmpi
+name: fortran
 channels:
   # - conda-main 
   - conda-forge
+  - conda-r
 dependencies:
-  - matplotlib >= 3.5
-  - python = 3.10
-  - pandas >= 1.5
+  - numpy[version='>=1.23']
+  - doxygen[version='>=1.8']
+  - matplotlib[version='>=3.5']
   - pip
-  - numpy >= 1.23
-  - fortls >= 2.13
-  - gfortran >= 10
-  - doxygen >= 1.8
-  - openmpi >= 4.1
+  - fortls[version='>=2.13']
+  - gfortran[version='>=10']
+  - python=3.10
+  - pandas[version='>=1.5']

@@ -1,7 +1,7 @@
 ! Compile:
 ! gfortran -fopenmp omp3.f90 -o omp3
 ! Run:
-! OMP_NUM_THREADS=6 ./omp3
+! OMP_NUM_THREADS=4 ./omp3
 
 program omp3
     use, intrinsic :: omp_lib
@@ -25,7 +25,7 @@ program omp3
     print *, 'Yikes!'
 
     ! i is private by default
-    !$omp parallel do private(i_cubed)
+    !$omp parallel do default(none) shared(number_threads) private(i, i_cubed)
     do i = 1, number_threads
         i_cubed = i ** 3
         print *, i, i_cubed

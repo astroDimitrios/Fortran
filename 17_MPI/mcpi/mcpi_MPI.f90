@@ -11,11 +11,11 @@
 ! mpirun --oversubscribe -np 10 ./mcpi_MPI
 !
 ! Output:
-! Computing Pi using        10 processes
-! Elapsed time in seconds:    3.61615014    
+! Computing Pi using       10  processes
+! Elapsed time in seconds:    8.85206031    
 ! Trials:                     1000000000
-! Pi:                 3.1416464519999998     
-! Diff:          5.3798410206695735E-005
+! Pi:                 3.1415648799999998     
+! Diff:         -2.7773589793333997E-005
 
 program mcpi_MPI
 
@@ -35,8 +35,10 @@ program mcpi_MPI
     integer :: rank
     integer :: number_of_processes
 
-    real    :: start_t, end_t, exec_time
-    call cpu_time(start_t)
+    integer(kind=int64) :: start_t, end_t, count_rate
+    real(kind=real64)   :: exec_time
+
+    call system_clock(start_t, count_rate)
 
     call MPI_Init(ierror)
     call MPI_Comm_size( MPI_COMM_WORLD, number_of_processes, ierror )
@@ -51,8 +53,7 @@ program mcpi_MPI
             error stop 'num_trials not evenly divisible by number of processes'
         end if
         print *, 'Computing Pi using ', number_of_processes, ' processes'
-        call cpu_time(start_t)
-        this_process_num_trials = num_trials/number_of_processes
+        this_process_num_trials = num_trials / number_of_processes
     end if
 
     call MPI_Bcast( this_process_num_trials, 1, MPI_INTEGER, 0, &
@@ -74,8 +75,8 @@ program mcpi_MPI
 
         Pi = 4.0_real64 * total / real(num_trials, real64)
 
-        call cpu_time(end_t)
-        exec_time = (end_t - start_t)
+        call system_clock(end_t, count_rate)
+        exec_time = real( end_t - start_t ) / real( count_rate )
         write (*,*) 'Elapsed time in seconds: ', exec_time
 
         print *, 'Trials:          ', num_trials

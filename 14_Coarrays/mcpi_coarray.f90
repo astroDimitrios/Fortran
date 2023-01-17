@@ -7,8 +7,8 @@
 ! ./mcpi_coarray 
 !
 ! Output:
-! Computing Pi using         10 images
-! Elapsed time in seconds:    8.148201    
+! Computing Pi using        10  images
+! Elapsed time in seconds:    9.609950    
 ! Trials:                   1000000000
 ! Pi:                 3.14171116000000     
 ! Diff:         1.185064102067201E-004
@@ -26,7 +26,10 @@ program mcpi_coarray
     integer(kind=int64) :: num_trials
     integer(kind=int64) :: num_img
 
-    real                :: start_t, end_t, exec_time
+    integer(kind=int64) :: start_t, end_t, count_rate
+    real(kind=real64)   :: exec_time
+
+    call system_clock(start_t, count_rate)
 
     num_trials = 1000000000
     num_img = int(num_images(), int64)
@@ -37,7 +40,6 @@ program mcpi_coarray
             error stop 'num_trials not evenly divisible by number of images!'
         end if
         print *, 'Computing Pi using ', num_img, ' images'
-        call cpu_time(start_t)
     end if
 
     total = 0
@@ -55,8 +57,8 @@ program mcpi_coarray
         end do
         Pi = 4.0_real64 * total / real(num_trials, real64)
 
-        call cpu_time(end_t)
-        exec_time = (end_t - start_t)
+        call system_clock(end_t, count_rate)
+        exec_time = real( end_t - start_t ) / real( count_rate )
         write (*,*) 'Elapsed time in seconds: ', exec_time
 
         print *, 'Trials:       ', num_trials

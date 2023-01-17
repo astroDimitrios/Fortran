@@ -13,7 +13,7 @@ program omp2
     number_threads = omp_get_max_threads()
     print *, 'Number of threads = ', number_threads
     
-    !$omp parallel do
+    !$omp parallel do default(none) shared(number_threads) private(i)
     do i = 1, number_threads
         print *, 'Everything is awesome!!!'
     end do

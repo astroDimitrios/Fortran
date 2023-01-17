@@ -6,7 +6,7 @@
 program clauses
 
     implicit none
-    integer, parameter :: n=5
+    integer, parameter :: n=2
     integer :: i, a, b, c, d
     character(len=*), parameter :: layout_1 = "(a, 4(a, i12))"
     character(len=*), parameter :: layout_2 = "(a, i4, 4(a, i12))"
@@ -26,6 +26,7 @@ program clauses
        b = b + i
        c = c + i
        d = d + i
+       print *, 'here'
     end do
  !$OMP END PARALLEL DO
  
