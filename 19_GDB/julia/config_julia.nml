@@ -1,0 +1,11 @@
+&julia_conf
+c=(0.285,0.01)
+size=10
+iterations=100
+threshold=2
+smooth=.true.
+xmin=-1.5
+xmax=1.5
+ymin=-1.5
+ymax=1.5
+/

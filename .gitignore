@@ -12,3 +12,13 @@
 
 13_Doxygen/Bird_OOP_Ex2/doc
 !13_Doxygen/Bird_OOP_Ex2/Doxyfile
+
+19_GDB/julia/data
+19_GDB/julia/plots
+
+19_GDB/mandelbrot/data
+19_GDB/mandelbrot/plots
+
+21_pFUnit
+22_hdf5
+23_Stylist

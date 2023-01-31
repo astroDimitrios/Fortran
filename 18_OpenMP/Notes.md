@@ -9,7 +9,8 @@ OMP_NUM_THREADS=4 ./omp1
  
 >The variable i is always private by default, For OpenMP in Fortran, the variable j is also private but this is not true for OpenMP in C. Same link as above.
 
-???
+??? EDIT - SEE THIS LINK <https://cyber.dabamos.de/programming/modernfortran/openmp.html>
+
 Shared - ini newupdated all threads etc
 Private - copied from master can change within/between threads
 First private value copied from master - same for all threads

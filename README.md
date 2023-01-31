@@ -37,3 +37,6 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 gfortran comp options
 <https://gcc.gnu.org/onlinedocs/gcc-3.4.6/g77/Optimize-Options.html>
+
+Online fortran-lang playground: <https://play.fortran-lang.org/>
+<https://fortran-lang.org/en/community/contributing/>
