@@ -14,14 +14,14 @@
 !13_Doxygen/Bird_OOP_Ex2/Doxyfile
 
 19_GDB/julia/data
-!19_GDB/julia/data/julia_0.285_0.010_10.csv
+!19_GDB/julia/data/julia_0.285_0.010_10
 19_GDB/julia/plots
-!19_GDB/julia/plots/julia_0.285_0.010_10.png
+!19_GDB/julia/plots/julia_0.285_0.010_10
 
 19_GDB/mandelbrot/data
-!19_GDB/mandelbrot/data/mandelbrot_10.csv
+!19_GDB/mandelbrot/data/mandelbrot_10
 19_GDB/mandelbrot/plots
-!19_GDB/mandelbrot/plots/mandelbrot_10.png
+!19_GDB/mandelbrot/plots/mandelbrot_10
 
 21_pFUnit
 22_hdf5
