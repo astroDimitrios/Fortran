@@ -16,7 +16,7 @@ program julia
     integer, parameter :: str_def = 40
 
     complex(kind=real32)           :: c
-    integer(kind=int32)            :: size
+    integer(kind=int32)            :: matrix_len
     integer(kind=int32)            :: iterations
     real(kind=real32)              :: threshold
     logical(kind=l_def)            :: smooth
@@ -27,39 +27,39 @@ program julia
 
     real(kind=real32), allocatable :: members(:,:)
 
-    character(str_def), parameter :: file_path = './julia/config_julia.nml'
-    character(str_def)            :: output_file_path, size_str, c_real, c_im
+    character(str_def), parameter :: nml_path = './julia/config_julia.nml'
+    character(str_def)            :: output_file_path, matrix_len_str, c_real, c_im
     integer(kind=int32)           :: rc, file_unit
 
     integer(kind=int64)     :: start_t, end_t, count_rate
     real(kind=real64)       :: exec_time
 
     ! namelist declaration
-    namelist /julia_conf/ c, size, iterations, threshold, smooth, xmin, xmax, ymin, ymax
+    namelist /julia_conf/ c, matrix_len, iterations, threshold, smooth, xmin, xmax, ymin, ymax
 
     call system_clock( start_t, count_rate )
 
-    inquire ( file=file_path, iostat=rc )
+    inquire ( file=nml_path, iostat=rc )
     if ( rc /= 0 ) then
         error stop 'Error: Config file does not exist.'
     end if
-    open (action='read', file=file_path, iostat=rc, newunit=file_unit)
+    open (action='read', file=nml_path, iostat=rc, newunit=file_unit)
     read (nml=julia_conf, iostat=rc, unit=file_unit)
     if ( rc /= 0 ) error stop 'Error: Invalid Namelist format'
     close (file_unit)
 
     ! assume that we will always have a square
-    dx = ( xmax - xmin ) / ( real(size, real32) - 1.0 )
-    dy = ( ymax - ymin ) / ( real(size, real32) - 1.0 )
+    dx = ( xmax - xmin ) / ( real(matrix_len, real32) - 1.0 )
+    dy = ( ymax - ymin ) / ( real(matrix_len, real32) - 1.0 )
 
-    allocate( members( size, size ) )
+    allocate( members( matrix_len, matrix_len ) )
 
     !$omp parallel do collapse(2) schedule(dynamic,5) default(none)   &
-    !$omp             shared(size, c, members, iterations, threshold, &
+    !$omp             shared(matrix_len, c, members, iterations, threshold, &
     !$omp                    smooth, xmin, dx, ymax, dy)              &
     !$omp             private(i, j)
-    do j = 1, size
-        do i = 1, size
+    do j = 1, matrix_len
+        do i = 1, matrix_len
             members(i,j) = julia_set( cmplx( xmin+dx*(j-1), ymax-dy*(i-1) ), &
                                       c, iterations, threshold , smooth      )
         end do
@@ -74,12 +74,12 @@ program julia
     ! write the matrix to a csv
     write (c_real, '(F6.3)') c%re
     write (c_im, '(F6.3)') c%im
-    write (size_str, '(I10)') size
+    write (matrix_len_str, '(I10)') matrix_len
     output_file_path = './julia/data/'//'julia_'//trim(adjustl(c_real)) &
                        //'_'//trim(adjustl(c_im))//'_'//                &
-                       trim(adjustl(size_str))//'.csv'
+                       trim(adjustl(matrix_len_str))//'.csv'
     write (*,*) 'Start write to file: ', output_file_path
-    call matrix_to_csv(members, output_file_path, size, rc, file_unit)
+    call matrix_to_csv(members, output_file_path, matrix_len, rc, file_unit)
 
     print *, 'Written Output'
     call system_clock( end_t, count_rate )

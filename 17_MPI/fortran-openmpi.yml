@@ -13,3 +13,5 @@ dependencies:
   - matplotlib[version='>=3.5']
   - python=3.10
   - openmpi[version='>=4.1']
+  - hdf5
+  - netcdf4

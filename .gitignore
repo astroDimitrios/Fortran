@@ -23,6 +23,11 @@
 19_GDB/mandelbrot/plots/*
 !19_GDB/mandelbrot/plots/mandelbrot_10.png
 
+20_NetCDF/mandelbrot/data/*
+!20_NetCDF/mandelbrot/data/mandelbrot_10.nc
+20_NetCDF/mandelbrot/plots/*
+!20_NetCDF/mandelbrot/plots/mandelbrot_10.png
+
 21_pFUnit
 22_hdf5
 23_Stylist

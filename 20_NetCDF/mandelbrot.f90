@@ -1,13 +1,18 @@
 ! Compile:
-! gfortran -o run_mandelbrot mandelbrot.f90
-! or OpenMP
-! gfortran -fopenmp -o run_mandelbrot mandelbrot.f90
+! OpenMP - commands specific to VDI env
+! env_gcc
+! gfortran $LDFLAGS $FFLAGS -fopenmp -o run_mandelbrot mandelbrot.f90 -lnetcdff -lnetcdf
 ! -DOMP_NESTED=True
-! OMP_NUM_THREADS=10 ./mandelbrot
+!
+! OMP_NUM_THREADS=10 ./run_mandelbrot
+!
+! module purge
+! python plot.py
 
 program mandelbrot
 
     use, intrinsic :: omp_lib
+    use            :: netcdf
     use, intrinsic :: iso_fortran_env, only: int32, int64, real32, real64
     implicit none
 
@@ -28,6 +33,9 @@ program mandelbrot
     character(str_def), parameter :: nml_path = './mandelbrot/config_mandelbrot.nml'
     character(str_def)            :: output_file_path, matrix_len_str
     integer(kind=int32)           :: rc, file_unit
+
+    ! for NetCDF
+    character(str_def)            :: data_name
 
     integer(kind=int64)     :: start_t, end_t, count_rate
     real(kind=real64)       :: exec_time
@@ -69,22 +77,24 @@ program mandelbrot
     write (*,*) 'Elapsed time in seconds: ', exec_time
     start_t = end_t
 
-    ! ! write the matrix to a csv
-    ! write (matrix_len_str, '(I10)') matrix_len
-    ! output_file_path = './mandelbrot/data/'//'mandelbrot_'// &
-    !                    trim(adjustl(matrix_len_str))//'.csv'
-    ! write (*,*) 'Start write to file: ', output_file_path
-    ! call matrix_to_csv(members, output_file_path, matrix_len, rc, file_unit)
+    ! write the matrix to a NetCDF file
+    write (matrix_len_str, '(I10)') matrix_len
+    output_file_path = './mandelbrot/data/'//'mandelbrot_'// &
+                       trim(adjustl(matrix_len_str))//'.nc'
+    write (*,*) 'Start write to file: ', output_file_path
+    data_name = 'mandelbrot_'//trim(adjustl(matrix_len_str))
+    call matrix_to_netcdf(members, data_name, output_file_path, matrix_len, rc, file_unit)
 
-    ! print *, 'Written Output'
-    ! call system_clock( end_t, count_rate )
-    ! exec_time = real( end_t - start_t ) / real( count_rate )
-    ! write (*,*) 'Elapsed time writing file in seconds: ', exec_time
+    print *, 'Written Output'
+    call system_clock( end_t, count_rate )
+    exec_time = real( end_t - start_t ) / real( count_rate )
+    write (*,*) 'Elapsed time writing file in seconds: ', exec_time
 
 contains
 
     pure function is_member_mandelbrot(c, n, threshold, smooth) result(escape_count)
         implicit none
+
         complex, intent(in) :: c
         integer, intent(in) :: n
         real, intent(in)    :: threshold
@@ -125,22 +135,56 @@ contains
 
     end function log2
 
-    subroutine matrix_to_csv(matrix, path, rows, err, unit)
+    subroutine matrix_to_netcdf(matrix, matrix_name, path, rows, err, unit)
         implicit none
-        real(kind=real32)                  :: matrix(:,:)
+
+        real(kind=real32), intent(in)      :: matrix(:,:)
+        character(*), intent(in)           :: matrix_name
         character(*), intent(in)           :: path
         integer(kind=int32), intent(in)    :: rows
         integer(kind=int32), intent(inout) :: err, unit
 
-        11 format (1x, F15.7, *(",", F15.7))
+        integer(kind=int32) :: ncid              ! nc file id
+        integer(kind=int32) :: status
+        integer(kind=int32) :: x_dimid, y_dimid  ! x and y dimensions id
+        integer(kind=int32) :: varid             ! variable id
 
-        open(action='write', file=path, iostat=err, newunit=unit)
-        if ( rc /= 0 ) stop
-        do i = 1, rows
-            write (unit, fmt=11) ( matrix(i,j), j = 1, rows )
-        end do
-        close(unit)
+        ! create the file in NetCDF4 format with HDF5
+        status = nf90_create( path, NF90_NETCDF4, ncid )
+        call handle_netcdf_err(status)
 
-    end subroutine matrix_to_csv
+        ! create 2 dimensions for our 2D matrix
+        status = nf90_def_dim( ncid, 'x', size(matrix, 1), x_dimid )
+        status = nf90_def_dim( ncid, 'y', size(matrix, 2), y_dimid )
+        call handle_netcdf_err(status)
+
+        ! define the type (32 bit float)
+        status = nf90_def_var( ncid, matrix_name, NF90_FLOAT, [ x_dimid, y_dimid ], varid )
+        call handle_netcdf_err(status)
+
+        ! come out of define mode
+        status = nf90_enddef(ncid)
+        call handle_netcdf_err(status)
+
+        ! put the matrix in the variable
+        status = nf90_put_var( ncid, varid, matrix )
+        call handle_netcdf_err(status)
+
+        ! close the file
+        status = nf90_close(ncid)
+        call handle_netcdf_err(status)
+
+    end subroutine matrix_to_netcdf
+
+    subroutine handle_netcdf_err(status)
+        implicit none
+        integer(kind=int32), intent(in) :: status
+
+        if ( status /= NF90_NOERR ) then
+            print *, trim(nf90_strerror(status))
+            error stop
+        end if
+
+    end subroutine handle_netcdf_err
     
 end program mandelbrot
