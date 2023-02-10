@@ -55,6 +55,7 @@ program mcpi_coarray
         do i = 2, num_img
             total = total + total[i] ! add total for each image
         end do
+        
         Pi = 4.0_real64 * total / real(num_trials, real64)
 
         call system_clock(end_t, count_rate)

@@ -3,7 +3,9 @@
 ! or OpenMP
 ! gfortran -fopenmp -o run_julia julia.f90
 ! -DOMP_NESTED=True
-! OMP_NUM_THREADS=10 ./julia
+! OMP_NUM_THREADS=10 ./run_julia
+!
+! https://occupymath.wordpress.com/2018/02/15/where-are-the-beautiful-julia-sets/
 
 program julia
 

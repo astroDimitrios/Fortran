@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
-name = './mandelbrot/data/mandelbrot_10000'
-# name = './julia/data/julia_0.285_0.010_10000'
+# name = './mandelbrot/data/mandelbrot_10000'
+name = './julia/data/julia_-0.134_0.250_100'
 
 df= pd.read_csv(name+'.csv', header=None, dtype='float')
 

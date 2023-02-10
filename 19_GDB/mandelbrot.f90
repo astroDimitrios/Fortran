@@ -3,7 +3,7 @@
 ! or OpenMP
 ! gfortran -fopenmp -o run_mandelbrot mandelbrot.f90
 ! -DOMP_NESTED=True
-! OMP_NUM_THREADS=10 ./mandelbrot
+! OMP_NUM_THREADS=10 ./run_mandelbrot
 
 program mandelbrot
 
