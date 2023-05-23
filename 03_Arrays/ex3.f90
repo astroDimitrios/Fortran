@@ -7,7 +7,7 @@ program ex3
     integer i
     real, dimension(3, 3) :: A
 
-    A = reshape( [(i, i=1, 9)], shape(A), order = (/2, 1/) )
+    A = reshape( [(i, i=1, 9)], shape(A), order = [2, 1] )
 
     write (*,*) sum(A, 1) ! columnwise sum
     write (*,*) sum(A, 2) ! rowise sum

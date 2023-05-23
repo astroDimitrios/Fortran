@@ -18,7 +18,7 @@ program ex2
     real, dimension(3, 4)             :: B
     real, dimension(:,:), allocatable :: C
 
-    A = reshape( [(i, i=1, 9)], shape(A), order = (/2, 1/) )
+    A = reshape( [(i, i=1, 9)], shape(A), order = [2, 1] )
     B = reshape( [(i+1, i=1, size(B))], shape(B) )
 
     C = matmul( A, B )
