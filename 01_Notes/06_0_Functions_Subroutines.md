@@ -240,7 +240,7 @@ end function double
 
 ### Elemental functions
 
-A function that operates element wise on an array. Must be PURE. Requires an output type to be declared but no dimension is required declaring the array sizes.
+A function that operates element wise on an array. Must be PURE ([F2008](https://www.ibm.com/docs/en/xl-fortran-linux/16.1.1?topic=procedures-elemental) can be declared [impure](https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2023-1/impure.html). Requires an output type to be declared but no dimension is required declaring the array sizes.
 
 ```fortran
 elemental function add_2(x)
